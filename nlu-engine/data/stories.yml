@@ -1,0 +1,50 @@
+version: "3.1"
+
+stories:
+  - story: Luồng đăng ký HSA thành công
+    steps:
+      - intent: dang_ky_nguyen_vong
+      - action: utter_ask_method
+      - intent: chon_ptxt_hsa
+      - action: hsa_form
+      - active_loop: hsa_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_hsa_form
+
+  - story: Luồng đăng ký THPTQG thành công
+    steps:
+      - intent: dang_ky_nguyen_vong
+      - action: utter_ask_method
+      - intent: chon_ptxt_thptqg
+      - action: thptqg_form
+      - active_loop: thptqg_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_thptqg_form
+
+  - story: Luồng đăng ký IELTS thành công
+    steps:
+      - intent: dang_ky_nguyen_vong
+      - action: utter_ask_method
+      - intent: chon_ptxt_ielts
+      - action: ielts_form
+      - active_loop: ielts_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_ielts_form
+
+  - story: Luồng đăng ký tuyển thẳng thành công
+    steps:
+      - intent: dang_ky_nguyen_vong
+      - action: utter_ask_method
+      - intent: chon_ptxt_tuyen_thang
+      - action: direct_form
+      - active_loop: direct_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_direct_form

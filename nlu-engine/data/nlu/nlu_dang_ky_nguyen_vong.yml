@@ -1,0 +1,63 @@
+version: "3.1"
+
+nlu:
+  - intent: dang_ky_nguyen_vong
+    examples: |
+      - dang ky nguyen vogn vao truong
+      - cho e đki xet tuyen truc tuyen
+      - lam sao de đăg ký nguyện vọng vào uet
+      - e muon nop hso tuyen sinh
+      - cach thuc đki nv1 vao truong
+      - Tôi muốn đăng ký nguyện vọng vào trường
+      - toi muon dang ky nguyen vong vao truong
+      - Cho em đặt nguyện vọng với ad
+      - cho e dat nguyen vong voi ad
+      - Đăng ký tư vấn xét tuyển ở đâu ạ
+      - dang ky tu van xet tuyen o dau a
+      - /dang_ky_nguyen_vong
+      - dang_ky_nguyen_vong
+      - em muốn nộp hồ sơ xét tuyển
+      - em muon nop ho so xet tuyen
+      - đăng ký xét tuyển trực tuyến
+      - dang ky xet tuyen truc tuyen
+      - mình muốn đặt nguyện vọng vào UET
+      - minh muon dat nguyen vong vao UET
+      - làm sao để đăng ký xét tuyển?
+      - lam sao de dang ky xet tuyen
+      - hướng dẫn đăng ký nguyện vọng
+      - huong dan dang ky nguyen vong
+      - tôi muốn xét tuyển vào trường
+      - toi muon xet tuyen vao truong
+      - đăng ký hồ sơ tuyển sinh
+      - dang ky ho so tuyen sinh
+      - nộp hồ sơ online như thế nào?
+      - nop ho so online nhu the nao
+      - đăng ký nguyện vọng 1 vào UET
+      - dang ky nv1 vao UET
+      - muốn thi vào trường công nghệ thì làm gì?
+      - muon thi vao truong cong nghe thi lam gi
+      - xét tuyển vào ĐHCN
+      - xet tuyen vao DHCN
+      - đăng ký vào trường công nghệ VNU
+      - dang ky vao truong cong nghe VNU
+      - e muốn đk nv vào uet
+      - e muon dk nv vao uet
+      - cho e đăng kí xét tuyển
+      - cho e dang ki xet tuyen
+      - e muốn nộp đơn vào uet
+      - muốn apply vào uet
+      - muon apply vao uet
+      - cho e hỏi cách đăng ký nv vào trường
+      - đk xt vào uet như thế nào
+      - dk xt vao uet nhu the nao
+      - tôi muốn đặt NV1 vào đại học công nghệ
+      - toi muon dat NV1 vao dai hoc cong nghe
+      - đăng ký xt trực tuyến đại học công nghệ
+      - dang ky xt truc tuyen dai hoc cong nghe
+      - cách thức đăng ký nguyện vọng vào UET
+      - cach thuc dang ky nguyen vong vao UET
+      - nộp hồ sơ vào uet ở đâu
+      - nop ho so vao uet o dau
+      - e cần đăng kí vào uet
+      - muốn đăng ký xét tuyển vào dhcn
+      - muon dang ky xet tuyen vao dhcn

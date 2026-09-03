@@ -1,0 +1,235 @@
+version: "3.1"
+
+nlu:
+  # ----------------------------------------------------------------
+  # Synonym: Tên ngành → Mã ngành chuẩn
+  # ----------------------------------------------------------------
+
+  - synonym: Công nghệ thông tin
+    examples: |
+      - CNTT
+      - IT
+      - Công nghê thông tin
+      - cong nghe thong tin
+      - ngành IT
+      - công nghệ tt
+      - CN1
+
+  - synonym: Kỹ thuật máy tính
+    examples: |
+      - KTMT
+      - kỹ thuật mt
+      - ky thuat may tinh
+      - CN2
+      - ngành máy tính
+
+  - synonym: Vật lý kỹ thuật
+    examples: |
+      - vat ly ky thuat
+      - vật lý kỹ thuật
+      - VL kỹ thuật
+      - CN3
+
+  - synonym: Cơ kỹ thuật
+    examples: |
+      - co ky thuat
+      - cơ học kỹ thuật
+      - CN4
+
+  - synonym: Công nghệ kỹ thuật xây dựng
+    examples: |
+      - xây dựng
+      - kỹ thuật xây dựng
+      - CN5
+      - ngành xây dựng
+
+  - synonym: Công nghệ kỹ thuật cơ điện tử
+    examples: |
+      - cơ điện tử
+      - co dien tu
+      - mechatronics
+      - CN6
+
+  - synonym: Công nghệ hàng không vũ trụ
+    examples: |
+      - hàng không
+      - vũ trụ
+      - aerospace
+      - hang khong vu tru
+      - CN7
+
+  - synonym: Khoa học máy tính
+    examples: |
+      - KHMT
+      - computer science
+      - CS
+      - khoa hoc may tinh
+      - CN8
+
+  - synonym: Công nghệ kỹ thuật điện tử viễn thông
+    examples: |
+      - điện tử viễn thông
+      - ĐTVT
+      - electronics
+      - dien tu vien thong
+      - CN9
+      - viễn thông
+
+  - synonym: Công nghệ nông nghiệp
+    examples: |
+      - nông nghiệp công nghệ cao
+      - nong nghiep
+      - CN10
+      - nông nghiệp
+
+  - synonym: Kỹ thuật điều khiển và tự động hóa
+    examples: |
+      - tự động hóa
+      - tu dong hoa
+      - automation
+      - CN11
+      - kỹ thuật tự động
+      - điều khiển tự động
+
+  - synonym: Trí tuệ nhân tạo
+    examples: |
+      - AI
+      - artificial intelligence
+      - TTNT
+      - tri tue nhan tao
+      - CN12
+      - ngành AI
+      - machine learning
+
+  - synonym: Kỹ thuật năng lượng
+    examples: |
+      - năng lượng
+      - nang luong
+      - energy engineering
+      - CN13
+
+  - synonym: Hệ thống thông tin
+    examples: |
+      - HTTT
+      - information system
+      - he thong thong tin
+      - CN14
+
+  - synonym: Mạng máy tính và truyền thông dữ liệu
+    examples: |
+      - mạng máy tính
+      - mang may tinh
+      - networking
+      - CN15
+      - truyền thông dữ liệu
+
+  - synonym: Kỹ thuật Robot
+    examples: |
+      - robot
+      - robotics
+      - ky thuat robot
+      - CN17
+
+  - synonym: Thiết kế công nghiệp và đồ họa
+    examples: |
+      - thiết kế công nghiệp
+      - đồ họa
+      - do hoa
+      - industrial design
+      - CN18
+
+  - synonym: Công nghệ vật liệu
+    examples: |
+      - vật liệu
+      - materials science
+      - vat lieu
+      - CN19
+
+  - synonym: Khoa học dữ liệu
+    examples: |
+      - data science
+      - khoa hoc du lieu
+      - DS
+      - CN20
+      - khoa học dữ liệu
+
+  - synonym: Công nghệ sinh học
+    examples: |
+      - sinh học
+      - biotech
+      - sinh hoc
+      - CN21
+      - công nghệ sinh học
+
+  # ----------------------------------------------------------------
+  # Synonym: Phương thức xét tuyển
+  # ----------------------------------------------------------------
+
+  - synonym: HSA
+    examples: |
+      - đánh giá năng lực
+      - thi đánh giá năng lực
+      - đánh giá năng lực ĐHQGHN
+      - bài thi HSA
+      - kỳ thi HSA
+      - thi HSA
+      - ĐGNL
+
+  - synonym: IELTS
+    examples: |
+      - chứng chỉ tiếng Anh
+      - chứng chỉ ngoại ngữ
+      - tiếng Anh quốc tế
+      - TOEFL
+      - SAT
+      - chứng chỉ quốc tế
+
+  - synonym: tuyển thẳng
+    examples: |
+      - học sinh giỏi
+      - giải quốc gia
+      - ưu tiên xét tuyển
+      - diện tuyển thẳng
+      - Olympic quốc tế
+      - giải học sinh giỏi quốc gia
+
+  - synonym: điểm thi THPT
+    examples: |
+      - tốt nghiệp THPT
+      - thi tốt nghiệp
+      - điểm thi đại học
+      - điểm thi 3 môn
+      - thi quốc gia
+      - điểm thi THPTQG
+      - thi tốt nghiệp phổ thông
+
+  # ----------------------------------------------------------------
+  # Synonym: Tổ hợp xét tuyển
+  # ----------------------------------------------------------------
+
+  - synonym: A00
+    examples: |
+      - Toán Lý Hóa
+      - toan ly hoa
+      - khối A
+      - tổ hợp A00
+
+  - synonym: A01
+    examples: |
+      - Toán Lý Anh
+      - toan ly anh
+      - khối A1
+      - tổ hợp A01
+
+  - synonym: X06
+    examples: |
+      - Toán Lý Tin
+      - toan ly tin
+      - tổ hợp X06
+      - khối kỹ thuật tin học
+
+  - synonym: A02
+    examples: |
+      - Toán Lý Sinh
+      - toan ly sinh
+      - tổ hợp A02

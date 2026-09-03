@@ -1,0 +1,41 @@
+version: "3.1"
+
+nlu:
+  - intent: cancel
+    examples: |
+      - thoi khong dky nua
+      - e muon huy bgo ho so
+      - bo qua di ad oi
+      - thoi dung dki nha
+      - hủy
+      - huy
+      - hủy bỏ
+      - huy bo
+      - dừng lại
+      - dung lai
+      - thoát
+      - thoat
+      - dừng đăng ký
+      - dung dang ky
+      - hủy đăng ký
+      - huy dang ky
+      - cancel
+      - exit
+      - stop
+      - quay lại menu
+      - quay lai menu
+      - thôi không đăng ký nữa
+      - thoi khong dang ky nua
+      - em muốn hủy bỏ hồ sơ
+      - em muon huy bo ho so
+      - bỏ qua đi ad
+      - bo qua di ad
+      - thôi dừng đi ad
+      - thoi dung di ad
+      - hủy đi ad
+      - huy di ad
+      - không đăng ký nữa
+      - khong dang ky nua
+      - cho e hủy nhé
+      - cho e huy nhe
+

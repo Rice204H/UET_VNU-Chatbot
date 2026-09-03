@@ -1,0 +1,123 @@
+version: "3.1"
+
+rules:
+  - rule: Chào hỏi ban đầu
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Bắt đầu đăng ký nguyện vọng (hỏi phương thức)
+    steps:
+      - intent: dang_ky_nguyen_vong
+      - action: utter_ask_method
+
+  - rule: Hỏi học phí
+    steps:
+      - intent: hoi_hoc_phi
+      - action: utter_tuition_info
+
+  - rule: Kích hoạt form HSA
+    steps:
+      - intent: chon_ptxt_hsa
+      - action: hsa_form
+      - active_loop: hsa_form
+
+  - rule: Hoàn tất form HSA
+    condition:
+      - active_loop: hsa_form
+    steps:
+      - action: hsa_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_hsa_form
+
+  - rule: Kích hoạt form IELTS
+    steps:
+      - intent: chon_ptxt_ielts
+      - action: ielts_form
+      - active_loop: ielts_form
+
+  - rule: Hoàn tất form IELTS
+    condition:
+      - active_loop: ielts_form
+    steps:
+      - action: ielts_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_ielts_form
+
+  - rule: Kích hoạt form Tuyển thẳng
+    steps:
+      - intent: chon_ptxt_tuyen_thang
+      - action: direct_form
+      - active_loop: direct_form
+
+  - rule: Hoàn tất form Tuyển thẳng
+    condition:
+      - active_loop: direct_form
+    steps:
+      - action: direct_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_direct_form
+
+  - rule: Kích hoạt form THPTQG
+    steps:
+      - intent: chon_ptxt_thptqg
+      - action: thptqg_form
+      - active_loop: thptqg_form
+
+  - rule: Hoàn tất form THPTQG
+    condition:
+      - active_loop: thptqg_form
+    steps:
+      - action: thptqg_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_thptqg_form
+
+  - rule: Hỏi thông tin ngành học
+    steps:
+      - intent: hoi_thong_tin_nganh
+      - action: action_query_major_info
+
+  - rule: Hỏi học phí theo ngành cụ thể
+    steps:
+      - intent: hoi_hoc_phi_theo_nganh
+      - action: action_query_tuition_by_major
+
+  - rule: Hỏi điểm chuẩn theo ngành cụ thể
+    steps:
+      - intent: hoi_diem_chuan_nganh
+      - action: action_query_benchmark_by_major
+
+  - rule: Hủy bỏ form đang hoạt động
+    steps:
+      - intent: cancel
+      - action: action_cancel_flow
+
+  - rule: Phản hồi khi không hiểu (Fallback)
+    steps:
+      - intent: nlu_fallback
+      - action: action_custom_fallback
+
+  - rule: Kích hoạt form hỗ trợ tư vấn viên
+    steps:
+      - intent: gap_tu_van_vien
+      - action: support_form
+      - active_loop: support_form
+
+  - rule: Hoàn tất form hỗ trợ tư vấn viên
+    condition:
+      - active_loop: support_form
+    steps:
+      - action: support_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_submit_support_form
+

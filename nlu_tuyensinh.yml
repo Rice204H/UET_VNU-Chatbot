@@ -1,0 +1,140 @@
+version: "3.1"
+
+nlu:
+- intent: hoi_quy_doi_ielts
+  examples: |
+    - mn ơi nếu e vẫn thi [tiếng anh](subject) và vẫn dùng [ielts](admission_method) quy đổi ở trường mình thì điểm nào cao hơn sẽ lấy đk ạ. nếu thể chỉ cần xác thực ccnn ở trên web uet hay phải xác thực cả web bộ nữa ạ
+    - mn ơi cho em hỏi ạ. em đang có một thắc mắc ở phần quy đổi điểm [ielts](admission_method) trong phương thức xét tuyển bằng điểm [thpt](admission_method) là nếu em có bằng [ielts](admission_method) nhưng mà vẫn thi [thpt](admission_method) môn [anh](subject) thì em có được dùng điểm [ielts](admission_method) quy đổi để xét tuyển ko ạ hay phải dùng điểm [tiếng anh](subject) mà em thi được ạ. có nghĩa là em có được lựa chọn 1 trong 2 ko ý ạ
+    - cho em hỏi trường mình đã đưa ra điểm quy đổi [ielts](admission_method) của thi [thpt](admission_method) chưa ạ
+    - mọi người cho em hỏi nếu em thi [toán](subject) [lý](subject) [tin](subject) mà có [ielts](admission_method) thì có được dùng [ielts](admission_method) để xét tuyển sang [toán](subject) [lý](subject) [anh](subject) không ạ?
+    - em có [ielts](admission_method) 6.5 thì quy đổi ra được mấy điểm môn [anh](subject) vậy ad?
+    - bảng quy đổi điểm [ielts](admission_method) năm 2026 của trường mình ntn ạ
+    - cho e hỏi là [ielts](admission_method) 7.0 thì đc 10 điểm [tiếng anh](subject) luôn đúng k ạ
+    - bằng toefl có được dùng để quy đổi điểm [tiếng anh](subject) như [ielts](admission_method) k trường
+    - ad cho e hỏi xíu, e đki xét [thpt](admission_method) khối a01, e có [ielts](admission_method) 5.5 thì trường tính điểm e thế nào
+    - lỡ em nộp [ielts](admission_method) để quy đổi rồi mà điểm thi [thpt](admission_method) môn [anh](subject) của em cao hơn thì trường lấy điểm nào?
+    - điểm quy đổi chứng chỉ [ielts](admission_method) năm nay có thay đổi so với năm ngoái không mng
+    - quy doi [ielts](admission_method) ra diem [thpt](admission_method) nhu the nao a
+    - e thi [ielts](admission_method) đc 8.0 thì quy đổi tròn 10 đ phải k ạ
+    - cho e xin bảng quy đổi ccnn sang thang điểm 10 với ạ
+    - không thi môn [tiếng anh](subject) mà dùng [ielts](admission_method) 6.0 đắp vào tổ hợp d01 được ko ạ
+    - e có [ielts](admission_method) r thì có bắt buộc phải thi [tiếng anh](subject) tốt nghiệp nữa k
+    - ielts 5.0 có được quy đổi điểm ở uet không ạ
+    - trường mình quy đổi [ielts](admission_method) theo thang điểm bao nhiêu vậy ạ
+    - thủ tục quy đổi điểm [ielts](admission_method) ra sao ạ, có cần nộp bản gốc không
+    - em thi [toán](subject) [lí](subject) được 18 đ, cộng thêm [ielts](admission_method) 6.5 thì tổng điểm xét tuyển là bao nhiêu
+
+- intent: hoi_cong_diem_thuong
+  examples: |
+    - mọi người cho e hỏi là bây giờ e có điểm [sat](admission_method) r thì có được dùng điểm thưởng của giải [hsg tỉnh](bonus_type) để cộng vào điểm [sat](admission_method) đã quy đổi ko ạ
+    - mn ơi cho em hỏi ạ,em là tstd năm nay thi lại,em có giải [hsg tỉnh](bonus_type) vậy có dc cộng điểm thưởng ko ạ?,em cảm ơn mn ạ
+    - ac ơi cho e hỏi, e dự định vào ngành [cn14](major), nếu e xét điểm [thpt](admission_method) có quy đổi điểm [ielts](admission_method) thì có được cộng thêm điểm giải [hsg tỉnh](bonus_type) nx ko ạ. nếu có thì giải nhì [tin](subject) tỉnh được cộng bn ạ. e cảm ơn ạ
+    - mn cho em hỏi điểm thi [sat](admission_method) có được cộng với giải 3 tỉnh không ạ
+    - mng cho em hỏi với ạ, trường mình có cộng điểm giải tỉnh [khkt](bonus_type) kh ạ
+    - mn em hỏi tí ví dụ em có [ielts](admission_method) 6.5 và giải [khkt](bonus_type) - “khoa học kĩ thuật” thì có được vừa quy đổi [ielts](admission_method) và cộng điểm ưu tiên không ạ
+    - và cho em hỏi là [hsg quốc gia](bonus_type) môn [anh](subject) khi xét bằng điểm thi tnthpt khối a1 thì có được cộng điểm nào không ạ? em cảm ơn ạ!
+    - được giải nhất hsg cấp thành phố thì cộng bao nhiêu điểm ạ
+    - thi olympic tin học sinh viên có được cộng điểm xét tuyển k ad
+    - giải 3 [hsg tỉnh](bonus_type) môn [toán](subject) được cộng mấy điểm vào tổ hợp xét tuyển ạ
+    - em có giải [khkt](bonus_type) quốc gia thì có được ưu tiên xét tuyển thẳng ko hay chỉ được cộng điểm
+    - giải khuyến khích [hsg tỉnh](bonus_type) có được cộng điểm thưởng ko mng
+    - tối đa được cộng bao nhiêu điểm thưởng từ các giải vậy trường
+    - e có cả [ielts](admission_method) và giải nhì [hsg tỉnh](bonus_type) thì có được cộng dồn điểm không
+    - chính sách cộng điểm ưu tiên cho hsg môn [lí](subject) ntn ạ
+    - thi [đgnl](admission_method) điểm cao có được cộng thêm điểm thưởng [hsg tỉnh](bonus_type) không
+    - quy định cộng điểm thưởng cho chứng chỉ quốc tế và giải thưởng các cấp
+    - năm ngoái em được giải ba [hsg](bonus_type) quốc gia môn [hóa](subject), năm nay thi lại có được bảo lưu điểm cộng không
+    - e thi khoa học kỹ thuật cấp tỉnh được giải nhất, uet có cộng điểm ko ạ
+    - mức điểm cộng cho giải [hsg tỉnh](bonus_type) năm 2026 có giảm so với năm ngoái không
+
+- intent: hoi_thu_tuc_nop_hs
+  examples: |
+    - mọi người cho em hỏi uet bao h thì cần nộp hồ sơ chứng chỉ ngoại ngữ [ielts](admission_method) để quy đổi hay cộng điểm [thpt](admission_method) và hạn chót là bao h
+    - mọi người ơi cho em hỏi em gửi điểm [sat](admission_method) trên hệ thống của college board của mã vnu rồi thì nó có tính vào xét tuyển điểm [sat](admission_method) của uet không ạ
+    - cho e hỏi là xét tuyển bằng [sat](admission_method) thì quy trình đky như thế nào ạ, e cảm ơn mn
+    - cho em hỏi thời hạn cuối cùng để dùng kết quả ielts/[sat](admission_method) để xét tuyển uet là bao giờ ạ, riêng của trường hay chung với các trường bộ quản lí ạ?
+    - khi nào thì nhà trường mở cổng đăng ký xét tuyển bằng chứng chỉ [ielts](admission_method) ạ
+    - cho e hỏi nộp chứng chỉ tiếng anh quy đổi điểm thì nộp bản photo hay bản công chứng ạ
+    - e đăng ký xét tuyển trên web trường rồi có cần đăng ký lại trên hệ thống của bộ giáo dục nữa k
+    - hạn chót nộp hồ sơ ưu tiên xét tuyển là ngày bao nhiêu vậy ad
+    - lệ phí đăng ký xét tuyển vào trường là bao nhiêu ạ và nộp qua đâu
+    - hồ sơ đăng ký xét tuyển thẳng bao gồm những giấy tờ gì
+    - nộp điểm [hsa](admission_method) cho uet thì trường tự kéo data về hay em phải nộp phiếu điểm cứng ạ
+    - đăng kí xét tuyển bằng kết quả [đgnl](admission_method) ntn vậy mn chỉ em với
+    - bao giờ có thông báo trúng tuyển sớm vậy ạ
+    - em lỡ ghi nhầm mã ngành trong hồ sơ thì có cách nào sửa lại không
+    - gửi hồ sơ xét tuyển qua đường bưu điện có được chấp nhận không ạ hay phải nộp trực tiếp
+
+- intent: hoi_chinh_sach_hsa
+  examples: |
+    - xin hỏi trong xét tuyển [hsa](admission_method) vào trường đh công nghệ đhqg hn có yêu cầu bắt buộc lựa chọn phần khoa học thì mới được xét tuyển không? nếu thí sinh chọn phần thi là [tiếng anh](subject) có được xét tuyển không? xin cảm ơ
+    - cho em hỏi với ạ thi [hsa](admission_method) có tư duy định lượng với tư duy định tính bắt buộc . em học kém [tiếng anh](subject) định đổi sang môn [lịch sử](subject) hoặc [địa lí](subject) thì em có được chọn những nghành không liên quan đến [lịch sử](subject) hoặc [địa lí](subject) không ạ . như những nghành liên quan đến [lý](subject) , [tiếng anh](subject) hoặc [hoá](subject) ý ạ
+    - uet có xét [ielts](admission_method) kết hợp [hsa](admission_method) như bên neu ko mọi ng. vs cho em hỏi để vào [tự động hóa](major) thì cần bao nhiêu [hsa](admission_method) ạ
+    - năm nay uet có dùng điểm [đgnl](admission_method) của hcm không hay chỉ dùng của đhqghn ạ
+    - điểm [hsa](admission_method) tối thiểu để nộp hồ sơ vào trường là bao nhiêu vậy mng
+    - thi [đgnl](admission_method) được 105 điểm thì có cơ hội đỗ [cn1](major) không ad
+    - công thức tính điểm xét tuyển bằng [hsa](admission_method) của uet năm nay như nào ạ
+    - điểm [hsa](admission_method) năm ngoái của đhqghn có được bảo lưu để xét tuyển năm nay ko
+    - uet dành bao nhiêu phần trăm chỉ tiêu cho phương thức xét tuyển [hsa](admission_method) ạ
+    - xét tuyển bằng [đgnl](admission_method) có cần xét thêm điểm học bạ hay điểm [thpt](admission_method) không
+    - em nghe nói thi [hsa](admission_method) bắt buộc phải làm phần khoa học tự nhiên mới được vào uet đúng ko ạ
+    - trường mình có nhân đôi hệ số môn nào trong bài thi [hsa](admission_method) không
+    - điểm chuẩn [hsa](admission_method) của uet dự kiến năm nay tăng hay giảm
+    - e thi [hsa](admission_method) đợt 1 điểm thấp, thi đợt 2 điểm cao hơn thì trường lấy điểm đợt nào xét
+    - phương thức [hsa](admission_method) có ưu tiên cho thí sinh có chứng chỉ quốc tế ko
+
+- intent: hoi_dieu_kien_phu
+  examples: |
+    - giả sử đieme [hsa](admission_method) của em đủ điểm đỗ vậy thì có điều kiện gì kèm theo không ạ( ví dụ điểm thptqg phải qua điểm sàn không ạ)
+    - em vừa đọc quy chế tuyển sinh 2026 thì thấy cái này, cho e hỏi là nếu xét tuyển bằng [sat](admission_method) thì cũng cần 3 môn trên 15đ đúng ko ạ?
+    - anh chị ơi cho em hỏi với ạ. năm nay điểm cộng [giải tỉnh](bonus_type) có yêu cầu 3 năm phải đạt học lực giỏi không ạ
+    - cho cô hỏi: con cô [sat](admission_method) 1450, ie 7.0, muốn xét tuyển ngành [cntt](major), cấp 3 không học [lý](subject). vậy có đủ điều kiện để xét tuyển vào ngành [cntt](major) không? vì cô thấy có điều kiện phụ là 'đảm bảo ngưỡng đầu do trường qui định'. cô cảm ơn!
+    - điểm trung bình học bạ 3 năm cấp 3 phải trên 8.0 mới được xét tuyển thẳng đúng không ạ
+    - xét tuyển bằng [hsa](admission_method) thì có bị áp điều kiện điểm học bạ các môn khoa học phải trên 7.0 ko
+    - điều kiện phụ đối với các thí sinh bằng điểm nhau ở cuối danh sách là gì vậy trường
+    - e thấy có ghi ngưỡng đảm bảo chất lượng đầu vào, cái đó tính như thế nào ạ
+    - hạnh kiểm lớp 10 của em loại khá thì có đủ điều kiện đăng ký xét tuyển không
+    - nếu dùng [ielts](admission_method) xét tuyển thì tổng điểm 2 môn còn lại thi [thpt](admission_method) bắt buộc phải trên 14 điểm đúng k ạ
+    - em đỗ bằng [hsa](admission_method) rồi nhưng thi tốt nghiệp [thpt](admission_method) bị trượt 1 môn thì có được nhập học không
+    - có điều kiện về sức khỏe hay thị lực đối với ngành [công nghệ hàng không vũ trụ](major) ko ad
+    - học bạ kỳ 1 lớp 12 bị điểm trung bình thì có ảnh hưởng đến việc nộp hồ sơ xét [hsa](admission_method) ko
+    - ngưỡng điểm sàn năm ngoái của uet là bao nhiêu để nộp hồ sơ ạ
+    - cho em hỏi nếu em muốn được cộng điểm [hsg tỉnh](bonus_type) thì có yêu cầu điểm [thpt](admission_method) phải đạt mức sàn không
+
+- synonym: IELTS
+  examples: |
+    - ielts
+    - ie
+    - chứng chỉ tiếng anh
+    - ccnn
+    - toefl
+
+- synonym: HSA
+  examples: |
+    - hsa
+    - dgnl
+    - đgnl
+    - đánh giá năng lực
+    - bài thi đgnl
+
+- synonym: HSG_TINH
+  examples: |
+    - hsg tỉnh
+    - giải tỉnh
+    - giải 3 tỉnh
+    - giải nhì tin tỉnh
+    - học sinh giỏi cấp tỉnh
+    - hsg cấp thành phố
+
+- synonym: KHKT
+  examples: |
+    - khkt
+    - khoa học kĩ thuật
+    - khoa học kỹ thuật
+
+- synonym: THPT
+  examples: |
+    - thpt
+    - thptqg
+    - tốt nghiệp
+    - điểm thi đại học

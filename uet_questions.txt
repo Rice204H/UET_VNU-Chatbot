@@ -1,0 +1,1029 @@
+​ hát triển Toàn diện và Hệ thống Dữ liệu​
+P
+​Tuyển sinh Trường Đại học Công nghệ – Đại​
+​học Quốc gia Hà Nội​
+​Introduce to UET​
+​ rường Đại học Công nghệ (University of Engineering and Technology – UET), một thành viên nòng cốt​
+T
+​của Đại học Quốc gia Hà Nội (VNU), được thiết lập với mục tiêu trở thành trung tâm đào tạo và nghiên​
+​cứu khoa học kỹ thuật hàng đầu tại Việt Nam và khu vực. Với mã cơ sở đào tạo là QHI, nhà trường không​
+​chỉ là nơi cung ứng nguồn nhân lực chất lượng cao cho nền kinh tế số mà còn đóng vai trò tiên phong​
+​trong việc chuyển giao công nghệ và đổi mới sáng tạo. Trải qua hơn 20 năm phát triển, Trường Đại học​
+​Công nghệ đã khẳng định được vị thế của mình trên bản đồ giáo dục quốc tế thông qua các chương trình​
+​đào tạo đạt chuẩn AUN (ASEAN University Network) và sự hợp tác sâu rộng với các tập đoàn công nghệ​
+​đa quốc gia.​
+​ ứ mệnh của nhà trường gắn liền với việc phát triển đội ngũ trí thức trẻ, có khả năng thích ứng với những​
+S
+​biến động không ngừng của cuộc cách mạng công nghiệp lần thứ tư. Tầm nhìn chiến lược đến năm 2035​
+​và định hướng đến năm 2045 của nhà trường tập trung vào việc xây dựng mô hình đại học nghiên cứu​
+​thông minh, tích hợp sâu giữa giáo dục, nghiên cứu và sản xuất. Điều này được minh chứng qua việc dịch​
+​chuyển không gian đào tạo và nghiên cứu lên Khu đô thị Đại học Hòa Lạc, nơi có quỹ đất rộng lớn và hạ​
+​tầng hiện đại bậc nhất Việt Nam.​
+
+​Hệ thống Đơn vị Học thuật và Cơ cấu Tổ chức​
+​ rường Đại học Công nghệ vận hành dựa trên một cơ cấu tổ chức đa tầng, tích hợp giữa các khoa đào tạo​
+T
+​truyền thống và các viện nghiên cứu chuyên sâu. Sự phân cấp này cho phép nhà trường tối ưu hóa nguồn​
+​lực từ giảng viên đến trang thiết bị thí nghiệm, tạo ra một môi trường học thuật linh hoạt và hiệu quả.​
+
+​Các Khoa Đào tạo và Viện Nghiên cứu Trọng điểm​
+​ ệ thống các khoa của nhà trường được hình thành dựa trên các lĩnh vực công nghệ cốt lõi và các ngành​
+H
+​công nghệ mới nổi. Mỗi đơn vị đều có lịch sử hình thành gắn liền với sự phát triển của các bộ môn khoa​
+​học nền tảng từ những năm 1960 tại Đại học Tổng hợp Hà Nội.​
+​TT​
+
+​Đơn vị Học thuật​
+
+​Lĩnh vực Chuyên môn Chính​
+
+​1​
+
+​Khoa Công nghệ Thông tin​
+
+​ hoa học máy tính, Hệ thống thông tin, Mạng máy​
+K
+​tính và Truyền thông​
+
+​2​
+
+​Khoa Điện tử Viễn thông​
+
+​ ỹ thuật điện tử, Viễn thông, Hệ thống nhúng và Vi​
+K
+​mạch​
+
+​3​
+
+​ hoa Vật lý Kỹ thuật và Công​
+K
+​nghệ Nano​
+
+​Vật liệu nano, Linh kiện quang tử, Vật lý ứng dụng​
+
+​4​
+
+​ hoa Cơ học Kỹ thuật và Tự​
+K
+​động hóa​
+
+​Cơ điện tử, Robot, Điều khiển tự động​
+
+​5​
+
+​ hoa Công nghệ Xây dựng –​
+K
+​Giao thông​
+
+​ ỹ thuật xây dựng, Hạ tầng giao thông, Thiết kế​
+K
+​công nghiệp​
+
+​6​
+
+​Khoa Công nghệ Nông nghiệp​
+
+​ ông nghiệp công nghệ cao, Công nghệ sinh học​
+N
+​nông nghiệp​
+
+​7​
+
+​ iện Công nghệ Hàng không​
+V
+​Vũ trụ​
+
+​ ỹ thuật hàng không, Vệ tinh, Công nghệ không​
+K
+​gian​
+
+​8​
+
+​Viện Trí tuệ Nhân tạo​
+
+​ ọc máy, Xử lý ngôn ngữ tự nhiên, Thị giác máy​
+H
+​tính​
+
+​ ự ra đời của các viện nghiên cứu như Viện Trí tuệ Nhân tạo và Viện Công nghệ Hàng không Vũ trụ phản​
+S
+​ánh sự nhạy bén của nhà trường đối với các xu hướng công nghệ toàn cầu. Các đơn vị này không chỉ tập​
+​trung vào đào tạo đại học mà còn đẩy mạnh các chương trình thạc sĩ và tiến sĩ chuyên sâu, thu hút các​
+​chuyên gia hàng đầu từ khắp nơi trên thế giới về làm việc.​
+
+​Phân tích Đội ngũ Cán bộ và Năng lực Nghiên cứu​
+​ hất lượng đội ngũ giảng viên là yếu tố then chốt giúp Trường Đại học Công nghệ duy trì vị thế hàng​
+C
+​đầu. Theo các thống kê cập nhật đến năm 2025 và 2026, nhà trường sở hữu một đội ngũ cán bộ có trình​
+​độ chuyên môn vượt trội, với tỷ lệ tiến sĩ và chức danh giáo sư, phó giáo sư ở mức cao so với mặt bằng​
+​chung.​
+
+​Thống kê Trình độ Cán bộ Giảng dạy và Nghiên cứu​
+
+​ hà trường hiện có tổng số 372 cán bộ, trong đó cán bộ cơ hữu chiếm 335 người. Điểm nổi bật nhất là tỷ​
+N
+​lệ cán bộ có học vị tiến sĩ trở lên đạt mức 74,54%, một con số minh chứng cho năng lực nghiên cứu khoa​
+​học chuyên sâu của đơn vị.​
+​Chỉ số Thống kê Nhân sự​
+
+​Giá trị Thống kê​
+
+​Tổng số cán bộ​
+
+​372 người​
+
+​Cán bộ cơ hữu​
+
+​335 người​
+
+​Giảng viên, nghiên cứu viên, trợ giảng​
+
+​269 người​
+
+​Cán bộ hành chính và kỹ thuật​
+
+​61 người​
+
+​Cán bộ thỉnh giảng​
+
+​37 người​
+
+​Tỷ lệ cán bộ có học vị Tiến sĩ trở lên​
+
+​74,54%​
+
+​Tỷ lệ Giáo sư và Phó Giáo sư​
+
+​19,44%​
+
+​ rong năm 2025, nhà trường ghi nhận sự tăng trưởng mạnh mẽ về đội ngũ nòng cốt khi có thêm 1 giáo sư​
+T
+​và 10 phó giáo sư được công nhận, nâng tổng số lên 8 giáo sư và 44 phó giáo sư cơ hữu. Sự phân bổ các​
+​chuyên gia này tập trung vào các khoa mũi nhọn như Điện tử Viễn thông (1 giáo sư, 3 phó giáo sư mới),​
+​Công nghệ thông tin (3 phó giáo sư mới), và Vật lý kỹ thuật (3 phó giáo sư mới). Bên cạnh đó, nhà trường​
+​còn có mạng lưới cán bộ kiêm nhiệm quốc tế gồm 7 giáo sư, 10 phó giáo sư và 20 tiến sĩ từ các đại học và​
+​viện nghiên cứu hàng đầu như JAIST (Nhật Bản), University of Paris-Sud (Pháp) và các tập đoàn như​
+​IBM, Samsung.​
+
+​Hạ tầng Cơ sở Vật chất và Hệ thống Phòng Thí nghiệm​
+​ ột trong những thế mạnh vượt trội của Trường Đại học Công nghệ là hệ thống phòng thí nghiệm (PTN)​
+M
+​và trung tâm nghiên cứu hiện đại, được đầu tư từ ngân sách nhà nước và các nguồn lực hợp tác quốc tế.​
+​Nhà trường hiện quản lý hơn 35 đơn vị nghiên cứu và thực hành chuyên sâu.​
+
+​Danh mục các Phòng Thí nghiệm và Trung tâm Trọng điểm​
+​ ác PTN được thiết kế để phục vụ cả mục đích đào tạo cơ bản lẫn nghiên cứu đỉnh cao, bao phủ hầu hết​
+C
+​các lĩnh vực kỹ thuật hiện đại.​
+​TT​
+
+​Tên Phòng Thí nghiệm / Trung tâm​
+
+​Lĩnh vực và Vai trò​
+
+​1​
+
+​ TN Trọng điểm Hệ thống Tích hợp​
+P
+​Thông minh (SISLab)​
+
+​ hiết kế VLSI, SoC, Hệ thống nhúng cao​
+T
+​cấp​
+
+​2​
+
+​ TN Trọng điểm Công nghệ Micro và​
+P
+​Nano​
+
+​ hế tạo vật liệu nano, cảm biến, linh kiện​
+C
+​spintronics​
+
+​3​
+
+​PTN Cơ học Kỹ thuật​
+
+​Cơ học vật lý, mô phỏng số, cơ điện tử​
+
+​4​
+
+​ rung tâm Công nghệ Tích hợp liên​
+T
+​ngành Giám sát hiện trường​
+
+I​ CT hạ tầng, quan trắc môi trường, mạng​
+​cảm biến​
+
+​5​
+
+​ TN Tương tác Người - Máy (HMI​
+P
+​Lab)​
+
+​ rí tuệ nhân tạo, đồ họa máy tính, xử lý​
+T
+​ảnh​
+
+​6​
+
+​PTN Kỹ thuật Phần mềm​
+
+​ iểm thử phần mềm, phương pháp hình​
+K
+​thức, kiến trúc phần mềm​
+
+​7​
+
+​PTN An toàn Thông tin​
+
+​ ảo mật mạng, mật mã học, an ninh dữ​
+B
+​liệu​
+
+​8​
+
+​PTN Xử lý Ngôn ngữ Tự nhiên​
+
+​ ông nghệ tri thức, khai phá dữ liệu văn​
+C
+​bản​
+
+​9​
+
+​PTN Robot và Điều khiển Tự động​
+
+​Robot thông minh, hệ thống điều khiển số​
+
+​10​
+
+​PTN Công nghệ Năng lượng​
+
+​ ăng lượng tái tạo, pin mặt trời, kỹ thuật​
+N
+​nhiệt​
+
+​11​
+
+​PTN Công nghệ Sinh học Nano​
+
+​Biosensors, ứng dụng nano trong y sinh​
+
+​12​
+
+​PTN Vật liệu và Cấu trúc Tiên tiến​
+
+​ ật liệu thông minh, kết cấu xây dựng​
+V
+​hiện đại​
+
+​ ặc biệt, PTN SISLab là kết quả của dự án đầu tư trọng điểm từ ngân sách chính phủ năm 2008, tập trung​
+Đ
+​vào thiết kế vi mạch (FPGA/ASIC), xử lý tín hiệu video và an toàn thông tin. PTN này duy trì quan hệ​
+​hợp tác mật thiết với các đối tác lớn như Synopsys, Dolphin-IC (Hoa Kỳ) và Grenoble INP (Pháp). Sự​
+​đầu tư bài bản về thiết bị như máy phân tích phổ 26.5 GHz, máy phân tích mạng 40 GHz và các trạm máy​
+​chủ HP, IBM cho phép sinh viên và nghiên cứu viên thực hiện các đề tài có tính ứng dụng thực tiễn cao.​
+
+​Chiến lược Tuyển sinh Đại học Chính quy năm 2026​
+​ ăm 2026 đánh dấu một bước ngoặt trong công tác tuyển sinh của Trường Đại học Công nghệ với việc​
+N
+​điều chỉnh các phương thức xét tuyển để phù hợp với chương trình giáo dục phổ thông mới và nhu cầu​
+​nhân lực của thị trường lao động. Tổng chỉ tiêu dự kiến là 4020 sinh viên, đào tạo tại các cơ sở Xuân​
+​Thủy và Hòa Lạc.​
+
+​Các Phương thức Xét tuyển và Phân bổ Chỉ tiêu​
+​ hà trường áp dụng đa dạng các phương thức xét tuyển nhằm đảm bảo tính công bằng và lựa chọn được​
+N
+​những thí sinh có năng lực phù hợp nhất.​
+​TT​
+
+​Phương thức Xét tuyển​
+
+​ hỉ tiêu​
+C
+​Dự kiến​
+
+​Ghi chú​
+
+​1​
+
+​ ét tuyển thẳng và ưu tiên​
+X
+​xét tuyển​
+
+​5%​
+
+​ heo Điều 8 Quy chế Bộ GD&ĐT và​
+T
+​quy định ĐHQGHN​
+
+​2​
+
+​ ét tuyển theo kết quả thi tốt​
+X
+​nghiệp THPT 2026​
+
+​ ằm trong​
+N
+​95%​
+
+​ ử dụng điểm 3 môn theo tổ hợp​
+S
+​hoặc Toán, Văn và 1 môn tự chọn​
+
+​3​
+
+​ ét tuyển theo kết quả thi​
+X
+​Đánh giá năng lực (HSA)​
+
+​ ằm trong​
+N
+​95%​
+
+​ ết quả HSA của ĐHQGHN còn hạn​
+K
+​2 năm​
+
+​4​
+
+​ ét tuyển theo chứng chỉ​
+X
+​quốc tế SAT​
+
+​ ằm trong​
+N
+​95%​
+
+​Chứng chỉ SAT còn hạn 2 năm​
+
+​5​
+
+​Xét tuyển diện dự bị đại học​
+
+​1%​
+
+​ ành cho học sinh các trường dự bị​
+D
+​đại học dân tộc​
+
+​Quy định về Tổ hợp Môn và Ngưỡng Đảm bảo Chất lượng​
+​ ệ thống tổ hợp môn xét tuyển năm 2026 được thiết kế tập trung vào các môn khoa học tự nhiên và tư​
+H
+​duy logic. Đối với thí sinh thi tốt nghiệp từ năm 2026, yêu cầu đạt tối thiểu 15,00 điểm theo thang điểm​
+​30 cho ba môn xét tuyển.​
+​Mã Tổ hợp​
+
+​Các Môn Xét tuyển​
+
+​Phạm vi Ngành áp dụng​
+
+​A00​
+
+​Toán, Vật lý, Hóa học​
+
+​Tất cả các ngành​
+
+​A01​
+
+​Toán, Vật lý, Tiếng Anh​
+
+​Tất cả các ngành​
+
+​X06​
+
+​Toán, Vật lý, Tin học​
+
+​Tất cả các ngành​
+
+​A02​
+
+​Toán, Vật lý, Sinh học​
+
+​Công nghệ nông nghiệp, Công nghệ sinh học​
+
+​Chính sách Ưu tiên Ngoại ngữ và Cộng điểm Khuyến khích​
+
+​ hà trường đặc biệt ưu tiên các thí sinh có trình độ ngoại ngữ tốt thông qua việc quy đổi điểm chứng chỉ​
+N
+​quốc tế (IELTS/TOEFL iBT) sang thang điểm 10 của môn Tiếng Anh và cộng điểm khuyến khích vào​
+​tổng điểm xét tuyển.​
+​IELTS (Academic)​
+
+​ OEFL​
+T
+​iBT​
+
+​ iểm Quy​
+Đ
+​đổi​
+
+​ iểm cộng Khuyến khích (Thang​
+Đ
+​30)​
+
+​5.5​
+
+​72 - 78​
+
+​8.0​
+
+​1.0​
+
+​6.0​
+
+​79 - 87​
+
+​8.5​
+
+​1.0​
+
+​6.5​
+
+​88 - 95​
+
+​9.0​
+
+​1.0​
+
+​7.0​
+
+​96 - 101​
+
+​9.5​
+
+​1.25​
+
+​7.5 - 8.0​
+
+​102 - 113​
+
+​10.0​
+
+​1.25​
+
+​8.5 - 9.0​
+
+​114 - 120​
+
+​10.0​
+
+​1.5​
+
+​ ần lưu ý rằng chứng chỉ phải đủ 4 kỹ năng, không chấp nhận thi online và phải còn thời hạn 2 năm tính​
+C
+​đến ngày thi. Tổng điểm cộng (thưởng, khuyến khích) không vượt quá 10% điểm tối đa của thang điểm​
+​xét tuyển.​
+
+​Chi tiết các Ngành Đào tạo và Chỉ tiêu năm 2026​
+​ anh mục các ngành đào tạo của Trường Đại học Công nghệ năm 2026 phản ánh sự đa dạng và định​
+D
+​hướng liên ngành của một đại học kỹ thuật hiện đại. Tổng số có 21 mã xét tuyển chính.​
+​TT​
+
+​ ên Ngành Xét​
+T
+​tuyển​
+
+​Mã Ngành​
+
+​ ã Xét​
+M
+​tuyển​
+
+​ hỉ​
+C
+​tiêu​
+
+​Đặc điểm Đào tạo​
+
+​1​
+
+​Công nghệ thông tin​
+
+​7480201​
+
+​CN1​
+
+​460​
+
+​ gành nòng cốt,​
+N
+​truyền thống​
+
+​2​
+
+​Kỹ thuật máy tính​
+
+​7480106​
+
+​CN2​
+
+​400​
+
+​ ập trung phần​
+T
+​cứng và hệ thống​
+
+​3​
+
+​Vật lý kỹ thuật​
+
+​7520401​
+
+​CN3​
+
+​160​
+
+​ ịnh hướng nghiên​
+Đ
+​cứu và ứng dụng​
+
+​4​
+
+​Cơ kỹ thuật​
+
+​7520101​
+
+​CN4​
+
+​60​
+
+​ ỹ thuật cơ khí​
+K
+​chính xác​
+
+​5​
+
+​ ông nghệ kỹ thuật​
+C
+​xây dựng​
+
+​7510103​
+
+​CN5​
+
+​160​
+
+​ ỹ thuật công trình​
+K
+​và hạ tầng​
+
+​6​
+
+​ ông nghệ kỹ thuật​
+C
+​cơ - điện tử​
+
+​7510203​
+
+​CN6​
+
+​160​
+
+​ iên ngành cơ khí -​
+L
+​điện tử​
+
+​7​
+
+​ ông nghệ hàng​
+C
+​không vũ trụ​
+
+​7519001​
+
+​CN7​
+
+​120​
+
+​ hương trình đào​
+C
+​tạo thí điểm​
+
+​8​
+
+​Khoa học máy tính​
+
+​7480101​
+
+​CN8​
+
+​400​
+
+​ ịnh hướng thuật​
+Đ
+​toán và phần mềm​
+
+​9​
+
+​ ông nghệ kỹ thuật​
+C
+​điện tử - viễn thông​
+
+​7510302​
+
+​CN9​
+
+​480​
+
+​ hỉ tiêu cao nhất​
+C
+​trường​
+
+​10​
+
+​ ông nghệ nông​
+C
+​nghiệp​
+
+​7519002​
+
+​CN10​
+
+​60​
+
+​ ng dụng cao, tổ​
+Ứ
+​hợp thêm A02​
+
+​11​
+
+​ ỹ thuật điều khiển​
+K
+​và tự động hóa​
+
+​7520216​
+
+​CN11​
+
+​140​
+
+​ obot và hệ thống​
+R
+​thông minh​
+
+​12​
+
+​Trí tuệ nhân tạo​
+
+​7480107​
+
+​CN12​
+
+​320​
+
+​ gành hot, định​
+N
+​hướng AI toàn cầu​
+
+​13​
+
+​Kỹ thuật năng lượng​
+
+​7520406​
+
+​CN13​
+
+​60​
+
+​ hương trình thí​
+C
+​điểm​
+
+​14​
+
+​Hệ thống thông tin​
+
+​7480104​
+
+​CN14​
+
+​240​
+
+​ uản lý dữ liệu​
+Q
+​doanh nghiệp​
+
+​15​
+
+​ ạng máy tính và​
+M
+​truyền thông dữ liệu​
+
+​7480102​
+
+​CN15​
+
+​120​
+
+​ ạ tầng mạng và​
+H
+​cloud​
+
+​16​
+
+​Kỹ thuật Robot​
+
+​7520217​
+
+​CN17​
+
+​140​
+
+​ huyên sâu về robot​
+C
+​thông minh​
+
+​17​
+
+​ hiết kế công​
+T
+​nghiệp và Đồ họa​
+
+​7510402​
+
+​CN18​
+
+​240​
+
+​ ịnh hướng mỹ​
+Đ
+​thuật công nghiệp​
+
+​18​
+
+​Công nghệ vật liệu​
+
+​75290A1​
+
+​CN19​
+
+​120​
+
+​ huyên sâu Vi điện​
+C
+​tử​
+
+​19​
+
+​Khoa học dữ liệu​
+
+​7460108​
+
+​CN20​
+
+​120​
+
+​ huyên sâu Kỹ​
+C
+​thuật dữ liệu​
+
+​20​
+
+​Công nghệ sinh học​
+
+​7420201​
+
+​CN21​
+
+​60​
+
+​ ông nghệ kỹ thuật​
+C
+​sinh học​
+
+​ hi chú: Các chương trình đào tạo thí điểm (​​) tập​​trung vào các lĩnh vực mới nổi để đáp ứng nhu cầu thị​
+G
+​trường lao động đặc thù. Đối với các mã ngành CN10 và CN21, thí sinh có thêm lựa chọn tổ hợp A02​
+​(Toán, Lý, Sinh).*​
+
+​Phân tích Học phí và Hỗ trợ Tài chính năm học 2026-2027​
+​ ức học phí của Trường Đại học Công nghệ được xây dựng trên nguyên tắc tính đúng, tính đủ chi phí​
+M
+​đào tạo theo lộ trình quy định của Nhà nước. Đối với năm học 2026-2027, mức học phí dự kiến cho các​
+​chương trình chất lượng cao và chương trình chuẩn đã được công bố một phần trong đề án tuyển sinh.​
+
+​Bảng Dự kiến Học phí một số Ngành Tiêu biểu​
+​STT​
+
+​ ã Xét​
+M
+​tuyển​
+
+​Tên Ngành / Chương trình​
+
+​ ọc phí năm học 2026-2027​
+H
+​(VNĐ)​
+
+​1​
+
+​CN8​
+
+​Khoa học máy tính​
+
+​44.000.000​
+
+​2​
+
+​CN19​
+
+​ ông nghệ vật liệu và Vi điện​
+C
+​tử​
+
+​38.000.000​
+
+​3​
+
+​CN1​
+
+​Công nghệ thông tin​
+
+​Tham khảo mức 44.000.000​
+
+​ ộ trình tăng học phí cho các năm tiếp theo sẽ thực hiện theo Nghị định số 238/NĐ-CP ngày 03/09/2025​
+L
+​của Chính phủ. Nhà trường cũng cam kết dành các nguồn học bổng lớn từ các đối tác doanh nghiệp như​
+​Samsung (V-STT) và Toshiba để hỗ trợ sinh viên có thành tích học tập xuất sắc. Đặc biệt, chương trình​
+​học bổng Thạc sĩ tại Đại học Korea do Quỹ Pony Chung tài trợ là một cơ hội lớn cho các sinh viên năm​
+​cuối của trường.​
+
+​ ữ liệu Tuyển sinh Lịch sử (2024 - 2025) và Xu hướng Điểm​
+D
+​chuẩn​
+
+​ iệc phân tích điểm chuẩn và số lượng nhập học của các năm trước giúp thí sinh có cái nhìn thực tế về độ​
+V
+​cạnh tranh của các ngành học tại UET.​
+​ ã​
+M
+​Ngành​
+
+​Tên Ngành​
+
+​ hỉ tiêu​
+C
+​2025​
+
+​ hập học​
+N
+​2025​
+
+​ iểm​
+Đ
+​chuẩn 2025​
+
+​ iểm chuẩn​
+Đ
+​2024 (THPT)​
+
+​CN1​
+
+​ ông nghệ​
+C
+​thông tin​
+
+​420​
+
+​428​
+
+​28.19​
+
+​27.8​
+
+​CN8​
+
+​ hoa học máy​
+K
+​tính​
+
+​420​
+
+​421​
+
+​27.86​
+
+​27.58​
+
+​CN12​
+
+​Trí tuệ nhân tạo​
+
+​300​
+
+​307​
+
+​27.75​
+
+​27.12​
+
+​CN11​
+
+​ ỹ thuật điều​
+K
+​khiển và TĐH​
+
+​120​
+
+​132​
+
+​27.90​
+
+​27.05​
+
+​CN20​
+
+​ hoa học dữ​
+K
+​liệu​
+
+​120​
+
+​114​
+
+​27.38​
+
+​-​
+
+​CN14​
+
+​ ệ thống thông​
+H
+​tin​
+
+​240​
+
+​285​
+
+​26.38​
+
+​26.87​
+
+​CN2​
+
+​ ỹ thuật máy​
+K
+​tính​
+
+​420​
+
+​428​
+
+​27.00​
+
+​26.97​
+
+​CN10​
+
+​ ông nghệ​
+C
+​nông nghiệp​
+
+​60​
+
+​29​
+
+​22.00​
+
+​22.5​
+
+​CN5​
+
+​ N kỹ thuật​
+C
+​xây dựng​
+
+​180​
+
+​174​
+
+​22.25​
+
+​23.91​
+
+​ u hướng cho thấy các ngành thuộc nhóm Công nghệ thông tin, Máy tính và Trí tuệ nhân tạo luôn giữ​
+X
+​mức điểm chuẩn ổn định trên 27 điểm. Các ngành mới như Khoa học dữ liệu dù mới đưa vào tuyển sinh​
+​cũng đạt mức điểm chuẩn rất cao, phản ánh nhu cầu lớn từ xã hội. Ngược lại, các ngành kỹ thuật truyền​
+​thống hoặc các ngành định hướng nông nghiệp có mức điểm chuẩn dễ tiếp cận hơn, tạo cơ hội cho thí​
+​sinh có năng lực khá giỏi.​
+
+​Kết luận và Nhận định Chiến lược​
+​ ựa trên toàn bộ dữ liệu đã thống kê, có thể khẳng định Trường Đại học Công nghệ đang vận hành một​
+D
+​hệ sinh thái giáo dục kỹ thuật toàn diện và tiên tiến bậc nhất Việt Nam. Sự kết hợp giữa bề dày lịch sử​
+​chuyên môn, đội ngũ giảng viên tinh hoa (hơn 74% tiến sĩ) và hạ tầng nghiên cứu đạt chuẩn quốc tế (với​
+​hơn 35 phòng thí nghiệm chuyên sâu) đã tạo nên một nền tảng vững chắc cho sự phát triển của người học.​
+​ hiến lược dịch chuyển lên Hòa Lạc cùng với việc mở rộng các ngành đào tạo "khát" nhân lực như Trí​
+C
+​tuệ nhân tạo, Thiết kế vi mạch và Công nghệ hàng không vũ trụ cho thấy tầm nhìn dài hạn trong việc giải​
+​quyết bài toán nhân lực cho quốc gia. Đối với thí sinh năm 2026, việc nắm vững các quy tắc quy đổi điểm​
+​ngoại ngữ và tận dụng kỳ thi Đánh giá năng lực (HSA) sẽ là chìa khóa quan trọng để gia nhập vào ngôi​
+​trường này, nơi có tỷ lệ việc làm lên tới 97% và mức thu nhập hấp dẫn sau khi tốt nghiệp. Nhà trường​
+​không chỉ là nơi học tập mà còn là bệ phóng cho những ý tưởng khởi nghiệp và nghiên cứu đỉnh cao, góp​
+​phần hiện thực hóa khát vọng đưa Việt Nam trở thành một cường quốc về công nghệ trong tương lai.​
+
+

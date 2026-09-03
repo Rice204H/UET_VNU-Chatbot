@@ -1,0 +1,214 @@
+version: "3.1"
+
+nlu:
+  # ================================================================
+  # Intent: Hỏi học phí theo từng ngành cụ thể
+  # Trigger khi user hỏi học phí + đề cập tên/mã ngành
+  # ================================================================
+  - intent: hoi_hoc_phi_theo_nganh
+    examples: |
+      - hoc phi ngah [cn1](nganh_hoc) la bao nhieu
+      - nganh [cn8](nganh_hoc) moi nam dong bao nhieu tien hco phi
+      - hp ngnah [cn12](nganh_hoc) nam nay ra sao
+      - hoc phi [CNTT](nganh_hoc) co đăt lam khong ad
+      - học phí ngành [cn1](nganh_hoc) là bao nhiêu một năm vậy ạ?
+      - học phí ngành [Công nghệ thông tin](nganh_hoc) bao nhiêu?
+      - ngành [cn8](nganh_hoc) mỗi năm đóng bao nhiêu tiền học phí?
+      - cho em hỏi học phí ngành [Khoa học máy tính](nganh_hoc) là bao nhiêu ạ?
+      - ngành [Trí tuệ nhân tạo](nganh_hoc) học phí có đắt không?
+      - học phí của ngành [cn12](nganh_hoc) năm học này là bao nhiêu ạ?
+      - [cn9](nganh_hoc) mỗi kỳ đóng bao nhiêu tiền ạ?
+      - học ngành [Kỹ thuật máy tính](nganh_hoc) thì tốn bao nhiêu tiền một năm?
+      - học phí ngành [cn14](nganh_hoc) có cao không ạ?
+      - [Hệ thống thông tin](nganh_hoc) học phí bao nhiêu một học kỳ?
+      - học phí ngành [cn2](nganh_hoc) bao nhiêu tiền một năm?
+      - cho em hỏi ngành [Khoa học dữ liệu](nganh_hoc) học phí ra sao?
+      - ngành [cn20](nganh_hoc) đóng tiền học phí bao nhiêu ạ?
+      - học phí [Công nghệ kỹ thuật điện tử viễn thông](nganh_hoc) là bao nhiêu?
+      - ngành [cn15](nganh_hoc) học phí cụ thể là bao nhiêu ạ?
+      - [Mạng máy tính](nganh_hoc) mỗi năm mình cần chuẩn bị bao nhiêu tiền học phí?
+      - học phí ngành [Kỹ thuật Robot](nganh_hoc) năm 2026 là bao nhiêu?
+      - ngành [cn17](nganh_hoc) đóng bao nhiêu tiền một năm vậy ạ?
+      - [Thiết kế công nghiệp và Đồ họa](nganh_hoc) học phí như thế nào?
+      - học phí ngành [cn18](nganh_hoc) bao nhiêu?
+      - ngành [Vật lý kỹ thuật](nganh_hoc) học phí có được trợ cấp không?
+      - học [cn3](nganh_hoc) thì mỗi năm phải đóng học phí bao nhiêu?
+      - ngành [Công nghệ vật liệu](nganh_hoc) học phí tầm bao nhiêu ạ?
+      - [cn19](nganh_hoc) học phí là bao nhiêu vậy?
+      - học phí ngành [Cơ kỹ thuật](nganh_hoc) bao nhiêu một kỳ?
+      - chi phí học tập ngành [cn4](nganh_hoc) hằng năm là bao nhiêu ạ?
+      - [Công nghệ sinh học](nganh_hoc) học phí một năm là bao nhiêu ạ?
+      - ngành [cn21](nganh_hoc) đóng học phí bao nhiêu vậy ad?
+      - cho mình hỏi học phí [Kỹ thuật năng lượng](nganh_hoc) tầm bao nhiêu?
+      - ngành [cn13](nganh_hoc) học phí có đắt hơn các ngành CNTT không?
+      - ngành [Công nghệ nông nghiệp](nganh_hoc) học phí là bao nhiêu ạ?
+      - [cn10](nganh_hoc) mỗi năm đóng bao nhiêu tiền ạ?
+      - [Công nghệ hàng không vũ trụ](nganh_hoc) học phí bao nhiêu?
+      - ngành [cn7](nganh_hoc) học phí có đắt không ạ?
+      - ngành [Kỹ thuật điều khiển và tự động hóa](nganh_hoc) học phí là bao nhiêu ạ?
+      - [cn11](nganh_hoc) mỗi năm đóng học phí bao nhiêu?
+      - học phí ngành [Công nghệ kỹ thuật cơ điện tử](nganh_hoc) là bao nhiêu?
+      - [cn6](nganh_hoc) học phí tầm bao nhiêu một năm ạ?
+      - học phí trung bình 1 năm các ngành của trường mình dao động bao nhiêu ạ?
+      - hoc phi nganh [cn1](nganh_hoc) la bao nhieu mot nam vay a
+      - hoc phi nganh [Cong nghe thong tin](nganh_hoc) bao nhieu
+      - nganh [cn8](nganh_hoc) moi nam dong bao nhieu tien hoc phi
+      - hoc phi [Khoa hoc may tinh](nganh_hoc) la bao nhieu a
+      - nganh [Tri tue nhan tao](nganh_hoc) hoc phi co dat khong
+      - hp nganh [cn12](nganh_hoc) nam hoc nay la bao nhieu a
+      - [cn9](nganh_hoc) moi ky dong bao nhieu tien a
+      - hoc nganh [Ky thuat may tinh](nganh_hoc) thi ton bao nhieu tien mot nam
+      - hp nganh [cn14](nganh_hoc) co cao khong a
+      - [He thong thong tin](nganh_hoc) hp bao nhieu mot hoc ky
+      - hoc phi nganh [cn2](nganh_hoc) bao nhieu tien mot nam
+      - nganh [Khoa hoc du lieu](nganh_hoc) hp ra sao
+      - nganh [cn20](nganh_hoc) dong tien hoc phi bao nhieu a
+      - hp [Dien tu Vien thong](nganh_hoc) la bao nhieu
+      - nganh [cn15](nganh_hoc) hp cu the la bao nhieu a
+      - hp nganh [Ky thuat Robot](nganh_hoc) nam 2026 la bao nhieu
+      - nganh [cn17](nganh_hoc) dong bao nhieu tien mot nam vay a
+      - [Thiet ke cong nghiep](nganh_hoc) hp nhu the nao
+      - hp nganh [cn18](nganh_hoc) bao nhieu
+      - nganh [Vat ly ky thuat](nganh_hoc) hp tam bao nhieu a
+      - nganh [cn19](nganh_hoc) hp la bao nhieu vay
+      - hp nganh [Co ky thuat](nganh_hoc) bao nhieu mot ky
+      - chi phi hoc tap nganh [cn4](nganh_hoc) hang nam la bao nhieu a
+      - [Cong nghe sinh hoc](nganh_hoc) hp mot nam la bao nhieu a
+      - nganh [cn21](nganh_hoc) dong hoc phi bao nhieu vay ad
+      - hp [Ky thuat nang luong](nganh_hoc) tam bao nhieu
+      - nganh [cn13](nganh_hoc) hp co dat hon cac nganh cntt khong
+      - nganh [Cong nghe nong nghiep](nganh_hoc) hp la bao nhieu a
+      - [cn10](nganh_hoc) moi nam dong bao nhieu tien a
+      - [Cong nghe hang khong vu tru](nganh_hoc) hp bao nhieu
+      - nganh [cn7](nganh_hoc) hp co dat khong a
+      - nganh [Tu dong hoa](nganh_hoc) hp la bao nhieu a
+      - [cn11](nganh_hoc) moi nam dong hp bao nhieu
+      - hp nganh [Co dien tu](nganh_hoc) la bao nhieu
+      - [cn6](nganh_hoc) hp tam bao nhieu mot nam a
+      - hp trung binh 1 nam cac nganh cua truong dao dong bao nhieu a
+      - e muon biet hp nganh [cn8](nganh_hoc)
+      - cho e hoi hp nganh [AI](nganh_hoc) voi
+      - nganh [KHMT](nganh_hoc) dong bao nhieu tien moi nam
+      - [CNTT](nganh_hoc) hp tầm bao nhiêu vậy ad
+      - học phí của [KHMT](nganh_hoc) năm nay thế nào
+      - học phí [CN8](nganh_hoc) là bao nhiêu
+      - ngành [Kỹ thuật Robot](nganh_hoc) học phí bao nhiêu một học kì
+      - hoc phi cua [cn12](nganh_hoc) co cao lam khong
+      - mức học phí của ngành [Khoa học máy tính](nganh_hoc) UET
+      - chi phí học ngành [Công nghệ thông tin](nganh_hoc)
+      - hoc phi nganh [an toan thong tin](nganh_hoc)
+      - hoc phi [cn20](nganh_hoc) bao nhieu
+
+
+  # ================================================================
+  # Intent: Hỏi điểm chuẩn theo từng ngành cụ thể (2025)
+  # Trigger khi user hỏi điểm chuẩn + đề cập tên/mã ngành
+  # ================================================================
+  - intent: hoi_diem_chuan_nganh
+    examples: |
+      - diem chuan ngnah [cn1](nganh_hoc) bao nhieu
+      - diem vao nganh [cn8](nganh_hoc) bag [hsa](admission_method)
+      - diem chuan ngah [cn12](nganh_hoc) co cao khong
+      - nganh [KHMT](nganh_hoc) lay bao nhieu điiêm
+      - ngành [cn1](nganh_hoc) điểm chuẩn bao nhiêu?
+      - điểm chuẩn ngành [Khoa học máy tính](nganh_hoc) năm 2025 là bao nhiêu?
+      - cho em hỏi mức điểm an toàn để đỗ ngành [cn8](nganh_hoc) bằng [hsa](admission_method)
+      - ngành [Công nghệ vật liệu](nganh_hoc) xét điểm thi [thpt](admission_method) lấy bao nhiêu điểm vậy ad?
+      - điểm chuẩn của ngành [cn12](nganh_hoc) dạo này có tăng mạnh không ạ?
+      - ngành [Cơ kỹ thuật](nganh_hoc) năm ngoái lấy mấy điểm ạ
+      - em thi được 26.5 điểm thì có đỗ ngành [cn14](nganh_hoc) không?
+      - ngành [cn9](nganh_hoc) lấy điểm chuẩn [thpt](admission_method) bao nhiêu?
+      - thi 100 điểm [đgnl](admission_method) thì đủ điểm vào ngành nào của trường?
+      - mức điểm chuẩn xét bằng [sat](admission_method) của ngành [Kỹ thuật máy tính](nganh_hoc) là bao nhiêu?
+      - điểm chuẩn ngành [cn2](nganh_hoc) năm ngoái là bao nhiêu ạ?
+      - ngành [Trí tuệ nhân tạo](nganh_hoc) năm ngoái điểm chuẩn là bao nhiêu ạ?
+      - điểm chuẩn ngành [Công nghệ thông tin](nganh_hoc) là bao nhiêu?
+      - [cn1](nganh_hoc) lấy bao nhiêu điểm hsa năm 2025?
+      - điểm chuẩn hsa của ngành [cn8](nganh_hoc) năm ngoái là bao nhiêu ạ?
+      - điểm chuẩn hsa của ngành [cn12](nganh_hoc) năm ngoái là bao nhiêu ạ?
+      - điểm chuẩn hsa của ngành [cn14](nganh_hoc) năm ngoái là bao nhiêu ạ?
+      - điểm chuẩn hsa của ngành [cn15](nganh_hoc) năm ngoái là bao nhiêu ạ?
+      - điểm chuẩn bằng [sat](admission_method) của ngành [cn1](nganh_hoc) năm ngoái là bao nhiêu ạ?
+      - em có 110 điểm hsa thì có đủ điểm vào ngành [cn1](nganh_hoc) không ạ?
+      - em có 110 điểm hsa thì có đủ điểm vào ngành [cn8](nganh_hoc) không ạ?
+      - 85 điểm đgnl thì có đủ điểm vào ngành [cn1](nganh_hoc) không ạ?
+      - bao nhiêu điểm đgnl thì có thể đỗ vào ngành [cn12](nganh_hoc) ạ?
+      - ngành [Hệ thống thông tin](nganh_hoc) lấy bao nhiêu điểm năm 2025?
+      - [cn20](nganh_hoc) điểm chuẩn 2025 là bao nhiêu?
+      - ngành [Khoa học dữ liệu](nganh_hoc) điểm chuẩn bao nhiêu?
+      - điểm đánh giá năng lực trung bình để đỗ vào ngành [cn1](nganh_hoc) là bao nhiêu ạ?
+      - [Công nghệ kỹ thuật điện tử - viễn thông](nganh_hoc) năm ngoái điểm chuẩn là bao nhiêu ạ?
+      - ngành [cn9](nganh_hoc) lấy bao nhiêu điểm thi [thpt](admission_method)?
+      - [Kỹ thuật Robot](nganh_hoc) lấy điểm chuẩn bao nhiêu ạ?
+      - ngành [cn17](nganh_hoc) điểm chuẩn 2025 là bao nhiêu?
+      - ngành [Vật lý kỹ thuật](nganh_hoc) năm ngoái điểm chuẩn là bao nhiêu ạ?
+      - [cn3](nganh_hoc) điểm chuẩn bao nhiêu?
+      - điểm chuẩn ngành [Công nghệ hàng không vũ trụ](nganh_hoc) là bao nhiêu?
+      - ngành [cn7](nganh_hoc) lấy bao nhiêu điểm năm 2025?
+      - ngành [Kỹ thuật điều khiển và tự động hóa](nganh_hoc) điểm chuẩn là bao nhiêu?
+      - [cn11](nganh_hoc) năm ngoái lấy bao nhiêu điểm?
+      - cho em xin bảng điểm chuẩn các ngành với ạ
+      - dự đoán điểm chuẩn ngành [cn1](nganh_hoc) năm nay sẽ tăng hay giảm ạ?
+      - điểm chuẩn ngành [cn12](nganh_hoc) có cao không?
+      - ngành [Công nghệ sinh học](nganh_hoc) lấy bao nhiêu điểm?
+      - ngành [cn21](nganh_hoc) điểm chuẩn 2025 là bao nhiêu?
+      - cho em hỏi ngành [Công nghệ nông nghiệp](nganh_hoc) lấy bao nhiêu điểm?
+      - [cn10](nganh_hoc) điểm chuẩn năm 2025 là bao nhiêu ạ?
+      - nganh [cn1](nganh_hoc) diem chuan bao nhieu
+      - diem chuan nganh [Khoa hoc may tinh](nganh_hoc) nam 2025 la bao nhieu
+      - cho em hoi muc diem an toan de do nganh [cn8](nganh_hoc) bang [hsa](admission_method)
+      - nganh [Cong nghe vat lieu](nganh_hoc) xet diem thi [thpt](admission_method) lay bao nhieu diem vay ad
+      - diem chuan cua nganh [cn12](nganh_hoc) dao nay co tang manh khong a
+      - nganh [Co ky thuat](nganh_hoc) nam ngoai lay may diem a
+      - em thi duoc 26.5 diem thi co do nganh [cn14](nganh_hoc) khong
+      - nganh [cn9](nganh_hoc) lay diem chuan [thpt](admission_method) bao nhieu
+      - thi 100 diem [dgnl](admission_method) thi du diem vao nganh nao cua truong
+      - muc diem chuan xet bang [sat](admission_method) cua nganh [Ky thuat may tinh](nganh_hoc) la bao nhieu
+      - diem chuan nganh [cn2](nganh_hoc) nam ngoai la bao nhieu a
+      - nganh [Tri tue nhan tao](nganh_hoc) nam ngoai diem chuan la bao nhieu a
+      - diem chuan nganh [Cong nghe thong tin](nganh_hoc) la bao nhieu
+      - [cn1](nganh_hoc) lay bao nhieu diem hsa nam 2025
+      - diem chuan hsa cua nganh [cn8](nganh_hoc) nam ngoai la bao nhieu a
+      - diem chuan hsa cua nganh [cn12](nganh_hoc) nam ngoai la bao nhieu a
+      - em co 110 diem hsa thi co du diem vao nganh [cn1](nganh_hoc) khong a
+      - 85 diem dgnl thi co du diem vao nganh [cn1](nganh_hoc) khong a
+      - bao nhieu diem dgnl thi co the do vao nganh [cn12](nganh_hoc) a
+      - nganh [He thong thong tin](nganh_hoc) lay bao nhieu diem nam 2025
+      - [cn20](nganh_hoc) diem chuan 2025 la bao nhieu
+      - nganh [Khoa hoc du lieu](nganh_hoc) diem chuan bao nhieu
+      - diem danh gia nang luc trung binh de do vao nganh [cn1](nganh_hoc) la bao nhieu a
+      - nganh [Dien tu Vien thong](nganh_hoc) nam ngoai diem chuan la bao nhieu a
+      - nganh [cn9](nganh_hoc) lay bao nhieu diem thi [thpt](admission_method)
+      - [Ky thuat Robot](nganh_hoc) lay diem chuan bao nhieu a
+      - nganh [cn17](nganh_hoc) diem chuan 2025 la bao nhieu
+      - [cn3](nganh_hoc) diem chuan bao nhieu
+      - diem chuan nganh [Cong nghe hang khong vu tru](nganh_hoc) la bao nhieu
+      - nganh [cn7](nganh_hoc) lay bao nhieu diem nam 2025
+      - nganh [Tu dong hoa](nganh_hoc) diem chuan la bao nhieu
+      - [cn11](nganh_hoc) nam ngoai lay bao nhieu diem
+      - cho em xin bang diem chuan cac nganh voi a
+      - du doan diem chuan nganh [cn1](nganh_hoc) nam nay se tang hay giam a
+      - diem chuan nganh [cn12](nganh_hoc) co cao khong
+      - nganh [Cong nghe sinh hoc](nganh_hoc) lay bao nhieu diem
+      - nganh [cn21](nganh_hoc) diem chuan 2025 la bao nhieu
+      - nganh [Cong nghe nong nghiep](nganh_hoc) lay bao nhieu diem
+      - [cn10](nganh_hoc) diem chuan nam 2025 la bao nhieu a
+      - diem chuan cn12 bao nhieu
+      - cn1 lay bao nhieu diem hsa
+      - nganh AI diem chuan 2025 la bao nhieu
+      - nganh KHMT lay bao nhieu diem
+      - cn8 diem chuan la bao nhieu
+      - CNTT nam nay diem chuan la bao nhieu
+      - e co 27 diem thpt thi vao duoc nganh nao
+      - thi thpt 28 diem co vao uet duoc khong
+      - diem chuan uet 2025 cac nganh la bao nhieu
+      - bang diem chuan uet 2025
+      - ngành [CN8](nganh_hoc) lấy bao nhiêu điểm tốt nghiệp
+      - điểm chuẩn ngành [KHMT](nganh_hoc) năm nay dự kiến bao nhiêu
+      - mức điểm chuẩn của [Trí tuệ nhân tạo](nganh_hoc) năm 2025
+      - ngành [Kỹ thuật phần mềm](nganh_hoc) lấy bao nhiêu điểm xét tuyển
+      - điểm vào [CNTT](nganh_hoc) năm ngoái là mấy
+      - diem chuan [cn12](nganh_hoc) lay bao nhieu
+      - diem vao nganh [cn8](nganh_hoc) bang [hsa](admission_method)
+      - điểm chuẩn ngành [Khoa học dữ liệu](nganh_hoc) của trường
+

@@ -1,0 +1,110 @@
+version: "3.1"
+
+nlu:
+  - intent: hoi_thong_tin_nganh
+    examples: |
+      - tu van giup minh ngah [CNTT](nganh_hoc)
+      - nganh [cn2](nganh_hoc) co tot kogn
+      - cho e rv ngnah [cn1](nganh_hoc) voi
+      - [KHMT](nganh_hoc) uet hoc nhug gi
+      - co hoi viec lam cua [DTVT](nganh_hoc) ntn
+      - Ngành [Khoa học máy tính](nganh_hoc) học những gì?
+      - nganh khoa hoc may tinh hoc nhung gi
+      - Tư vấn giúp mình ngành [Công nghệ thông tin](nganh_hoc)
+      - tu van giup minh nganh CNTT
+      - tư vấn cho tôi ngành [Công nghệ thông tin](nganh_hoc)
+      - tu van cho toi nganh cong nghe thong tin
+      - tư vấn cho tôi ngành [CNTT](nganh_hoc)
+      - tư vấn cho tôi ngành [Khoa học máy tính](nganh_hoc)
+      - tư vấn cho tôi ngành [Kỹ thuật phần mềm](nganh_hoc)
+      - tư vấn cho tôi ngành [An toàn thông tin](nganh_hoc)
+      - tư vấn cho tôi ngành [Trí tuệ nhân tạo](nganh_hoc)
+      - tư vấn cho tôi ngành [AI](nganh_hoc)
+      - tư vấn cho tôi ngành [KHMT](nganh_hoc)
+      - tư vấn cho tôi về [Công nghệ thông tin](nganh_hoc)
+      - tư vấn cho mình về ngành [CNTT](nganh_hoc)
+      - bạn có thể tư vấn về ngành [Khoa học máy tính](nganh_hoc) không
+      - cho tôi biết về ngành [Công nghệ thông tin](nganh_hoc)
+      - cho mình biết về ngành [CNTT](nganh_hoc)
+      - Ra trường làm gì nếu học [Kỹ thuật phần mềm](nganh_hoc)
+      - ra truong lam gi neu hoc ky thuat phan mem
+      - Thông tin tuyển sinh ngành [An toàn thông tin](nganh_hoc)
+      - thong tin tuyen sinh nganh an toan thong tin
+      - Ngành [CN1](nganh_hoc) học cái gì thế ad
+      - nganh cn1 hoc cai gi the ad
+      - Ngành [CN2](nganh_hoc) có tốt không
+      - nganh cn2 co tot khong
+      - Cho mình xem thông tin ngành [CN4](nganh_hoc)
+      - cho minh xem thong tin nganh cn4
+      - Điểm chuẩn ngành [CN11](nganh_hoc) là bao nhiêu
+      - diem chuan nganh cn11 la bao nhieu
+      - Ngành [CNTT](nganh_hoc) đào tạo những gì vậy?
+      - nganh cntt dao tao nhung gi vay
+      - [Kỹ thuật máy tính](nganh_hoc) ra làm gì ạ?
+      - ktmt ra lam gi a
+      - Tôi muốn biết thêm về ngành [Trí tuệ nhân tạo](nganh_hoc)
+      - toi muon biet them ve nganh tri tue nhan tao
+      - Ngành [AI](nganh_hoc) có tương lai không?
+      - nganh AI co tuong lai khong
+      - Cho mình hỏi về ngành [CN12](nganh_hoc)
+      - cho minh hoi ve nganh cn12
+      - Ngành [Khoa học dữ liệu](nganh_hoc) ở UET như thế nào?
+      - nganh data science o uet nhu the nao
+      - nganh khoa hoc du lieu o uet the nao
+      - Học ngành [CN8](nganh_hoc) thì sau ra trường làm gì?
+      - hoc cn8 thi sau ra truong lam gi
+      - [Hệ thống thông tin](nganh_hoc) học những môn gì?
+      - HTTT hoc nhung mon gi
+      - he thong thong tin hoc nhung mon gi
+      - Cơ hội việc làm của [Công nghệ kỹ thuật điện tử viễn thông](nganh_hoc)?
+      - co hoi viec lam cua dien tu vien thong
+      - DTVT ra lam gi
+      - Ngành [CN9](nganh_hoc) thi tổ hợp gì?
+      - nganh cn9 thi to hop gi
+      - [Kỹ thuật Robot](nganh_hoc) có học bổng không?
+      - ky thuat robot co hoc bong khong
+      - Ngành [CN17](nganh_hoc) chỉ tiêu bao nhiêu?
+      - nganh cn17 chi tieu bao nhieu
+      - Ngành [Thiết kế công nghiệp](nganh_hoc) học như thế nào?
+      - nganh thiet ke cong nghiep hoc nhu the nao
+      - [CN18](nganh_hoc) đào tạo ở cơ sở nào?
+      - cn18 dao tao o co so nao
+      - cho e hỏi về nganh cn12 ạ
+      - cho e hoi ve nganh cn12 a
+      - nganh TTNT la gi
+      - AI uet hoc cai gi
+      - nganh kh may tinh uet the nao
+      - nganh KHMT khac CNTT nhu the nao
+      - nganh cn20 la nganh gi vay
+      - nganh kh du lieu hoc cai gi
+      - CN8 vs CN12 khac nhau nhu the nao
+      - cn8 va cn12 khac gi nhau
+      - nganh nao lien quan den AI o uet
+      - cho e rv nganh cn1 voi
+      - review nganh cn9 cho e voi
+      - uet co nganh data science khong
+      - uet co nganh AI khong
+      - thong tin ve nganh robot o uet
+      - nganh cn6 hoc nhung gi
+      - co dien tu hoc cai gi
+      - [Khoa học máy tính](nganh_hoc)
+      - [CN1](nganh_hoc)
+      - [CN2](nganh_hoc)
+      - [CN8](nganh_hoc)
+      - [CN12](nganh_hoc)
+      - [Trí tuệ nhân tạo](nganh_hoc)
+      - [Kỹ thuật phần mềm](nganh_hoc)
+      - [Công nghệ thông tin](nganh_hoc)
+      - [CNTT](nganh_hoc)
+      - [KHMT](nganh_hoc)
+      - [An toàn thông tin](nganh_hoc)
+      - [ATTT](nganh_hoc)
+      - [Kỹ thuật máy tính](nganh_hoc)
+      - [Hệ thống thông tin](nganh_hoc)
+      - [HTTT](nganh_hoc)
+      - [Vật lý kỹ thuật](nganh_hoc)
+      - [Cơ kỹ thuật](nganh_hoc)
+      - [Công nghệ nông nghiệp](nganh_hoc)
+      - [Công nghệ hàng không vũ trụ](nganh_hoc)
+      - [Mạng máy tính](nganh_hoc)
+      - [Khoa học dữ liệu](nganh_hoc)

@@ -1,0 +1,266 @@
+[
+  {
+    "text": "mình không muốn làm thủ tục này nữa ad ơi",
+    "intent": "cancel",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.40591827034950256
+    }
+  },
+  {
+    "text": "out ra kiểu gì thế ad ơi",
+    "intent": "cancel",
+    "intent_prediction": {
+      "name": "hoi_thong_tin_nganh",
+      "confidence": 0.6655621528625488
+    }
+  },
+  {
+    "text": "IELTS bao nhiêu thì được ưu tiên?",
+    "intent": "chon_ptxt_ielts",
+    "intent_prediction": {
+      "name": "hoi_diem_chuan_nganh",
+      "confidence": 0.3527166247367859
+    }
+  },
+  {
+    "text": "dùng điểm TOEFL iBT để thay thế ielts được không ad",
+    "intent": "chon_ptxt_ielts",
+    "intent_prediction": {
+      "name": "chon_ptxt_thptqg",
+      "confidence": 0.29509755969047546
+    }
+  },
+  {
+    "text": "quy đổi điểm ielts sang điểm thi đại học như thế nào ad",
+    "intent": "chon_ptxt_ielts",
+    "intent_prediction": {
+      "name": "chon_ptxt_thptqg",
+      "confidence": 0.40521782636642456
+    }
+  },
+  {
+    "text": "chon_ptxt_tuyen_thang",
+    "intent": "chon_ptxt_tuyen_thang",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.48201078176498413
+    }
+  },
+  {
+    "text": "đối tượng đạt huy chương vàng olympic quốc tế",
+    "intent": "chon_ptxt_tuyen_thang",
+    "intent_prediction": {
+      "name": "cancel",
+      "confidence": 0.3961747884750366
+    }
+  },
+  {
+    "text": "em có điểm thi HSA muốn đăng ký",
+    "intent": "chon_ptxt_hsa",
+    "intent_prediction": {
+      "name": "chon_ptxt_thptqg",
+      "confidence": 0.6194043755531311
+    }
+  },
+  {
+    "text": "em thi HSA roi muon dung diem do xet tuyen",
+    "intent": "chon_ptxt_hsa",
+    "intent_prediction": {
+      "name": "chon_ptxt_thptqg",
+      "confidence": 0.6786401271820068
+    }
+  },
+  {
+    "text": "nộp điểm thi dgnl hà nội",
+    "intent": "chon_ptxt_hsa",
+    "intent_prediction": {
+      "name": "chon_ptxt_thptqg",
+      "confidence": 0.6610926389694214
+    }
+  },
+  {
+    "text": "em muốn nộp bằng điểm thi đánh giá năng lực của đại học quốc gia hà nội",
+    "intent": "chon_ptxt_hsa",
+    "intent_prediction": {
+      "name": "chon_ptxt_thptqg",
+      "confidence": 0.6962800025939941
+    }
+  },
+  {
+    "text": "xét tuyển bằng hsa thì điền như nào ad",
+    "intent": "chon_ptxt_hsa",
+    "intent_prediction": {
+      "name": "hoi_hoc_phi",
+      "confidence": 0.23443244397640228
+    }
+  },
+  {
+    "text": "alo ad có ai online ko ạ",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "chon_ptxt_tuyen_thang",
+      "confidence": 0.17189815640449524
+    }
+  },
+  {
+    "text": "học phí bao nhiêu",
+    "intent": "hoi_hoc_phi",
+    "intent_prediction": {
+      "name": "hoi_hoc_phi_theo_nganh",
+      "confidence": 0.8008660078048706
+    }
+  },
+  {
+    "text": "tien hoc mot hoc ky la bao nhieu",
+    "intent": "hoi_hoc_phi",
+    "intent_prediction": {
+      "name": "hoi_hoc_phi_theo_nganh",
+      "confidence": 0.4471278786659241
+    }
+  },
+  {
+    "text": "mình cần đóng bao nhiêu tiền một kì",
+    "intent": "hoi_hoc_phi",
+    "intent_prediction": {
+      "name": "hoi_hoc_phi_theo_nganh",
+      "confidence": 0.5305359959602356
+    }
+  },
+  {
+    "text": "hoc phi bao nhieu",
+    "intent": "hoi_hoc_phi",
+    "intent_prediction": {
+      "name": "hoi_hoc_phi_theo_nganh",
+      "confidence": 0.5404796004295349
+    }
+  },
+  {
+    "text": "hoc uet ton bao nhieu tien moi nam",
+    "intent": "hoi_hoc_phi",
+    "intent_prediction": {
+      "name": "hoi_hoc_phi_theo_nganh",
+      "confidence": 0.572455883026123
+    }
+  },
+  {
+    "text": "học phí đóng theo kỳ hay theo năm vậy ad",
+    "intent": "hoi_hoc_phi",
+    "intent_prediction": {
+      "name": "hoi_hoc_phi_theo_nganh",
+      "confidence": 0.580880343914032
+    }
+  },
+  {
+    "text": "truong minh mot nam dong bao nhieu tien hco phi",
+    "intent": "hoi_hoc_phi",
+    "intent_prediction": {
+      "name": "hoi_hoc_phi_theo_nganh",
+      "confidence": 0.6363109350204468
+    }
+  },
+  {
+    "text": "học phí uet có đắt hơn các trường công nghệ khác không",
+    "intent": "hoi_hoc_phi",
+    "intent_prediction": {
+      "name": "hoi_hoc_phi_theo_nganh",
+      "confidence": 0.567650318145752
+    }
+  },
+  {
+    "text": "kinh phí một năm học uet khoảng bao nhiêu củ thế ạ",
+    "intent": "hoi_hoc_phi",
+    "intent_prediction": {
+      "name": "hoi_hoc_phi_theo_nganh",
+      "confidence": 0.6792380213737488
+    }
+  },
+  {
+    "text": "muốn thi vào trường công nghệ thì làm gì?",
+    "intent": "dang_ky_nguyen_vong",
+    "intent_prediction": {
+      "name": "chon_ptxt_thptqg",
+      "confidence": 0.2521391212940216
+    }
+  },
+  {
+    "text": "dang_ky_nguyen_vong",
+    "intent": "dang_ky_nguyen_vong",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.3724671006202698
+    }
+  },
+  {
+    "text": "cho e đki xet tuyen truc tuyen",
+    "intent": "dang_ky_nguyen_vong",
+    "intent_prediction": {
+      "name": "chon_ptxt_thptqg",
+      "confidence": 0.29301390051841736
+    }
+  },
+  {
+    "text": "xét tuyển vào ĐHCN",
+    "intent": "dang_ky_nguyen_vong",
+    "intent_prediction": {
+      "name": "chon_ptxt_tuyen_thang",
+      "confidence": 0.31432533264160156
+    }
+  },
+  {
+    "text": "hướng dẫn mình các bước làm hồ sơ xét tuyển online với",
+    "intent": "dang_ky_nguyen_vong",
+    "intent_prediction": {
+      "name": "chon_ptxt_tuyen_thang",
+      "confidence": 0.2778090834617615
+    }
+  },
+  {
+    "text": "e muon biet hp nganh cn8",
+    "intent": "hoi_hoc_phi_theo_nganh",
+    "intent_prediction": {
+      "name": "hoi_thong_tin_nganh",
+      "confidence": 0.4924927353858948
+    }
+  },
+  {
+    "text": "diem chuan nganh cn11 la bao nhieu",
+    "intent": "hoi_thong_tin_nganh",
+    "intent_prediction": {
+      "name": "hoi_diem_chuan_nganh",
+      "confidence": 0.9441441297531128
+    }
+  },
+  {
+    "text": "Điểm chuẩn ngành CN11 là bao nhiêu",
+    "intent": "hoi_thong_tin_nganh",
+    "intent_prediction": {
+      "name": "hoi_diem_chuan_nganh",
+      "confidence": 0.9245039820671082
+    }
+  },
+  {
+    "text": "con gái học Khoa học máy tính có vất vả lắm không ad",
+    "intent": "hoi_thong_tin_nganh",
+    "intent_prediction": {
+      "name": "hoi_hoc_phi",
+      "confidence": 0.20072737336158752
+    }
+  },
+  {
+    "text": "ok ad",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.659805178642273
+    }
+  },
+  {
+    "text": "dung roi ad",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.5736114382743835
+    }
+  }
+]

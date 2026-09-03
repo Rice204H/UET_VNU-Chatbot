@@ -1,0 +1,341 @@
+version: "3.1"
+
+intents:
+  - greet
+  - hoi_thong_tin_nganh
+  - hoi_hoc_phi
+  - hoi_hoc_phi_theo_nganh
+  - hoi_diem_chuan_nganh
+  - dang_ky_nguyen_vong
+  - chon_ptxt_hsa
+  - chon_ptxt_ielts
+  - chon_ptxt_tuyen_thang
+  - chon_ptxt_thptqg
+  - inform
+  - cancel
+  - gap_tu_van_vien
+
+entities:
+  - nganh_hoc
+  - major
+  - admission_method
+
+slots:
+  fullname:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: hsa_form
+            requested_slot: fullname
+          - active_loop: ielts_form
+            requested_slot: fullname
+          - active_loop: direct_form
+            requested_slot: fullname
+          - active_loop: thptqg_form
+            requested_slot: fullname
+  phone_number:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: hsa_form
+            requested_slot: phone_number
+          - active_loop: ielts_form
+            requested_slot: phone_number
+          - active_loop: direct_form
+            requested_slot: phone_number
+          - active_loop: thptqg_form
+            requested_slot: phone_number
+  chosen_major:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: hsa_form
+            requested_slot: chosen_major
+          - active_loop: ielts_form
+            requested_slot: chosen_major
+          - active_loop: direct_form
+            requested_slot: chosen_major
+          - active_loop: thptqg_form
+            requested_slot: chosen_major
+
+  # Context slot: ghi nhớ ngành vừa hỏi để dùng cho các câu hỏi tiếp theo
+  last_queried_major:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom   # set thủ công bằng SlotSet trong action
+  # Các slot đặc thù theo nhánh
+  hsa_id:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: hsa_form
+            requested_slot: hsa_id
+  hsa_score:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: hsa_form
+            requested_slot: hsa_score
+  ielts_score:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: ielts_form
+            requested_slot: ielts_score
+          - active_loop: thptqg_form
+            requested_slot: ielts_score
+  math_score:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: ielts_form
+            requested_slot: math_score
+  award_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: direct_form
+            requested_slot: award_name
+  thptqg_block:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: thptqg_form
+            requested_slot: thptqg_block
+  thptqg_score:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: thptqg_form
+            requested_slot: thptqg_score
+  evidence_url:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: hsa_form
+            requested_slot: evidence_url
+          - active_loop: ielts_form
+            requested_slot: evidence_url
+          - active_loop: direct_form
+            requested_slot: evidence_url
+          - active_loop: thptqg_form
+            requested_slot: evidence_url
+  ielts_evidence_url:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: thptqg_form
+            requested_slot: ielts_evidence_url
+  confirm_registration:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: hsa_form
+            requested_slot: confirm_registration
+          - active_loop: ielts_form
+            requested_slot: confirm_registration
+          - active_loop: direct_form
+            requested_slot: confirm_registration
+          - active_loop: thptqg_form
+            requested_slot: confirm_registration
+  has_ielts:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: thptqg_form
+            requested_slot: has_ielts
+  retry_count:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+  support_issue:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: support_form
+            requested_slot: support_issue
+
+forms:
+  hsa_form:
+    ignored_intents:
+      - cancel
+    required_slots:
+      - fullname
+      - phone_number
+      - chosen_major
+      - hsa_id
+      - hsa_score
+      - evidence_url
+      - confirm_registration
+  ielts_form:
+    ignored_intents:
+      - cancel
+    required_slots:
+      - fullname
+      - phone_number
+      - chosen_major
+      - ielts_score
+      - math_score
+      - evidence_url
+      - confirm_registration
+  direct_form:
+    ignored_intents:
+      - cancel
+    required_slots:
+      - fullname
+      - phone_number
+      - chosen_major
+      - award_name
+      - evidence_url
+      - confirm_registration
+
+  thptqg_form:
+    ignored_intents:
+      - cancel
+    required_slots:
+      - fullname
+      - phone_number
+      - chosen_major
+      - thptqg_block
+      - thptqg_score
+      - evidence_url
+      - has_ielts
+      - ielts_score
+      - ielts_evidence_url
+      - confirm_registration
+
+  support_form:
+    ignored_intents:
+      - cancel
+    required_slots:
+      - support_issue
+
+responses:
+  utter_greet:
+    - text: "Xin chào! Mình là Chatbot tuyển sinh trường ĐH Công nghệ (UET). Bạn muốn tìm hiểu ngành học hay đăng ký nguyện vọng xét tuyển trực tuyến luôn?"
+      buttons:
+        - title: "📚 Tìm hiểu ngành học"
+          payload: "Tư vấn giúp mình ngành học"
+        - title: "📝 Đăng ký nguyện vọng"
+          payload: "/dang_ky_nguyen_vong"
+
+  utter_ask_method:
+    - text: "Vui lòng chọn một trong các phương thức xét tuyển dưới đây:"
+      buttons:
+        - title: "📝 Xét tuyển điểm thi THPTQG"
+          payload: "/chon_ptxt_thptqg"
+        - title: "⚡ Xét tuyển điểm HSA (ĐGNL)"
+          payload: "/chon_ptxt_hsa"
+        - title: "🇬🇧 Xét tuyển kết hợp IELTS"
+          payload: "/chon_ptxt_ielts"
+        - title: "🥇 Xét Tuyển thẳng"
+          payload: "/chon_ptxt_tuyen_thang"
+
+  utter_ask_fullname:
+    - text: "Vui lòng nhập Họ và tên đầy đủ của thí sinh:"
+  utter_ask_phone_number:
+    - text: "Vui lòng nhập Số điện thoại liên hệ chính thức:"
+  utter_ask_support_issue:
+    - text: "Vui lòng nhập vấn đề/câu hỏi bạn đang gặp phải cần tư vấn viên hỗ trợ:"
+  utter_ask_hsa_id:
+    - text: "Nhập số báo danh kì thi HSA của bạn:"
+  utter_ask_hsa_score:
+    - text: "Tổng điểm thi HSA (ĐGNL) của bạn là bao nhiêu?:"
+  utter_ask_ielts_score:
+    - text: "Điểm chứng chỉ IELTS của bạn là bao nhiêu?:"
+  utter_ask_has_ielts:
+    - text: "Bạn có chứng chỉ IELTS Academic từ 5.5 trở lên không?"
+      buttons:
+        - title: "Có"
+          payload: "Có"
+        - title: "Không"
+          payload: "Không"
+  utter_ask_math_score:
+    - text: "Điểm môn Toán học bạ/thi THPT kết hợp của bạn là bao nhiêu?:"
+  utter_ask_award_name:
+    - text: "Ghi rõ tên giải thưởng và môn thi (Ví dụ: Giải Nhất Tin học Quốc gia):"
+  utter_ask_thptqg_block:
+    - text: "Bạn xét tuyển theo tổ hợp môn nào? (Ví dụ: A00, A01, D01):"
+      buttons:
+        - title: "A00 (Toán, Lý, Hóa)"
+          payload: "A00"
+        - title: "A01 (Toán, Lý, Anh)"
+          payload: "A01"
+        - title: "D01 (Toán, Văn, Anh)"
+          payload: "D01"
+        - title: "D07 (Toán, Hóa, Anh)"
+          payload: "D07"
+  utter_ask_thptqg_score:
+    - text: "Tổng điểm tổ hợp 3 môn thi THPTQG của bạn là bao nhiêu (Thang điểm 30)?"
+  utter_ask_evidence_url:
+    - text: "Vui lòng dán link (URL) ảnh chụp minh chứng học bạ hoặc điểm thi đã upload lên Cloud của bạn tại đây:"
+  utter_ask_ielts_evidence_url:
+    - text: "Vui lòng dán link (URL) ảnh chụp hoặc scan chứng chỉ IELTS đã upload lên Cloud của bạn tại đây:"
+
+  utter_tuition_info:
+    - text: "Học phí tại UET năm học 2025-2026 dao động từ 34 - 40 triệu đồng/năm. Bạn có muốn đăng ký xét tuyển trực tuyến không?"
+      buttons:
+        - title: "📝 Đăng ký nguyện vọng"
+          payload: "/dang_ky_nguyen_vong"
+
+  utter_default:
+    - text: "Xin lỗi, mình chưa hiểu rõ ý của bạn. Bạn có thể diễn đạt lại rõ hơn hoặc bấm chọn một trong các nội dung cần hỗ trợ dưới đây nhé:"
+      buttons:
+        - title: "📚 Tìm hiểu ngành học"
+          payload: "Tư vấn giúp mình ngành học"
+        - title: "📝 Đăng ký nguyện vọng"
+          payload: "/dang_ky_nguyen_vong"
+
+actions:
+  - action_query_major_info
+  - action_ask_chosen_major
+  - action_query_tuition_by_major
+  - action_query_benchmark_by_major
+  - action_submit_thptqg_form
+  - action_submit_hsa_form
+  - action_submit_ielts_form
+  - action_submit_direct_form
+  - action_cancel_flow
+  - action_ask_confirm_registration
+  - validate_hsa_form
+  - validate_ielts_form
+  - validate_direct_form
+  - validate_thptqg_form
+  - action_custom_fallback
+  - action_submit_support_form
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

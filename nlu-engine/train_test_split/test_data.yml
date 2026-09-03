@@ -1,0 +1,445 @@
+version: "3.1"
+nlu:
+- intent: cancel
+  examples: |
+    - huy di ad
+    - khong dang ky nua
+    - hủy bỏ
+    - thoi khong dang ky nua
+    - huy dang ky
+    - e muon huy bgo ho so
+    - em muốn hủy bỏ hồ sơ
+    - thôi khỏi đi, hủy hồ sơ giúp em nhé
+    - mình không muốn làm thủ tục này nữa ad ơi
+    - thôi khỏi đi nghỉ khỏe không đki nữa
+    - out ra kiểu gì thế ad ơi
+
+
+- intent: chon_ptxt_ielts
+  examples: |
+    - e thi ielts duoc 7.0 co nop uet duoc khong
+    - Xét tuyển kết hợp chứng chỉ tiếng Anh quốc tế
+    - dùng ielts kết hợp điểm toán để xét tuyển
+    - /chon_ptxt_ielts
+    - IELTS bao nhiêu thì được ưu tiên?
+    - e co ielts 6.5 muon xet
+    - em có IELTS 7.0 có xét tuyển được không?
+    - em có chứng chỉ ngoại ngữ quốc tế muốn kết hợp xét tuyển
+    - dùng điểm TOEFL iBT để thay thế ielts được không ad
+    - quy đổi điểm ielts sang điểm thi đại học như thế nào ad
+    - nop ielts ket hop toan vào uet
+
+
+- intent: chon_ptxt_tuyen_thang
+  examples: |
+    - điều kiện xét tuyển thẳng ưu tiên là gì
+    - em doat giai quoc gai co duoc tuyen thag khong
+    - hoc sinh gioi quoc gia co duoc uu tien khong
+    - diện tuyển thẳng học sinh giỏi
+    - em co huy chuong Olympic co tuyen thang khong
+    - em có giải nhất quốc gia muốn tuyển thẳng
+    - chon_ptxt_tuyen_thang
+    - dieu kien xet tuyen thang uu tien la gi
+    - e đạt giải ba học sinh giỏi tin học cấp quốc gia
+    - đối tượng đạt huy chương vàng olympic quốc tế
+    - được giải nhì hsg quốc gia môn tin học có được tuyển thẳng không ad
+    - đối tượng ưu tiên xét tuyển thẳng cho học sinh chuyên uet gồm những ai
+
+
+- intent: chon_ptxt_hsa
+  examples: |
+    - xét tuyển bằng kết quả thi đánh giá năng lực
+    - em có điểm thi HSA muốn đăng ký
+    - em muon xet bang diem danh gia nag luc
+    - xt bang DGNL
+    - xét tuyển bằng bài thi đánh giá năng lực vnu
+    - em thi HSA roi muon dung diem do xet tuyen
+    - xet tuyen bang phuong thuc HSA
+    - em đăng ký xét bằng kết quả thi đánh giá năng lực của đhqghn
+    - nộp điểm thi dgnl hà nội
+    - em muốn nộp bằng điểm thi đánh giá năng lực của đại học quốc gia hà nội
+    - xét tuyển bằng hsa thì điền như nào ad
+
+
+- intent: chon_ptxt_thptqg
+  examples: |
+    - em xet theo khoi a00
+    - em muon xet bang diem thi THPT Quoc gia
+    - dùng kết quả thi tốt nghiệp để đăng ký
+    - e thi duoc 27 diem thi nop vao uet duoc khong
+    - xt theo điểm 3 môn thi thpt
+    - e dung diem thpt de xt
+    - xet diem thi tot nghiep to hop A00
+    - điểm thi đại học
+    - /chon_ptxt_thptqg
+    - mình muốn xét bằng điểm tốt nghiệp thpt quốc gia năm nay
+    - dùng kết quả thi đại học 3 môn để xét tuyển
+    - em thi tốt nghiệp được 26 điểm khối a01 muốn nộp uet
+    - xét điểm tốt nghiệp cấp 3 vào trường công nghệ
+
+
+- intent: greet
+  examples: |
+    - hi mn
+    - cho e hỏi
+    - bat dau thoi
+    - mn oi
+    - minh muon hoi
+    - alo
+    - chao ad
+    - a/c cho em hỏi
+    - e muốn hỏi ạ
+    - bắt đầu nào
+    - cứu em với ad ơi
+    - alo ad có ai online ko ạ
+    - ad ơi cứu net em phát
+    - bot ơi rep em đi mà
+
+
+- intent: hoi_hoc_phi
+  examples: |
+    - học phí bao nhiêu
+    - tien hoc mot hoc ky la bao nhieu
+    - tốn kém bao nhiêu khi học uet
+    - mình cần đóng bao nhiêu tiền một kì
+    - hoc phi bao nhieu
+    - hoc uet ton bao nhieu tien moi nam
+    - học phí đóng theo kỳ hay theo năm vậy ad
+    - cho e hỏi hp uet ạ
+    - hoc phi uet dat khong
+    - mỗi tín chỉ UET giá bao nhiêu?
+    - truong minh mot nam dong bao nhieu tien hco phi
+    - học phí uet có đắt hơn các trường công nghệ khác không
+    - trung bình một kỳ đóng khoảng bao nhiêu tiền vậy ad
+    - học phí trường mình có chát không ad
+    - kinh phí một năm học uet khoảng bao nhiêu củ thế ạ
+
+
+- intent: dang_ky_nguyen_vong
+  examples: |
+    - dang ky nguyen vogn vao truong
+    - muốn thi vào trường công nghệ thì làm gì?
+    - đăng ký nguyện vọng 1 vào UET
+    - muốn đăng ký xét tuyển vào dhcn
+    - mình muốn đặt nguyện vọng vào UET
+    - lam sao de đăg ký nguyện vọng vào uet
+    - dang_ky_nguyen_vong
+    - làm sao để đăng ký xét tuyển?
+    - cho e đki xet tuyen truc tuyen
+    - cách thức đăng ký nguyện vọng vào UET
+    - cho e đăng kí xét tuyển
+    - xét tuyển vào ĐHCN
+    - hướng dẫn mình các bước làm hồ sơ xét tuyển online với
+    - em muốn đăng ký xét tuyển nguyện vọng vào uet
+    - chỉ em cách đăng ký nguyện vọng với ad
+    - muốn xét tuyển vào trường công nghệ thì đăng ký ở đâu vậy ạ
+
+
+- intent: hoi_hoc_phi_theo_nganh
+  examples: |
+    - học ngành [Kỹ thuật máy tính](nganh_hoc) thì tốn bao nhiêu tiền một năm?
+    - [Công nghệ sinh học](nganh_hoc) học phí một năm là bao nhiêu ạ?
+    - [Mạng máy tính](nganh_hoc) mỗi năm mình cần chuẩn bị bao nhiêu tiền học phí?
+    - học phí ngành [Công nghệ thông tin](nganh_hoc) bao nhiêu?
+    - [cn10](nganh_hoc) mỗi năm đóng bao nhiêu tiền ạ?
+    - [cn11](nganh_hoc) moi nam dong hp bao nhieu
+    - hp nganh [cn18](nganh_hoc) bao nhieu
+    - hp [Ky thuat nang luong](nganh_hoc) tam bao nhieu
+    - nganh [Vat ly ky thuat](nganh_hoc) hp tam bao nhieu a
+    - hoc nganh [Ky thuat may tinh](nganh_hoc) thi ton bao nhieu tien mot nam
+    - học phí ngành [cn14](nganh_hoc) có cao không ạ?
+    - ngành [Kỹ thuật Robot](nganh_hoc) học phí bao nhiêu một học kì
+    - nganh [KHMT](nganh_hoc) dong bao nhieu tien moi nam
+    - nganh [cn7](nganh_hoc) hp co dat khong a
+    - chi phí học ngành [Công nghệ thông tin](nganh_hoc)
+    - hp nganh [Ky thuat Robot](nganh_hoc) nam 2026 la bao nhieu
+    - e muon biet hp nganh [cn8](nganh_hoc)
+    - học phí của [KHMT](nganh_hoc) năm nay thế nào
+    - học phí của ngành [Trí tuệ nhân tạo](nganh_hoc) năm nay tăng lên bao nhiêu vậy
+    - cho em xin mức học phí của ngành [Công nghệ sinh học](nganh_hoc)
+    - học phí ngành [cn12](nganh_hoc) một năm tốn bao nhiêu tiền học phí
+    - xin học phí của ngành [Công nghệ thông tin](nganh_hoc) UET với ad
+
+
+- intent: hoi_thong_tin_nganh
+  examples: |
+    - diem chuan nganh cn11 la bao nhieu
+    - uet co nganh data science khong
+    - nganh TTNT la gi
+    - [Hệ thống thông tin](nganh_hoc) học những môn gì?
+    - Ra trường làm gì nếu học [Kỹ thuật phần mềm](nganh_hoc)
+    - Điểm chuẩn ngành [CN11](nganh_hoc) là bao nhiêu
+    - HTTT hoc nhung mon gi
+    - [CN8](nganh_hoc)
+    - [Hệ thống thông tin](nganh_hoc)
+    - cho e hoi ve nganh cn12 a
+    - Ngành [CN2](nganh_hoc) có tốt không
+    - AI uet hoc cai gi
+    - nganh khoa hoc du lieu o uet the nao
+    - Thông tin tuyển sinh ngành [An toàn thông tin](nganh_hoc)
+    - nganh cn1 hoc cai gi the ad
+    - Ngành [AI](nganh_hoc) có tương lai không?
+    - [Cơ kỹ thuật](nganh_hoc)
+    - nganh cn9 thi to hop gi
+    - ngành [Kỹ thuật Robot](nganh_hoc) học những gì và ra trường làm việc ở đâu vậy ad
+    - con gái học [Khoa học máy tính](nganh_hoc) có vất vả lắm không ad
+    - ngành [cn8](nganh_hoc) có dễ xin việc không ad
+    - review chi tiết ngành [Khoa học máy tính](nganh_hoc) cho em với ạ
+
+
+- intent: hoi_diem_chuan_nganh
+  examples: |
+    - thi 100 diem [dgnl](admission_method) thi du diem vao nganh nao cua truong
+    - diem chuan nganh [cn2](nganh_hoc) nam ngoai la bao nhieu a
+    - [cn20](nganh_hoc) điểm chuẩn 2025 là bao nhiêu?
+    - em co 110 diem hsa thi co du diem vao nganh [cn1](nganh_hoc) khong a
+    - muc diem chuan xet bang [sat](admission_method) cua nganh [Ky thuat may tinh](nganh_hoc) la bao nhieu
+    - nganh [Tu dong hoa](nganh_hoc) diem chuan la bao nhieu
+    - cho em hoi muc diem an toan de do nganh [cn8](nganh_hoc) bang [hsa](admission_method)
+    - ngành [cn9](nganh_hoc) lấy bao nhiêu điểm thi [thpt](admission_method)?
+    - nganh [cn21](nganh_hoc) diem chuan 2025 la bao nhieu
+    - [cn3](nganh_hoc) điểm chuẩn bao nhiêu?
+    - nganh AI diem chuan 2025 la bao nhieu
+    - điểm chuẩn hsa của ngành [cn15](nganh_hoc) năm ngoái là bao nhiêu ạ?
+    - bang diem chuan uet 2025
+    - điểm chuẩn ngành [Công nghệ hàng không vũ trụ](nganh_hoc) là bao nhiêu?
+    - nganh [Dien tu Vien thong](nganh_hoc) nam ngoai diem chuan la bao nhieu a
+    - diem danh gia nang luc trung binh de do vao nganh [cn1](nganh_hoc) la bao nhieu a
+    - ngành [cn1](nganh_hoc) điểm chuẩn bao nhiêu?
+    - nganh [Khoa hoc du lieu](nganh_hoc) diem chuan bao nhieu
+    - diem chuan ngah [cn12](nganh_hoc) co cao khong
+    - nganh [Cong nghe vat lieu](nganh_hoc) xet diem thi [thpt](admission_method) lay bao nhieu diem vay ad
+    - điểm chuẩn ngành [KHMT](nganh_hoc) năm nay dự kiến bao nhiêu
+    - muốn đỗ vào ngành [cn8](nganh_hoc) thì năm ngoái cần bao nhiêu điểm đánh giá năng lực
+    - điểm chuẩn xét tuyển [thpt](admission_method) của ngành [Công nghệ thông tin](nganh_hoc) có cao không ad
+    - bao nhiêu điểm thì đỗ được vào [Trí tuệ nhân tạo](nganh_hoc) năm nay thế ad
+    - ngành [Công nghệ sinh học](nganh_hoc) lấy bao nhiêu điểm thpt thế ad
+
+
+- intent: inform
+  examples: |
+    - https://res.cloudinary.com/chung_minh.jpg
+    - tên em là Hoàng Anh Tuấn
+    - ok ad
+    - SBD HSA là HSA-100293
+    - Điểm thi là 95
+    - 0912345678
+    - to hop D07
+    - diem toan la 9.2
+    - điểm thi của mình là 28.5
+    - ielts 8.0
+    - Diem thi la 27.5
+    - tôi đạt 7.0 IELTS
+    - dung roi ad
+    - 0978112233
+    - đồng ý
+    - 105
+    - điểm tổng kết là 8.5
+    - thong tin cua e dug roi
+    - sđt của em là 0967123456
+    - giải nhất tin học trẻ
+    - mã HSA của em HSA-A1B2C3
+    - tôi chọn ngành [AI](nganh_hoc)
+    - 0987654321
+    - giải nhì hsg toán quốc gia
+    - tên đầy đủ là Nguyễn Hoàng Long
+    - số hsa của em là HSA-2025-12345
+    - đây là link minh chứng của em: https://imgur.com/a/abcxyz
+    - tên đầy đủ: Trần Văn Nam
+    - đây là minh chứng ạ https://imgur.com/image.png
+    - em được 7.5 ielts ạ
+
+
+- synonym: Công nghệ thông tin
+  examples: |
+    - CNTT
+    - IT
+    - Công nghê thông tin
+    - cong nghe thong tin
+    - ngành IT
+    - công nghệ tt
+    - CN1
+- synonym: Kỹ thuật máy tính
+  examples: |
+    - KTMT
+    - kỹ thuật mt
+    - ky thuat may tinh
+    - CN2
+    - ngành máy tính
+- synonym: Vật lý kỹ thuật
+  examples: |
+    - vat ly ky thuat
+    - vật lý kỹ thuật
+    - VL kỹ thuật
+    - CN3
+- synonym: Cơ kỹ thuật
+  examples: |
+    - co ky thuat
+    - cơ học kỹ thuật
+    - CN4
+- synonym: Công nghệ kỹ thuật xây dựng
+  examples: |
+    - xây dựng
+    - kỹ thuật xây dựng
+    - CN5
+    - ngành xây dựng
+- synonym: Công nghệ kỹ thuật cơ điện tử
+  examples: |
+    - cơ điện tử
+    - co dien tu
+    - mechatronics
+    - CN6
+- synonym: Công nghệ hàng không vũ trụ
+  examples: |
+    - hàng không
+    - vũ trụ
+    - aerospace
+    - hang khong vu tru
+    - CN7
+- synonym: Khoa học máy tính
+  examples: |
+    - KHMT
+    - computer science
+    - CS
+    - khoa hoc may tinh
+    - CN8
+- synonym: Công nghệ kỹ thuật điện tử viễn thông
+  examples: |
+    - điện tử viễn thông
+    - ĐTVT
+    - electronics
+    - dien tu vien thong
+    - CN9
+    - viễn thông
+- synonym: Công nghệ nông nghiệp
+  examples: |
+    - nông nghiệp công nghệ cao
+    - nong nghiep
+    - CN10
+    - nông nghiệp
+- synonym: Kỹ thuật điều khiển và tự động hóa
+  examples: |
+    - tự động hóa
+    - tu dong hoa
+    - automation
+    - CN11
+    - kỹ thuật tự động
+    - điều khiển tự động
+- synonym: Trí tuệ nhân tạo
+  examples: |
+    - AI
+    - artificial intelligence
+    - TTNT
+    - tri tue nhan tao
+    - CN12
+    - ngành AI
+    - machine learning
+- synonym: Kỹ thuật năng lượng
+  examples: |
+    - năng lượng
+    - nang luong
+    - energy engineering
+    - CN13
+- synonym: Hệ thống thông tin
+  examples: |
+    - HTTT
+    - information system
+    - he thong thong tin
+    - CN14
+- synonym: Mạng máy tính và truyền thông dữ liệu
+  examples: |
+    - mạng máy tính
+    - mang may tinh
+    - networking
+    - CN15
+    - truyền thông dữ liệu
+- synonym: Kỹ thuật Robot
+  examples: |
+    - robot
+    - robotics
+    - ky thuat robot
+    - CN17
+- synonym: Thiết kế công nghiệp và đồ họa
+  examples: |
+    - thiết kế công nghiệp
+    - đồ họa
+    - do hoa
+    - industrial design
+    - CN18
+- synonym: Công nghệ vật liệu
+  examples: |
+    - vật liệu
+    - materials science
+    - vat lieu
+    - CN19
+- synonym: Khoa học dữ liệu
+  examples: |
+    - data science
+    - khoa hoc du lieu
+    - DS
+    - CN20
+    - khoa học dữ liệu
+- synonym: Công nghệ sinh học
+  examples: |
+    - sinh học
+    - biotech
+    - sinh hoc
+    - CN21
+    - công nghệ sinh học
+- synonym: HSA
+  examples: |
+    - đánh giá năng lực
+    - thi đánh giá năng lực
+    - đánh giá năng lực ĐHQGHN
+    - bài thi HSA
+    - kỳ thi HSA
+    - thi HSA
+    - ĐGNL
+- synonym: IELTS
+  examples: |
+    - chứng chỉ tiếng Anh
+    - chứng chỉ ngoại ngữ
+    - tiếng Anh quốc tế
+    - TOEFL
+    - SAT
+    - chứng chỉ quốc tế
+- synonym: tuyển thẳng
+  examples: |
+    - học sinh giỏi
+    - giải quốc gia
+    - ưu tiên xét tuyển
+    - diện tuyển thẳng
+    - Olympic quốc tế
+    - giải học sinh giỏi quốc gia
+- synonym: điểm thi THPT
+  examples: |
+    - tốt nghiệp THPT
+    - thi tốt nghiệp
+    - điểm thi đại học
+    - điểm thi 3 môn
+    - thi quốc gia
+    - điểm thi THPTQG
+    - thi tốt nghiệp phổ thông
+- synonym: A00
+  examples: |
+    - Toán Lý Hóa
+    - toan ly hoa
+    - khối A
+    - tổ hợp A00
+- synonym: A01
+  examples: |
+    - Toán Lý Anh
+    - toan ly anh
+    - khối A1
+    - tổ hợp A01
+- synonym: X06
+  examples: |
+    - Toán Lý Tin
+    - toan ly tin
+    - tổ hợp X06
+    - khối kỹ thuật tin học
+- synonym: A02
+  examples: |
+    - Toán Lý Sinh
+    - toan ly sinh
+    - tổ hợp A02

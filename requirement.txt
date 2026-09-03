@@ -1,0 +1,28 @@
+Chủ đề: Tối ưu và mở rộng Kiến trúc Chatbot Tuyển sinh Đại học bằng Rasa Open Source theo mô hình Flowchart-Grounded AI.
+
+Chào bạn, tôi đang phát triển một dự án Chatbot hỗ trợ tuyển sinh sử dụng framework Rasa (Python). Tôi cần bạn đóng vai trò là một Chuyên gia Kiến trúc AI / Rasa Developer cấp cao để đánh giá hiện trạng source code và hướng dẫn tôi triển khai chi tiết bước tiếp theo.
+
+1. HIỆN TRẠNG SOURCE CODE (AS-IS):
+- Hiện tại, mã nguồn của tôi mới chỉ ở mức cơ bản (Luồng Unstructured / Cực kỳ đơn giản).
+- Đang cấu hình một vài Intent và Utterance để xử lý câu hỏi FAQ ngắn gọn (Ví dụ: hỏi thông tin ngành học, học phí).
+- Các file data/stories.yml và data/rules.yml mới chỉ xử lý dạng: Nhận Intent -> Trả kết quả (Hỏi - Đáp ngắt đoạn).
+- Hệ thống CHƯA CÓ quy trình cứng, chưa có tính năng quản lý ngữ cảnh phức tạp hay xử lý logic rẽ nhánh cho các quy trình nghiệp vụ của nhà trường.
+
+2. MỤC TIÊU PHÁT TRIỂN (TO-BE):
+Tôi muốn nâng cấp con chatbot này thành một hệ thống "Flowchart-Grounded AI" thực thụ, kết hợp mượt mà giữa "Tìm hiểu thông tin tự do" và "Quy trình xét tuyển cố định (Deterministic)". Sơ đồ luồng kỳ vọng như sau:
+- Bước 1: Thí sinh hỏi thông tin ngành tự do (Ví dụ: CNTT). Bot trích xuất Entity, trả thông tin mô tả và lưu tên ngành vào Slot (selected_major) để neo giữ ngữ cảnh.
+- Bước 2: Bot chủ động kích hoạt một lời gọi hành động (Call to Action) để hỏi thí sinh có muốn check điểm xét tuyển học bạ thử không.
+- Bước 3 (Kích hoạt Flowchart): Nếu thí sinh đồng ý, hệ thống sẽ kích hoạt một Rasa Form (hocba_admission_form) để bắt buộc thu thập 2 thông tin: Khối xét tuyển (selected_block) và Điểm số GPA (gpa_score).
+- Bước 4 (Xử lý rẽ nhánh động): Sau khi Form thu thập đủ dữ liệu, hệ thống sẽ gọi một Custom Action (action_eval_hocba_admission) viết bằng Python để thực hiện logic rẽ nhánh (If-Else) dựa trên dữ liệu điểm chuẩn:
+  + Nhánh Đỗ: Điểm >= Điểm chuẩn -> Trả về câu chúc mừng + Link nộp hồ sơ gốc.
+  + Nhánh Sát nút: Điểm tiệm cận -> Khuyên nộp đợt bổ sung hoặc gợi ý ngành gần.
+  + Nhánh Trượt: Điểm thấp -> Tư vấn chuyển sang phương thức xét điểm thi THPT.
+
+3. YÊU CẦU CỦA TÔI ĐỐI VỚI BẠN:
+Dựa trên hiện trạng và mục tiêu trên, hãy phân tích và viết cho tôi một hướng dẫn triển khai cực kỳ CHI TIẾT bao gồm:
+a) Cấu trúc thư mục chuẩn của Rasa khi scale-up dự án này để tránh bị nhiễu luồng (Story Contradiction).
+b) Cách viết file domain.yml sao cho các slot (selected_major, selected_block, gpa_score) có thể kế thừa dữ liệu từ luồng FAQ tự do sang luồng Form một cách mượt mà nhất.
+c) Viết file data/stories.yml mẫu thể hiện rõ cả 2 kịch bản: Thí sinh đi hết luồng từ FAQ đến khi nhận kết quả xét tuyển, và kịch bản thí sinh từ chối tham gia form.
+d) Viết code file actions/actions.py (bằng Python) xử lý trọn vẹn việc giả lập database điểm chuẩn (Dictionary) và thực hiện các hàm logic quyết định rẽ nhánh cho 3 kết quả đầu ra (Đỗ / Sát nút / Trượt) kèm việc dọn dẹp (reset) slot sau khi phiên kết thúc.
+
+Hãy trình bày giải pháp một cách tường minh, giải thích rõ ràng kiến trúc để tôi có thể đưa vào báo cáo đồ án / nghiên cứu khoa học của mình.

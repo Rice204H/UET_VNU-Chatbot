@@ -1,0 +1,58 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - xin chào
+      - xin chao
+      - hi ad
+      - hi a/c
+      - chào chatbot
+      - chao chatbot
+      - hello
+      - chào ad
+      - chao ad
+      - hey
+      - hey bot
+      - hi bot
+      - chào bạn
+      - chao ban
+      - alo
+      - alo ad
+      - chào buổi sáng
+      - chao buoi sang
+      - chào buổi chiều
+      - good morning
+      - good afternoon
+      - chào nhé
+      - bắt đầu thôi
+      - bat dau thoi
+      - bắt đầu nào
+      - bat dau nao
+      - mình muốn hỏi
+      - minh muon hoi
+      - cho mình hỏi chút
+      - cho minh hoi chut
+      - cho e hỏi
+      - cho e hoi
+      - a/c cho em hỏi
+      - ac cho e hoi
+      - mn ơi
+      - mn oi
+      - ad ơi
+      - ad oi
+      - mng ơi
+      - mng oi
+      - hello ad
+      - hi anh chị
+      - hi a chi
+      - Xin chào ạ
+      - xin chao a
+      - e muốn hỏi ạ
+      - e muon hoi a
+      - cho em hỏi với
+      - cho em hoi voi
+      - helo
+      - helo ad
+      - hi mn
+      - chào mn

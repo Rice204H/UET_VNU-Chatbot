@@ -1,0 +1,499 @@
+Dưới đây là toàn bộ tài liệu đặc tả dự án **Chatbot Hỗ trợ Tuyển sinh & Đăng ký Nguyện vọng** dựa trên kiến trúc **Flowchart - Rasa System** đã được tổng hợp, đồng bộ hóa và làm sạch hoàn chỉnh.
+
+Tài liệu này tích hợp đầy đủ cả 4 phương thức xét tuyển: **HSA, IELTS kết hợp, Tuyển thẳng, và Điểm thi THPTQG (kèm minh chứng URL Cloud)**. Nhóm của Kiên có thể dùng bản này làm tài liệu kỹ thuật chính thức để triển khai.
+
+---
+
+## 1. Kiến trúc tổng quan hệ thống (System Architecture)
+
+Hệ thống hoạt động theo mô hình Hybrid: **Hội thoại tự do (NLU/FAQ)** ở giai đoạn tìm hiểu thông tin và chuyển tiếp sang **Hội thoại định hướng (Form/State Machine)** bằng các nút bấm điều hướng khi thí sinh đăng ký nguyện vọng.
+
+```text
+[Frontend: Web/Facebook Chat] 
+       │ (Gửi câu hỏi / Payload nút bấm)
+       ▼
+[Rasa Open Source Server] ──(Nếu là FAQ)──► Trả về thông tin ngay (Học phí, Điểm chuẩn)
+       │ (Kích hoạt Form tương ứng phương thức xét tuyển)
+       ▼
+[Rasa Action Server (Python)]
+       │ (Thực thi Custom Actions / Xử lý Logic Form)
+       ▼
+[Database: MySQL Server] ──► (Lưu trữ thông tin & Minh chứng URL)
+
+```
+
+---
+
+## 2. Thiết kế Cơ sở dữ liệu (MySQL Schema)
+
+Cấu trúc gồm 1 bảng danh mục (`majors`), 1 bảng định danh thí sinh chung (`candidates`), và 4 bảng phụ tương ứng với các nhánh flowchart thu thập thông tin đặc thù.
+
+```sql
+CREATE DATABASE IF NOT EXISTS university_admission CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE university_admission;
+
+
+
+-- 1. Danh mục Ngành học để bot tra cứu dữ liệu động
+
+CREATE TABLE majors (
+
+    major_code VARCHAR(20) PRIMARY KEY,
+
+    major_name VARCHAR(100) NOT NULL,
+
+    tuition_fee DECIMAL(10, 2),
+
+    benchmark_2025 FLOAT,
+
+    quota INT,
+
+    description TEXT
+
+);
+
+
+
+-- 2. Bảng định danh thông tin chung của thí sinh
+
+CREATE TABLE candidates (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    fullname VARCHAR(100) NOT NULL,
+
+    phone_number VARCHAR(15) NOT NULL,
+
+    chosen_major_code VARCHAR(20),
+
+    admission_method VARCHAR(30) NOT NULL, -- 'HSA', 'IELTS', 'TUYEN_THANG', 'THPTQG'
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (chosen_major_code) REFERENCES majors(major_code)
+
+);
+
+
+
+-- 3. Bảng phụ: Phương thức HSA (Đánh giá năng lực)
+
+CREATE TABLE admission_hsa (
+
+    candidate_id INT PRIMARY KEY,
+
+    hsa_id VARCHAR(50) NOT NULL,
+
+    hsa_score FLOAT NOT NULL,
+
+    evidence_url VARCHAR(500) NOT NULL,   -- Link ảnh minh chứng lưu trên Cloud
+
+    FOREIGN KEY (candidate_id) REFERENCES candidates(id) ON DELETE CASCADE
+
+);
+
+
+
+-- 4. Bảng phụ: Phương thức IELTS kết hợp
+
+CREATE TABLE admission_ielts (
+
+    candidate_id INT PRIMARY KEY,
+
+    ielts_score FLOAT NOT NULL,
+
+    highschool_math_score FLOAT NOT NULL,
+
+    evidence_url VARCHAR(500) NOT NULL,   -- Link ảnh minh chứng lưu trên Cloud
+
+    FOREIGN KEY (candidate_id) REFERENCES candidates(id) ON DELETE CASCADE
+
+);
+
+
+
+-- 5. Bảng phụ: Phương thức Tuyển thẳng
+
+CREATE TABLE admission_direct (
+
+    candidate_id INT PRIMARY KEY,
+
+    award_name VARCHAR(255) NOT NULL,
+
+    award_rank VARCHAR(50) NOT NULL,
+
+    evidence_url VARCHAR(500) NOT NULL,   -- Link ảnh minh chứng lưu trên Cloud
+
+    FOREIGN KEY (candidate_id) REFERENCES candidates(id) ON DELETE CASCADE
+
+);
+
+
+
+-- 6. Bảng phụ: Phương thức điểm thi THPTQG (Thang điểm 30 + Link Cloud)
+
+CREATE TABLE admission_thptqg (
+
+    candidate_id INT PRIMARY KEY,
+
+    block_name VARCHAR(10) NOT NULL,       -- Khối thi: A00, A01, D01...
+
+    total_score FLOAT NOT NULL,           -- Tổng điểm 3 môn
+
+    evidence_url VARCHAR(500) NOT NULL,   -- Link ảnh minh chứng lưu trên Cloud
+
+    FOREIGN KEY (candidate_id) REFERENCES candidates(id) ON DELETE CASCADE
+
+);
+```
+
+---
+
+## 3. Quản lý Dữ liệu Huấn luyện (`data/nlu.yml`)
+
+```yaml
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - xin chào
+      - hi ad
+      - chào chatbot
+      - hello
+
+  - intent: hoi_thong_tin_nganh
+    examples: |
+      - Ngành [Khoa học máy tính](nganh_hoc) học những gì?
+      - Tư vấn giúp mình ngành [Công nghệ thông tin](nganh_hoc)
+      - Ra trường làm gì nếu học [Kỹ thuật phần mềm](nganh_hoc)
+      - Thông tin tuyển sinh ngành [An toàn thông tin](nganh_hoc)
+
+  - intent: hoi_hoc_phi
+    examples: |
+      - Học phí ngành [CNTT](nganh_hoc) là bao nhiêu?
+      - Trường mình một năm đóng bao nhiêu tiền học phí?
+      - Học phí [Khoa học máy tính](nganh_hoc) có đắt không?
+
+  - intent: dang_ky_nguyen_vong
+    examples: |
+      - Tôi muốn đăng ký nguyện vọng vào trường
+      - Cho em đặt nguyện vọng với ad
+      - Đăng ký tư vấn xét tuyển ở đâu ạ
+      - /dang_ky_nguyen_vong
+
+  - intent: chon_ptxt_hsa
+    examples: |
+      - Em muốn xét bằng điểm Đánh giá năng lực
+      - Xét tuyển bằng phương thức HSA
+      - /chon_ptxt_hsa
+
+  - intent: chon_ptxt_ielts
+    examples: |
+      - Xét tuyển kết hợp chứng chỉ tiếng Anh quốc tế
+      - Em có bằng IELTS muốn xét tuyển
+      - /chon_ptxt_ielts
+
+  - intent: chon_ptxt_tuyen_thang
+    examples: |
+      - Diện tuyển thẳng giải quốc gia
+      - Đăng ký tuyển thẳng
+      - /chon_ptxt_tuyen_thang
+
+  - intent: chon_ptxt_thptqg
+    examples: |
+      - Em muốn xét bằng điểm thi THPT Quốc gia
+      - Xét điểm tốt nghiệp THPT theo tổ hợp môn
+      - /chon_ptxt_thptqg
+
+  - intent: inform
+    examples: |
+      - Nguyễn Trung Kiên
+      - 0912345678
+      - Số HSA của em là HSA-12345
+      - Điểm thi là 95
+      - Em được 6.5 ielts
+      - Tổ hợp A00
+      - Điểm thi là 27.5
+      - https://cloudinary.com/xyz_evidence.png
+
+```
+
+---
+
+## 4. Cấu hình Trạng thái và Định nghĩa Form (`domain.yml`)
+
+```yaml
+version: "3.1"
+
+intents:
+  - greet
+  - hoi_thong_tin_nganh
+  - hoi_hoc_phi
+  - dang_ky_nguyen_vong
+  - chon_ptxt_hsa
+  - chon_ptxt_ielts
+  - chon_ptxt_tuyen_thang
+  - chon_ptxt_thptqg
+  - inform
+
+entities:
+  - nganh_hoc
+
+slots:
+  fullname:
+    type: text
+    influence_conversation: false
+    mappings: &form_mappings
+      - type: from_text
+        conditions:
+          - active_loop: hsa_form
+            requested_slot: fullname
+          - active_loop: ielts_form
+            requested_slot: fullname
+          - active_loop: direct_form
+            requested_slot: fullname
+          - active_loop: thptqg_form
+            requested_slot: fullname
+  phone_number:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: hsa_form
+            requested_slot: phone_number
+          - active_loop: ielts_form
+            requested_slot: phone_number
+          - active_loop: direct_form
+            requested_slot: phone_number
+          - active_loop: thptqg_form
+            requested_slot: phone_number
+  chosen_major:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: hsa_form
+            requested_slot: chosen_major
+          - active_loop: ielts_form
+            requested_slot: chosen_major
+          - active_loop: direct_form
+            requested_slot: chosen_major
+          - active_loop: thptqg_form
+            requested_slot: chosen_major
+
+  # Các slot đặc thù theo nhánh
+  hsa_id:
+    type: text
+    influence_conversation: false
+    mappings: [{type: from_text, conditions: [{active_loop: hsa_form, requested_slot: hsa_id}]}]
+  hsa_score:
+    type: text
+    influence_conversation: false
+    mappings: [{type: from_text, conditions: [{active_loop: hsa_form, requested_slot: hsa_score}]}]
+  ielts_score:
+    type: text
+    influence_conversation: false
+    mappings: [{type: from_text, conditions: [{active_loop: ielts_form, requested_slot: ielts_score}]}]
+  math_score:
+    type: text
+    influence_conversation: false
+    mappings: [{type: from_text, conditions: [{active_loop: ielts_form, requested_slot: math_score}]}]
+  award_name:
+    type: text
+    influence_conversation: false
+    mappings: [{type: from_text, conditions: [{active_loop: direct_form, requested_slot: award_name}]}]
+  thptqg_block:
+    type: text
+    influence_conversation: false
+    mappings: [{type: from_text, conditions: [{active_loop: thptqg_form, requested_slot: thptqg_block}]}]
+  thptqg_score:
+    type: text
+    influence_conversation: false
+    mappings: [{type: from_text, conditions: [{active_loop: thptqg_form, requested_slot: thptqg_score}]}]
+  evidence_url:
+    type: text
+    influence_conversation: false
+    mappings: [{type: from_text, conditions: [{active_loop: thptqg_form, requested_slot: evidence_url}]}]
+
+forms:
+  hsa_form:
+    required_slots: [fullname, phone_number, chosen_major, hsa_id, hsa_score]
+  ielts_form:
+    required_slots: [fullname, phone_number, chosen_major, ielts_score, math_score]
+  direct_form:
+    required_slots: [fullname, phone_number, chosen_major, award_name]
+  thptqg_form:
+    required_slots: [fullname, phone_number, chosen_major, thptqg_block, thptqg_score, evidence_url]
+
+responses:
+  utter_greet:
+    - text: "Xin chào! Mình là Chatbot tuyển sinh trường ĐH số. Bạn muốn tìm hiểu ngành học hay đăng ký nguyện vọng xét tuyển trực tuyến luôn?"
+      buttons:
+        - title: "Tìm hiểu ngành học"
+          payload: "Tư vấn giúp mình ngành học"
+        - title: "Đăng ký nguyện vọng"
+          payload: "/dang_ky_nguyen_vong"
+
+  utter_ask_method:
+    - text: "Vui lòng chọn một trong các phương thức xét tuyển dưới đây:"
+      buttons:
+        - title: "Xét tuyển điểm thi THPTQG"
+          payload: "/chon_ptxt_thptqg"
+        - title: "Xét tuyển điểm HSA (ĐGNL)"
+          payload: "/chon_ptxt_hsa"
+        - title: "Xét tuyển kết hợp IELTS"
+          payload: "/chon_ptxt_ielts"
+        - title: "Xét Tuyển thẳng"
+          payload: "/chon_ptxt_tuyen_thang"
+
+  utter_ask_fullname: [{text: "Vui lòng nhập Họ và tên đầy đủ của thí sinh:"}]
+  utter_ask_phone_number: [{text: "Vui lòng nhập Số điện thoại liên hệ chính thức:"}]
+  utter_ask_chosen_major: [{text: "Bạn muốn đặt nguyện vọng vào ngành nào? (Ví dụ: Khoa học máy tính):"}]
+  utter_ask_hsa_id: [{text: "Nhập số báo danh kì thi HSA của bạn:"}]
+  utter_ask_hsa_score: [{text: "Tổng điểm thi HSA (ĐGNL) của bạn là bao nhiêu?:"}]
+  utter_ask_ielts_score: [{text: "Điểm chứng chỉ IELTS của bạn là bao nhiêu?:"}]
+  utter_ask_math_score: [{text: "Điểm môn Toán học bạ/thi THPT kết hợp của bạn là bao nhiêu?:"}]
+  utter_ask_award_name: [{text: "Ghi rõ tên giải thưởng và môn thi (Ví dụ: Giải Nhất Tin học Quốc gia):"}]
+  utter_ask_thptqg_block: [{text: "Bạn xét tuyển theo tổ hợp môn nào? (Ví dụ: A00, A01, D01):"}]
+  utter_ask_thptqg_score: [{text: "Tổng điểm tổ hợp 3 môn thi THPTQG của bạn là bao nhiêu (Thang điểm 30)?"}]
+  utter_ask_evidence_url: [{text: "Vui lòng dán link (URL) ảnh chụp minh chứng học bạ hoặc điểm thi đã upload lên Cloud của bạn tại đây:"}]
+
+```
+
+---
+
+## 5. Phân nhánh kịch bản Flowchart (`data/stories.yml`)
+
+```yaml
+version: "3.1"
+
+stories:
+- story: Luồng tìm hiểu thông tin ngành -> Chuyển hướng đăng ký THPTQG
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: hoi_thong_tin_nganh
+  - action: action_query_major_info
+  - intent: dang_ky_nguyen_vong
+  - action: utter_ask_method
+  - intent: chon_ptxt_thptqg
+  - action: thptqg_form
+  - active_loop: thptqg_form
+  - active_loop: null
+  - action: action_submit_thptqg_form
+
+- story: Luồng đăng ký trực tiếp qua HSA
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: dang_ky_nguyen_vong
+  - action: utter_ask_method
+  - intent: chon_ptxt_hsa
+  - action: hsa_form
+  - active_loop: hsa_form
+  - active_loop: null
+  - action: action_submit_hsa_form
+
+- story: Luồng đăng ký trực tiếp qua IELTS
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: dang_ky_nguyen_vong
+  - action: utter_ask_method
+  - intent: chon_ptxt_ielts
+  - action: ielts_form
+  - active_loop: ielts_form
+  - active_loop: null
+  - action: action_submit_ielts_form
+
+```
+
+---
+
+## 6. Logic Backend Xử lý kết nối Database (`actions/actions.py`)
+
+```python
+from typing import Any, Text, Dict, List
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+import mysql.connector
+
+def get_db_connection():
+    return mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="your_password",
+        database="university_admission"
+    )
+
+# --- GIAI ĐOẠN 1: TRA CỨU ĐỘNG THÔNG TIN ---
+class ActionQueryMajorInfo(Action):
+    def name(self) -> Text:
+        return "action_query_major_info"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        nganh_hoc = next(tracker.get_latest_entity_values("nganh_hoc"), None)
+        if not nganh_hoc:
+            dispatcher.utter_message(text="Bạn muốn hỏi về ngành cụ thể nào? Ví dụ: Khoa học máy tính.")
+            return []
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor(dictionary=True)
+            cursor.execute("SELECT * FROM majors WHERE major_name LIKE %s", (f"%{nganh_hoc}%",))
+            major = cursor.fetchone()
+            if major:
+                response = (f"Ngành {major['major_name']} ({major['major_code']}):\n"
+                            f"- Học phí: {major['tuition_fee']} VNĐ/kỳ.\n"
+                            f"- Điểm chuẩn 2025: {major['benchmark_2025']}\n"
+                            f"- Chỉ tiêu: {major['quota']}\nBạn có muốn nộp hồ sơ xét tuyển không?")
+                dispatcher.utter_message(text=response, buttons=[{"title": "Đăng ký ngay", "payload": "/dang_ky_nguyen_vong"}])
+            else:
+                dispatcher.utter_message(text=f"Hiện tại mình chưa tìm thấy thông tin ngành {nganh_hoc}.")
+            cursor.close()
+            conn.close()
+        except Exception as e:
+            dispatcher.utter_message(text="Hệ thống tra cứu đang bận, thử lại sau!")
+        return []
+
+# --- GIAI ĐOẠN 2: SUBMIT FORM THPTQG ---
+class ActionSubmitThptqgForm(Action):
+    def name(self) -> Text:
+        return "action_submit_thptqg_form"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        slots = ["fullname", "phone_number", "chosen_major", "thptqg_block", "thptqg_score", "evidence_url"]
+        data = {s: tracker.get_slot(s) for s in slots}
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            
+            # Ghi vào bảng gốc candidates
+            cursor.execute("""
+                INSERT INTO candidates (fullname, phone_number, chosen_major_code, admission_method)
+                VALUES (%s, %s, (SELECT major_code FROM majors WHERE major_name LIKE %s LIMIT 1), 'THPTQG')
+            """, (data["fullname"], data["phone_number"], f"%{data['chosen_major']}%"))
+            candidate_id = cursor.lastrowid
+            
+            # Ghi vào bảng phụ admission_thptqg kèm link Cloud URL
+            cursor.execute("""
+                INSERT INTO admission_thptqg (candidate_id, block_name, total_score, evidence_url)
+                VALUES (%s, %s, %s, %s)
+            """, (candidate_id, data["thptqg_block"], data["thptqg_score"], data["evidence_url"]))
+            
+            conn.commit()
+            cursor.close()
+            conn.close()
+            dispatcher.utter_message(text=f"Chúc mừng {data['fullname']} đã đăng ký thành công! Mã hồ sơ: #{candidate_id}. Ban tuyển sinh sẽ thẩm định minh chứng tại link bạn đã gửi.")
+        except Exception as e:
+            dispatcher.utter_message(text="Gặp sự cố khi lưu hồ sơ THPTQG trực tuyến.")
+        return []
+
+```
+
+---
+
+Bản tổng hợp đặc tả này đã sẵn sàng để phân phối. Việc đồng bộ chặt chẽ cấu trúc tên `slot` của Rasa với cột cơ sở dữ liệu `MySQL` sẽ giúp bạn Backend phát triển các Custom Action còn lại (`action_submit_hsa_form`, `action_submit_ielts_form`) một cách rất dễ dàng dựa trên khuôn mẫu của hàm THPTQG ở trên.

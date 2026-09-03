@@ -1,0 +1,85 @@
+TÀI LIỆU THIẾT KẾ KIẾN TRÚC HỆ THỐNG
+Dự án: Chatbot Tư vấn Tuyển sinh Đại học (Flowchart-grounded AI)
+1. Kiến trúc tổng thể (High-Level Architecture)
+Hệ thống được thiết kế theo mô hình Decoupled Architecture, tách rời phần hiểu ngôn ngữ (NLU) và phần điều phối hội thoại (Orchestration).
+Client Layer: Giao diện người dùng (Web/Mobile), gửi và nhận tin nhắn qua Socket.io hoặc REST API.
+Orchestrator Layer (Node.js): Đóng vai trò là "Tổng đài viên", điều phối luồng dữ liệu giữa NLU, Database và Client.
+NLU Layer (Rasa): Dịch vụ chuyên biệt để phân tích ý định (Intent) và thực thể (Entity).
+Data Layer: PostgreSQL (Dữ liệu nghiệp vụ) và Redis (Quản lý trạng thái/Session).
+
+2. Các thành phần cốt lõi (Core Components)
+2.1. Node.js Orchestrator (Dialogue Manager)
+Đây là trung tâm xử lý logic của hệ thống.
+Flowchart Parser: Đọc và ánh xạ file flowchart.json vào bộ nhớ.
+State Router: Quyết định Node tiếp theo dựa trên kết quả từ Rasa và trạng thái hiện tại trong Redis.
+Integrator: Gọi các API bên ngoài hoặc truy vấn Database để lấy dữ liệu động (điểm chuẩn, học phí).
+2.2. Rasa NLU Service
+Đóng vai trò là một "Pure NLU Service".
+Pipeline: DIETClassifier, EntitySynonymMapper, ResponseSelector.
+Output: Trả về JSON chứa Intent (độ tin cậy > 0.8) và các Entities đã chuẩn hóa.
+2.3. Lớp lưu trữ (Storage Layer)
+Thành phần
+Công nghệ
+Nội dung lưu trữ
+Business DB
+PostgreSQL
+Thông tin ngành, mã ngành, điểm chuẩn, học phí, học bổng.
+State Store
+Redis
+current_node, slots_filled, conversation_history.
+Metadata
+JSON/YAML
+Cấu trúc đồ thị Flowchart (Nodes, Edges, Conditions).
+
+
+3. Thiết kế luồng xử lý (Sequence Flow)
+Quy trình xử lý một câu lệnh từ người dùng được thực hiện qua các bước sau:
+Input: Client gửi câu hỏi: "Ngành KHMT lấy bao nhiêu điểm?".
+Understand: Node.js gửi text sang Rasa. Rasa trả về: {intent: "ask_score", entities: {major: "Khoa học máy tính"}}.
+Map: Node.js tra cứu flowchart.json, thấy Intent ask_score dẫn đến Node diem_chuan.
+Fetch: Node.js lấy mã ngành CN1 từ bảng mapping, query PostgreSQL lấy điểm chuẩn năm 2025.
+Render: Node.js kết hợp dữ liệu vào template câu trả lời và gửi kèm các nút bấm (e.g., "Xem học phí", "Cơ hội việc làm").
+Update: Cập nhật current_node = diem_chuan vào Redis.
+
+4. Thiết kế Cơ sở dữ liệu (Database Design)
+-- Chèn dữ liệu Ngành học
+INSERT INTO majors (code, name, program_type, tuition_fee, curriculum_summary) VALUES
+('CN1', 'Công nghệ thông tin', 'Standard', 34.00, '145 tín chỉ, đào tạo 4 năm'),
+('CN2', 'An toàn thông tin', 'DMKT', 40.00, '150 tín chỉ, đào tạo 4.5 năm');
+
+-- Chèn mô tả chi tiết (1:1 với majors)
+INSERT INTO major_descriptions (major_id, introduction, duration, orientation) VALUES
+(1, 'Ngành học mũi nhọn về phần mềm và hệ thống.', 4.0, 'Lập trình viên, Kiến trúc sư hệ thống.'),
+(2, 'Chương trình đào tạo chuyên sâu về bảo mật.', 4.5, 'Chuyên gia bảo mật, Kỹ sư an ninh mạng.');
+
+-- Chèn Phương thức xét tuyển
+INSERT INTO admission_methods (method_name, description) VALUES
+('THPTQG', 'Xét điểm thi tốt nghiệp THPT'),
+('XetThang', 'Tuyển thẳng theo quy định Bộ GD&ĐT'),
+('IELTS_Plus', 'Kết hợp chứng chỉ quốc tế và học bạ');
+
+-- Chèn Điểm chuẩn (So sánh 2024 - 2025)
+INSERT INTO admission_scores (major_id, method_id, year, score, subject_groups) VALUES
+(1, 1, 2024, 26.50, 'A00, A01'),
+(1, 1, 2025, 27.25, 'A00, A01'),
+(2, 1, 2025, 25.00, 'A00, D01');
+
+-- Chèn Chỉ tiêu (2025 thực tế & 2026 dự kiến)
+INSERT INTO admission_quotas (major_id, method_id, year, quota, is_expected) VALUES
+(1, 1, 2025, 200, FALSE),
+(1, 1, 2026, 220, TRUE), -- Chỉ tiêu dự kiến tăng cho 2026
+(2, 3, 2025, 50, FALSE);
+
+-- Chèn Bảng quy đổi điểm IELTS
+INSERT INTO certificate_conversion (cert_type, original_score, converted_score) VALUES
+('IELTS', 6.5, 9.00),
+('IELTS', 7.0, 9.50),
+('IELTS', 7.5, 10.00);
+
+-- Chèn Học bổng
+INSERT INTO scholarships_policies (category, name, description, major_id) VALUES
+('Scholarship', 'Học bổng Tài năng trẻ', 'Tặng 100% học phí cho SV đạt giải Quốc gia', 1),
+('Policy', 'Miễn giảm vùng khó khăn', 'Giảm 20% học phí cho SV vùng sâu vùng xa', NULL);
+
+
+

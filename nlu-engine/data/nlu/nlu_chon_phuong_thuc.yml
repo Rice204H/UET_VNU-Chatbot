@@ -1,0 +1,165 @@
+version: "3.1"
+
+nlu:
+  - intent: chon_ptxt_hsa
+    examples: |
+      - em muon xet bang diem danh gia nag luc
+      - xet tuyen bang phuong thuc HAS
+      - e thi DGNl roi muon xet tuyen
+      - thi dgnl vnu lay bn thi do
+      - em co diem has roi muon nop don
+      - Em muốn xét bằng điểm Đánh giá năng lực
+      - em muon xet bang diem danh gia nang luc
+      - Xét tuyển bằng phương thức HSA
+      - xet tuyen bang phuong thuc HSA
+      - /chon_ptxt_hsa
+      - chon_ptxt_hsa
+      - Xét điểm HSA
+      - xet diem HSA
+      - đánh giá năng lực ĐHQGHN
+      - danh gia nang luc DHQGHN
+      - em thi HSA rồi muốn dùng điểm đó xét tuyển
+      - em thi HSA roi muon dung diem do xet tuyen
+      - xét tuyển theo điểm đánh giá năng lực của ĐHQG
+      - xet tuyen theo diem danh gia nang luc cua DHQG
+      - phương thức HSA là gì?
+      - phuong thuc HSA la gi
+      - điểm HSA của em là bao nhiêu thì đậu?
+      - diem HSA cua em la bao nhieu thi dau
+      - xét tuyển bằng kết quả thi đánh giá năng lực
+      - xet tuyen bang ket qua thi danh gia nang luc
+      - em có điểm thi HSA muốn đăng ký
+      - em co diem thi HSA muon dang ky
+      - e thi ĐGNL rồi muốn xét tuyển
+      - e thi DGNL roi muon xet tuyen
+      - xt bằng ĐGNL
+      - xt bang DGNL
+      - cho e đk bằng điểm hsa
+      - cho e dk bang diem hsa
+      - e muốn dùng kết quả hsa để xt
+      - e da co diem hsa can lam gi tiep
+      - xét tuyển bằng bài thi đánh giá năng lực vnu
+      - xet tuyen bang bai thi danh gia nang luc vnu
+      - e có kq thi đgnl muốn nộp
+      - e co kq thi dgnl muon nop
+
+  - intent: chon_ptxt_ielts
+    examples: |
+      - xt bang chưng chi tieng anh
+      - e muon xet bang chung chi ilets
+      - e co ccnn ilets muon xt vao uet
+      - em co bằg ielt 6.0 co dc xet k ad
+      - dung bang tofel ibt xet tuyen ntn
+      - Xét tuyển kết hợp chứng chỉ tiếng Anh quốc tế
+      - xet tuyen ket hop chung chi tieng anh quoc te
+      - Em có bằng IELTS muốn xét tuyển
+      - em co bang IELTS muon xet tuyen
+      - /chon_ptxt_ielts
+      - chon_ptxt_ielts
+      - xét tuyển ielts kết hợp
+      - xet tuyen ielts ket hop
+      - em có IELTS 7.0 có xét tuyển được không?
+      - em co IELTS 7.0 co xet tuyen duoc khong
+      - dùng chứng chỉ IELTS để đăng ký được không?
+      - dung chung chi IELTS de dang ky duoc khong
+      - xét tuyển bằng chứng chỉ ngoại ngữ quốc tế
+      - xet tuyen bang chung chi ngoai ngu quoc te
+      - IELTS bao nhiêu thì được ưu tiên?
+      - IELTS bao nhieu thi duoc uu tien
+      - tôi có TOEFL iBT có xét tuyển được không?
+      - toi co TOEFL iBT co xet tuyen duoc khong
+      - em có bằng tiếng Anh quốc tế muốn ưu tiên xét tuyển
+      - em co bang tieng anh quoc te muon uu tien xet tuyen
+      - e có ielts 6.5 muốn xét
+      - e co ielts 6.5 muon xet
+      - xt bằng chứng chỉ tiếng anh
+      - xt bang chung chi tieng anh
+      - cho e đk bằng điểm ielts
+      - cho e dk bang diem ielts
+      - e có ccnn ielts muốn xt vào uet
+      - e co ccnn ielts muon xt vao uet
+      - e thi ielts duoc 7.0 co nop uet duoc khong
+      - dùng ielts kết hợp điểm toán để xét tuyển
+
+  - intent: chon_ptxt_tuyen_thang
+    examples: |
+      - em doat giai quoc gai co duoc tuyen thag khong
+      - dien tuyen thag hoc sinh gioi
+      - tuyen thag theo quy che bo gd
+      - e co giai hsg cap tinh co dc xt thag k
+      - tt theo diên hsg quoc gia
+      - Diện tuyển thẳng giải quốc gia
+      - dien tuyen thang giai quoc gia
+      - Đăng ký tuyển thẳng
+      - dang ky tuyen thang
+      - /chon_ptxt_tuyen_thang
+      - chon_ptxt_tuyen_thang
+      - diện tuyển thẳng học sinh giỏi
+      - dien tuyen thang hoc sinh gioi
+      - em đoạt giải quốc gia có được tuyển thẳng không?
+      - em doat giai quoc gia co duoc tuyen thang khong
+      - học sinh giỏi quốc gia có được ưu tiên không?
+      - hoc sinh gioi quoc gia co duoc uu tien khong
+      - tuyển thẳng theo quy chế bộ GD&ĐT
+      - tuyen thang theo quy che bo GD
+      - em có giải nhất quốc gia muốn tuyển thẳng
+      - em co giai nhat quoc gia muon tuyen thang
+      - điều kiện tuyển thẳng vào UET là gì?
+      - dieu kien tuyen thang vao UET la gi
+      - xét tuyển thẳng diện học sinh giỏi
+      - xet tuyen thang dien hoc sinh gioi
+      - em có huy chương Olympic có tuyển thẳng không?
+      - em co huy chuong Olympic co tuyen thang khong
+      - e có giải hsg quốc gia muốn nộp hồ sơ
+      - e co giai hsg quoc gia muon nop ho so
+      - tt theo diện hsg
+      - dien tt vao uet
+      - e có giải ba hsg quốc gia
+      - e co giai ba hsg quoc gia
+      - điều kiện xét tuyển thẳng ưu tiên là gì
+      - dieu kien xet tuyen thang uu tien la gi
+      - e duoc giai nhi mon toan toan quoc muon xt thang
+
+  - intent: chon_ptxt_thptqg
+    examples: |
+      - e muon xet bang diem thi THPT quoc gai
+      - xet diem thi tot nghip thpt
+      - em muon dung diem thi tot nghiep thtp
+      - dung diem thi dai hoc 2026 de dky
+      - e thi thptqg dc 26 diem co nop dc ko
+      - Em muốn xét bằng điểm thi THPT Quốc gia
+      - em muon xet bang diem thi THPT Quoc gia
+      - Xét điểm tốt nghiệp THPT theo tổ hợp môn
+      - xet diem tot nghiep THPT theo to hop mon
+      - /chon_ptxt_thptqg
+      - chon_ptxt_thptqg
+      - thi thpt quốc gia
+      - thi thpt quoc gia
+      - điểm thi đại học
+      - diem thi dai hoc
+      - em muốn dùng điểm thi tốt nghiệp THPT
+      - em muon dung diem thi tot nghiep THPT
+      - xét tuyển bằng điểm thi 3 môn
+      - xet tuyen bang diem thi 3 mon
+      - điểm thi THPT 2026 dùng để xét tuyển được không?
+      - diem thi THPT 2026 dung de xet tuyen duoc khong
+      - xét điểm thi tốt nghiệp tổ hợp A00
+      - xet diem thi tot nghiep to hop A00
+      - em thi khối A01 có xét tuyển được không?
+      - em thi khoi A01 co xet tuyen duoc khong
+      - dùng kết quả thi tốt nghiệp để đăng ký
+      - dung ket qua thi tot nghiep de dang ky
+      - e dùng điểm thpt để xt
+      - e dung diem thpt de xt
+      - xt bằng điểm thi tốt nghiệp
+      - xt bang diem thi tot nghiep
+      - e thi được 27 điểm thì nộp vào uet được không
+      - e thi duoc 27 diem thi nop vao uet duoc khong
+      - xt theo điểm 3 môn thi thpt
+      - xet tuyen theo diem 3 mon thi thpt
+      - e muốn xét bằng điểm thi tn thpt
+      - em xet theo khoi a00
+      - dùng điểm thi đại học 2026 để đk
+      - dung diem thi dai hoc 2026 de dk
+      - xét tuyển theo điểm thi quốc gia năm nay
+      - xet tuyen theo diem thi quoc gia nam nay

@@ -1,0 +1,318 @@
+version: "3.1"
+
+nlu:
+- intent: hoi_diem_chuan_nganh
+  examples: |
+    - ngành [cn1](major) điểm chuẩn bao nhiêu?
+    - điểm chuẩn ngành [khoa học máy tính](major) năm 2025 là bao nhiêu?
+    - cho em hỏi mức điểm an toàn để đỗ ngành [cn8](major) bằng [hsa](admission_method)
+    - ngành [công nghệ vật liệu](major) xét điểm thi [thpt](admission_method) lấy bao nhiêu điểm vậy ad?
+    - điểm chuẩn của ngành [cn12](major) [trí tuệ nhân tạo](major) dạo này có tăng mạnh không ạ?
+    - ngành [cơ kỹ thuật](major) năm ngoái lấy mấy điểm ạ
+    - em thi được 26.5 điểm thì có đỗ ngành [cn14](major) không?
+    - ngành [cn9](major) lấy điểm chuẩn [thpt](admission_method) có nhân đôi môn [toán](subject) không?
+    - cho em xin bảng điểm chuẩn các ngành từ [cn1](major) đến [cn21](major) với ạ.
+    - thi 100 điểm [đgnl](admission_method) thì đủ điểm vào ngành nào của trường?
+    - mức điểm chuẩn xét bằng [sat](admission_method) của ngành [kỹ thuật máy tính](major) là bao nhiêu?
+    - năm nay điểm chuẩn ngành [thiết kế đồ họa](major) dự kiến tăng hay giảm ạ?
+    - ngành [công nghệ kỹ thuật điện tử - viễn thông](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ sinh học](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ nông nghiệp](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [trí tuệ nhân tạo](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ vật liệu](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ hàng không vũ trụ](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [vật lý kỹ thuật](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [tự động hóa](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ phần mềm](major) năm ngoái điểm chuẩn là bao nhiêu ạ? 
+    - ngành [mạng máy tính](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [kỹ thuật máy tính](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ thông tin](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ kỹ thuật điện tử - viễn thông](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ sinh học](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ nông nghiệp](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [trí tuệ nhân tạo](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ vật liệu](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ hàng không vũ trụ](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [vật lý kỹ thuật](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [tự động hóa](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ phần mềm](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [mạng máy tính](major) năm ngoái điểm chuẩn là bao nhiu ạ?
+    - ngành [kỹ thuật máy tính](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ thông tin](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ kỹ thuật điện tử - viễn thông](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [công nghệ sinh học](major) năm ngoái điểm chuẩn là bao nhiêu ạ?
+    - ngành [Khoa học máy tính](major) năm ngoái điểm chuẩn hsa là bao nhiêu ạ?
+    - em có 110 điểm hsa thì có đủ điểm vào ngành [cn1](major) không ạ?
+    - em có 110 điểm hsa thì có đủ điểm vào ngành [cn8](major) không ạ?
+    - em có 110 điểm hsa thì có đủ điểm vào ngành [cn12](major) không ạ?
+    - em có 110 điểm hsa thì có đủ điểm vào ngành [cn14](major) không ạ?
+    - em có 110 điểm hsa thì có đủ điểm vào ngành [cn15](major) không ạ?
+    - em có 110 điểm hsa thì có đủ điểm vào ngành [cn20](major) không ạ?
+    - em có 110 điểm hsa thì có đủ điểm vào ngành [cn21](major) không ạ?
+    - em có 110 điểm hsa thì có đủ điểm vào ngành [cn9](major) không ạ?
+    - 85 điểm đgnl thì có đủ điểm vào ngành [cn1](major) không ạ?
+    - điểm đánh giá năng lực trung bình để đỗ vào trường mình là bao nhiêu ạ?
+    - điểm đánh giá năng lực trung bình để đỗ vào ngành [cn1](major) là bao nhiêu ạ?
+    - điểm đánh giá năng lực trung bình để đỗ vào ngành [cn8](major) là bao nhiêu ạ?
+    - điểm đánh giá năng lực trung bình để đỗ vào ngành [cn12](major) là bao nhiêu ạ?
+    - điểm đánh giá năng lực trung bình để đỗ vào ngành [cn14](major) là bao nhiêu ạ?
+    - điểm đánh giá năng lực trung bình để đỗ vào ngành [cn15](major) là bao nhiêu ạ?
+    - điểm chuẩn hsa của ngành [cn1](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn hsa của ngành [cn8](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn hsa của ngành [cn12](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn hsa của ngành [cn14](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn hsa của ngành [cn15](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn hsa của ngành [cn20](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn hsa của ngành [cn21](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn hsa của ngành [cn9](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn bằng [sat](admission_method) của ngành [cn1](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn bằng [sat](admission_method) của ngành [cn8](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn bằng [sat](admission_method) của ngành [cn12](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn bằng [sat](admission_method) của ngành [cn14](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn bằng [sat](admission_method) của ngành [cn15](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn bằng [sat](admission_method) của ngành [cn20](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn bằng [sat](admission_method) của ngành [cn21](major) năm ngoái là bao nhiêu ạ?
+    - điểm chuẩn bằng [sat](admission_method) của ngành [cn9](major) năm ngoái là bao nhiêu ạ? 
+    - em có 1450 điểm sat thì có đủ điểm vào ngành [cn1](major) không ạ?
+    - điểm chuẩn ngành [cn12] (major) năm ngoái là bao nhiêu ạ?
+    - bao nhiêu điểm đgnl thì có thể đỗ vào ngành [cn12](major) ạ?
+    - điểm chuẩn ngành [cn9] (major) năm ngoái là bao nhiêu ạ?
+    - bao nhiêu điểm đgnl thì có thể đỗ vào ngành [cn9](major) ạ?
+    - điểm chuẩn ngành [cn14] (major) năm ngoái là bao nhiêu ạ?
+    - bao nhiêu điểm đgnl thì có thể đỗ vào ngành [cn14](major) ạ?
+    - điểm chuẩn ngành [cn15] (major) năm ngoái là bao nhiêu ạ?
+    - bao nhiêu điểm đgnl thì có thể đỗ vào ngành [cn15](major) ạ?
+    - điểm chuẩn ngành [cn20] (major) năm ngoái là bao nhiêu ạ?
+    - bao nhiêu điểm đgnl thì có thể đỗ vào ngành [cn20](major) ạ?
+    - điểm chuẩn ngành [cn21] (major) năm ngoái là bao nhiêu ạ?
+    - bao nhiêu điểm đgnl thì có thể đỗ vào ngành [cn21](major) ạ?
+    - Dự đoán điểm chuẩn ngành [cn1](major) năm nay sẽ tăng hay giảm ạ?
+    - Dự đoán điểm chuẩn ngành [cn8](major) năm nay sẽ tăng hay giảm ạ?
+    - Dự đoán điểm chuẩn ngành [cn12](major) năm nay sẽ tăng hay giảm ạ?
+    - Dự đoán điểm chuẩn ngành [cn14](major) năm nay sẽ tăng hay giảm ạ?
+    - Dự đoán điểm chuẩn ngành [cn15](major) năm nay sẽ tăng hay giảm ạ?
+    - Dự đoán điểm chuẩn ngành [cn20](major) năm nay sẽ tăng hay giảm ạ?
+    - Dự đoán điểm chuẩn ngành [cn21](major) năm nay sẽ tăng hay giảm ạ?
+    - Dự đoán điểm chuẩn ngành [cn9](major) năm nay sẽ tăng hay giảm ạ?
+    - Dự báo điểm chuẩn ngành [cn1](major) năm nay sẽ là bao nhiêu ạ?
+    - Dự báo điểm chuẩn ngành [cn8](major) năm nay sẽ là bao nhiêu ạ?
+    - Dự báo điểm chuẩn ngành [cn12](major) năm nay sẽ là bao nhiêu ạ?
+    - Dự báo điểm chuẩn ngành [cn14](major) năm nay sẽ là bao nhiêu ạ?
+    - Dự báo điểm chuẩn ngành [cn15](major) năm nay sẽ là bao nhiêu ạ?
+    - Dự báo điểm chuẩn ngành [cn20](major) năm nay sẽ là bao nhiêu ạ?
+    - Dự báo điểm chuẩn ngành [cn21](major) năm nay sẽ là bao nhiêu ạ?
+    - Dự báo điểm chuẩn ngành [cn9](major) năm nay sẽ là bao nhiêu ạ? 
+    - Cho em hỏi là bao giờ trường mình có bảng quy đổi điểm HSA năm nay ạ? Em cảm ơn ạ
+    - Cho em hỏi xét tuyển bằng SAT có được cộng thêm điểm cộng ielts không ạ?
+    - Cho em hỏi sat 1480 thì đỗ được ngành nào ở UET ạ, có vào được [cn8](major) hay [cn1](major) k ạ?
+    - 105 hsa liệu có vào được [cn2](major) vs [cn9](major) không ạ ?
+    - ac ơi cho em hỏi như năm ngoái 93đ top 83,53% A00 mà năm nay là 87,25% thì quy đổi sẽ tốt hơn đúng không ạ
+    - Cho e hỏi là sat có kiểu phổ điểm như hsa ko hay là chỉ cần có cái công thức quy đổi điểm mà dựa vào th ạ
+
+
+
+
+- intent: hoi_chi_tieu_nganh
+  examples: |
+    - ngành [cn8](major) chỉ tiêu bao nhiêu?
+    - cho em hỏi năm 2026 ngành [cn1](major) tuyển sinh bao nhiêu bạn?
+    - ngành [khoa học máy tính](major) [cn8](major) lấy bao nhiêu chỉ tiêu vậy ạ?
+    - chỉ tiêu vào ngành [thiết kế vi mạch](major) là bao nhiêu
+    - trường mình năm nay dành bao nhiêu chỉ tiêu cho ngành [kỹ thuật máy tính](major) [cn2](major)
+    - chỉ tiêu ngành [công nghệ thông tin](major) năm nay có tăng không ad
+    - ngành [công nghệ kỹ thuật điện tử - viễn thông](major) năm nay lấy bao nhiêu người
+    - chỉ tiêu của khối ngành kỹ thuật như [cơ kỹ thuật](major) [cn4](major) là bao nhiêu
+    - các ngành thí điểm như [công nghệ nông nghiệp](major) [cn10](major) thì tuyển bao nhiêu sinh viên
+    - tổng số lượng sinh viên lấy vào ngành [trí tuệ nhân tạo](major) năm nay là bao nhiêu
+    - ngành [công nghệ sinh học](major) [cn21](major) có cắt giảm chỉ tiêu không ạ?
+    - ngành [công nghệ vật liệu](major) năm nay có tuyển sinh không ạ?
+    - ngành [công nghệ hàng không vũ trụ](major) năm nay có tuyển sinh không ạ?
+    - chỉ tiêu của ngành [vật lý kỹ thuật](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu của ngành [tự động hóa](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu của ngành [công nghệ phần mềm](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu của ngành [mạng máy tính](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu của ngành [kỹ thuật máy tính](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu của ngành [công nghệ thông tin](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu của ngành [công nghệ kỹ thuật điện tử - viễn thông](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu của ngành [công nghệ sinh học](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu của ngành [công nghệ nông nghiệp](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu của ngành [trí tuệ nhân tạo](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu của ngành [công nghệ vật liệu](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu của ngành [công nghệ hàng không vũ trụ](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu của ngành [vật lý kỹ thuật](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu của ngành [tự động hóa](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu của ngành [công nghệ phần mềm](major) năm nay là bao nhiêu ạ?
+    - chỉ tiêu các ngành năm nay tăng hay giảm so với năm ngoái ạ?
+    - cho em hỏi là ngành [cn12](major) năm nay có tăng chỉ tiêu không ạ?
+    - cho em hỏi là ngành [cn9](major) năm nay có tăng chỉ tiêu không ạ?
+    - cho em hỏi là ngành [cn14](major) năm nay có tăng chỉ tiêu không ạ?
+    - cho em hỏi là ngành [cn15](major) năm nay có tăng chỉ tiêu không ạ?
+    - cho em hỏi là ngành [cn20](major) năm nay có tăng chỉ tiêu không ạ?
+
+- intent: hoi_tu_van_nganh
+  examples: |
+    - Em là học sinh 2k8, sau khi tìm hiểu các ngành thì hiện em đang phân vân CN2 và CN12, anh chị có thể cho em một vài lời khuyên được không ạ, do bản thân em không có sự yêu thích riêng với ngành nào cả nhưng em muốn tìm một ngành ổn định có tiềm năng phát triển, em cảm ơn anh chị ạ
+    - theo hướng lập trình nhúng nên theo ngành nào ạ
+    - Em dự định theo hướng vi mạch thì nên theo CN2 hay CN9 ạ. Và nếu mình k theo đc vi mạch thì Cn2 hay cn9 sẽ có nhiều cơ hội việc làm khác hơn ạ
+    - Em đang phân vân giữa CN2, CN15, CN20 mong các anh chị cho em xin lời khuyên với em cảm ơn nhiều ạ
+    - A/c cho e xin rv về ngành kĩ thuật robot của ngành mình với ạ
+    - em muốn học về công nghệ phần mềm thì nên chọn ngành nào ạ
+    - em xuất phát điểm từ con số 0 về lập trình thì có theo kịp chương trình ngành [khoa học máy tính](major) không ạ?
+    - ngành nào của trường đào sâu về các phương pháp kiểm thử phần mềm vậy ạ?
+    - em thích nghiên cứu và đánh giá giao diện thực tế ảo tăng cường ar thì nên chọn ngành [cn1](major) hay [cn8](major)?
+    - ngành [mạng máy tính](major) có dạy thêm để thi các chứng chỉ bảo mật và an toàn thông tin không ạ?
+    - em đang hướng tới mục tiêu [tiếng anh](subject) b2 và [ielts](admission_method) 7.0 thì học ngành nào sẽ có lợi thế nhất?
+    - cho em hỏi là em [toán](subject) ở mức 8.5+ [thpt](admission_method), học đt [hsg](bonus_type) [anh](subject), gốc [lý](subject) khá vững, [hóa](subject) mất gốc thì nên học ngành nào trong [cn1](major), [cn2](major), [cn9](major), [cn12](major) hay [cn19](major) ạ.
+    - cho e xin tư vấn về 2 ngành [cn1](major) và [cn8](major) trường mình ạ.
+    - anh/chị cho em hỏi là nên học ngành [khoa học máy tính](major) hay [trí tuệ nhân tạo](major) ạ
+    - cho e hỏi ngành [thiết kế đồ họa](major) trường mình thế nào ạ
+    - a/c cho em ít thông tin tham khảo về ngành [khoa học dữ liệu](major) của trường với ạ
+    - mn cho e xin rv về ngành [cn17](major) với ạ
+    - anh chị nào đang học hay từng học ngành [cn14](major) và [cn15](major) cho em xin review về chương trình học ạ.
+    - mn cho e hỏi 2 ngành [cn14](major) với [cn20](major) có điểm j giống và khác nhau ạ.
+    - các anh chị có thể review cho em về ngành [cn7](major) [công nghệ hàng không vũ trụ](major) được không ạ
+    - dạ cho em hỏi các ngành [công nghệ vật liệu](major), [vật lý kĩ thuật](major) và [công nghệ kĩ thuật điện tử - viễn thông](major) mình nên học ngành nào ạ
+    - có ai đg học [cn19](major) hoặc các ngành kỹ thuật khác k phải nhóm [cntt](major) cho e xin tư vấn
+    - mn có thể review cho em một chút về ngành [tự động hóa](major) của trường mình không ạ
+    - e là con gái í ạ, e định xét tuyển ngành [cn18](major) trường mình theo khối a01 thì có ổn kh ạ
+    - em thích làm về phần mềm nhưng cũng muốn học về phần cứng thì nên chọn ngành nào ạ
+    - em muốn học về thiết kế vi mạch bán dẫn thì nên chọn ngành nào
+    - em muốn học về công nghệ hàng không vũ trụ thì nên chọn ngành nào ạ
+    - em muốn học về công nghệ nông nghiệp thì nên chọn ngành nào ạ
+    - em muốn học về công nghệ sinh học thì nên chọn ngành nào ạ
+    - em muốn học về công nghệ vật liệu thì nên chọn ngành nào ạ
+    - em muốn học về công nghệ kỹ thuật điện tử - viễn thông thì nên chọn ngành nào ạ
+    - em muốn học về công nghệ thông tin thì nên chọn ngành nào ạ
+    - em muốn học về trí tuệ nhân tạo thì nên chọn ngành nào ạ
+    - Ac cho e xin review ngành data science của trường mình ạ
+    - em muốn học về thiết kế đồ họa thì nên chọn ngành nào ạ
+    - em muốn học về mạng máy tính thì nên chọn ngành nào ạ
+    - em muốn học về kỹ thuật máy tính thì nên chọn ngành nào ạ
+    - em muốn học về công nghệ phần mềm thì nên chọn ngành nào ạ
+    - em muốn học về công nghệ sinh học thì nên chọn ngành nào ạ
+    - em muốn học về công nghệ nông nghiệp thì nên chọn ngành nào ạ
+    - em muốn học về tự động hóa thì nên chọn ngành nào ạ
+    - em muốn học về công nghệ hàng không vũ trụ thì nên chọn ngành nào
+    - em muốn học về công nghệ vật liệu thì nên chọn ngành nào ạ
+    - em muốn học về vật lý kỹ thuật thì nên chọn ngành nào ạ
+    - em muốn học về công nghệ kỹ thuật điện tử - viễn thông thì nên chọn ngành nào ạ
+    - em muốn học về công nghệ thông tin thì nên chọn ngành nào ạ
+    - Anh chị ơi nãy e có điền nguyện vọng trên web của trường, điền cũng khoảng 10 ngành nma lại sót mất 1 ngành quan trọng, giờ k sửa đc nữa, cho e hỏi sau này lúc điền nguyện vọng trên web bộ thì e có được điền ngành bị thiếu đấy không ạ? Nếu không thì giờ e phải xin sửa thông tin đăng kí xét tuyển trên web trường ạ?
+    - Anh chị nào học ngành tự động hoá trường mình cho em xin ít thông tin về ngành như ưu điểm với nhược điểm được không ạ.
+    - Mọi người cho em hỏi Khoa học máy tính của trường mình học xong cử nhân có chương trình học tiếp để lên bằng kỹ sư không ạ
+    - Anh chị cho em xin một chút thông tin về ngành công nghệ vật liệu của trường mình với ạ(đòi hỏi học tốt môn nào) và có cơ hội việc làm trong tương lai không ạ
+    - Em xin review ngành Vật lý kỹ thuật của trường mình ạ
+    - Anh chị nào đi trước học Cn14 cho em xin tư vấn và reviews đc k ạ?
+    - anh chị cho em hỏi là CN9 và CN20 thì ngành nào ổn hơn ạ
+    - Em muốn được xin tư vấn ngành kĩ thuật cơ điện tử CN6 của trường mình và cơ hội việc làm ở mỗi hướng chuyên sâu ạ.
+    - Mng ơi cho e xin rv về ngành kthuat năng lượng ạ, với cả cho e biết về tiềm năng của ngành nữa ạ?
+    - Cho em xin review chuyên ngành kỹ thuật điện tử viễn thông định hướng thiết kế vi mạch ạ
+    - Anh chị cho em xin review về ngành hệ thống thông tin trường mình ạ
+    - Ac cho em xin review về ngành công nghệ sinh học của trường mình ạ
+    - Ac cho em xin review về ngành công nghệ nông nghiệp của trường mình ạ
+    - Ac cho em xin review về ngành công nghệ vật liệu của trường mình ạ
+    - Ac cho em xin review về ngành công nghệ kỹ thuật điện tử - viễn thông
+    - Ac cho em xin review về ngành công nghệ hàng không vũ trụ của trường mình ạ
+    - Ac cho em xin review về ngành công nghệ thông tin của trường mình ạ
+    - cho em hỏi ngành liên quan đến vi mạch bán dẫn của trường là cn mấy vậy ạ
+
+
+
+- intent: hoi_co_hoi_viec_lam_nganh
+  examples: |
+    - Cho e hỏi CN9 và CN14 ngành nào tiềm năng và có cơ hội nghề nghiệp cao ạ?
+    - Anh chị cho e hỏi ngành CN15 và CN20 học ổn k và cơ hội việc làm lớn không ạ?
+    - Cho em hoi nen hoc ngành kỹ thuật máy tính hay khoa học máy tính thì ngành nào dễ tìm việc hơn ạ?
+    - Dạ cho em hỏi giữa các ngành về máy tính, AI và vi mạch, điện tử thì ngành nào có cơ hội việc làm tốt hơn ạ
+    - học ngành [khoa học máy tính](major) ra trường làm gì ạ?
+    - anh/chị cho em hỏi là cơ hội việc làm sau khi ra trường của hai ngành thì ngành nào sẽ oke hơn ạ
+    - các anh chị có thể review cho em về ngành [cn7](major) sau này ra trường thì cơ hội việc làm sẽ ra sao ạ?
+    - em đang có định hướng làm data thì ngoài ngành [cn14](major) và [cn20](major) thì có thể học ngành nào ạ?
+    - mn ơi cho e hỏi các ngành nào có liên quan đến chế tạo vi mạch, bán dẫn vậy ạ.
+    - dạ cho em hỏi định hướng của e là học thiết kế vi mạch bán dẫn thì mình nên học ngành nào ạ
+    - với ngành nào có thể làm fullstack dev ạ
+    - ngành [công nghệ nông nghiệp](major) ra trường dễ xin việc không ad?
+    - học ngành [vật lý kỹ thuật](major) thì xin việc ở các công ty nào ạ?
+    - Mn cho em hỏi Khmt hay Khdl có cơ hội việc làm rộng mở hơn, dễ xin việc hơn ạ?
+    - em muốn học về công nghệ hàng không vũ trụ thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về công nghệ nông nghiệp thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về công nghệ sinh học thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về công nghệ vật liệu thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về công nghệ kỹ thuật điện tử - viễn thông thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về công nghệ thông tin thì sau này ra trường có thể làm những công việc gì ạ?
+    - Ac cho e hỏi là cn2 và cn9, ngành nào có triển vọng và duy trì được lâu trong tương lai hơn ạ
+    - Em muốn theo hướng thiên về phần cứng hơn, vi mạch bán dẫn, nhúng/Iot, thì đtvt hay ktmt phù hợp hơn ạ. Cho em hỏi là theo anh chị thì hướng nào là có triển vọng nhất ạ
+    - Mn ơi cho em hỏi nếu k giỏi hoá sinh thì có nên vào ngành công nghệ nông nghiệp k ạ?
+    - Em muốn được xin tư vấn ngành kĩ thuật cơ điện tử CN6 của trường mình và cơ hội việc làm ở mỗi hướng chuyên sâu ạ.
+    - em muốn học về công nghệ hàng không vũ trụ thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về công nghệ nông nghiệp thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về công nghệ sinh học thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về công nghệ vật liệu thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về công nghệ kỹ thuật điện tử - viễn thông thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về công nghệ thông tin thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về trí tuệ nhân tạo thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về thiết kế đồ họa thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về mạng máy tính thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về kỹ thuật máy tính thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về công nghệ phần mềm thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về công nghệ sinh học thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về công nghệ nông nghiệp thì sau này ra trường có thể làm những công việc gì ạ?
+    - em muốn học về tự động hóa thì sau này ra trường có thể làm những công việc gì ạ?
+    - Mng ơi cho e xin rv về ngành kthuat năng lượng ạ, với cả cho e biết về tiềm năng của ngành nữa ạ
+    - Anh chị cho em xin thông tin và cơ hội việc làm của nghành công nghệ hàng không vũ trụ với ạ.
+    - Dạ em đang có mong muốn vào CN2 ạ, mọi người có thể phân tích thêm cho em về cơ hội việc làm và định hướng trong hè cũng như hướng học tập được không ạ. Với cả em muốn hỏi trường có hệ tích hợp cử nhân - thạc sỹ hoặc cử nhân - kỹ sư giống bên Bách Khoa không ạ?
+    - Cho e hỏi nếu học cn15 thì nên học theo hướng cyber security hay cloud computing sẽ ok hơn trong tương lai ạ?
+    - Cho e hỏi về tiềm năng của ngành kĩ thuật năng lượng trong tương lai với ạ
+    - kĩ thuật robot sau này có nhiều cơ hội việc làm không ạ? ngành này có tiềm năng phát triển không ạ
+    -Cho e hỏi là e muốn sau định hướng công việc thiết kế vi mạch bán dẫn ở VN vì nghe dự đoán sẽ phát triển mạnh trong TL thì e nên theo ngành nào phù hợp ạ ?
+
+- intent: hoi_thong_tin_khac_ve_nganh
+  examples: |
+    - học phí ngành [cn1](major) là bao nhiêu một năm vậy ạ?
+    - ngành [khoa học máy tính](major) có xét tuyển tổ hợp a01 không?
+    - ac ơi cho e hỏi, e dự định vào ngành [cn14](major), nếu e xét điểm [thpt](admission_method) có quy đổi điểm [ielts](admission_method) thì có được cộng thêm điểm giải [hsg tỉnh](bonus_type) nx ko ạ.
+    - em lỡ ghi nhầm mã ngành trong hồ sơ thì có cách nào sửa lại không
+    - em học kém [tiếng anh](subject) định đổi sang môn [lịch sử](subject) hoặc [địa lí](subject) thì em có được chọn những nghành không liên quan đến [lịch sử](subject) hoặc [địa lí](subject) không ạ .
+    - như những nghành liên quan đến [lý](subject) , [tiếng anh](subject) hoặc [hoá](subject) ý ạ
+    - cho cô hỏi: con cô [sat](admission_method) 1450, ie 7.0, muốn xét tuyển ngành [cntt](major), cấp 3 không học [lý](subject). vậy có đủ điều kiện để xét tuyển vào ngành [cntt](major) không?
+    - có điều kiện về sức khỏe hay thị lực đối với ngành [công nghệ hàng không vũ trụ](major) ko ad
+    - em đc 110 điểm [hsa](admission_method) thì có cơ hội vào được ngành này đc ko ạ
+    - điểm [tin](subject) học cấp 3 thấp thì có nộp hồ sơ xét tuyển ngành [cn8](major) được không?
+    - em muốn hỏi là ngành [cn12](major) có xét tuyển bằng điểm [sat](admission_method) không ạ?
+    - ngành [cn12](major) có xét tuyển bằng điểm [hsa](admission_method) không ạ?
+    - ngành [cn12](major) có xét tuyển bằng điểm [đgnl](admission_method) không ạ?
+    - ngành [cn12](major) có xét tuyển bằng điểm [thpt](admission_method) không ạ?
+    - ngành [cn12](major) có xét tuyển bằng điểm [hsg](bonus_type) không ạ?
+    - ngành [cn12](major) có xét tuyển bằng điểm [hsg tỉnh](bonus_type) không ạ?
+    - ngành [cn12](major) có xét tuyển bằng điểm [hsg quốc tế](bonus_type) không ạ?
+    - ngành [cn12](major) có xét tuyển bằng điểm [hsg quốc gia](bonus_type) không ạ?
+    - ngành [cn12](major) có xét tuyển bằng điểm [hsg cấp 3](bonus_type) không ạ?
+    - ngành [cn12](major) có xét tuyển bằng điểm [hsg](bonus_type) không ạ?
+    - Cho em hỏi là ngành [cn12], [cn1], [cn8] có lab ko ạ. Và điều kiện để vào lab là gì ạ. Và những ngành này có chung lab ko ạ.
+    - cho e hỏi là cơ điện tử và kt robot thì khác gì nhau ạ
+    - ac cho e hỏi trong phần định hướng đào tạo [cn1] [cn8] [cn12] đều có trí tuệ nhân tạo thì 3 phần này có khác nhau ko ạ
+    - ngành [cn1](major) có học về trí tuệ nhân tạo không ạ?
+    - A/c ơi cho em hỏi là dự kiến nhóm ngành nào của trường sẽ chuyển về Hoà Lạc năm nay ạ
+    - anh chị cho em hỏi là để có học bổng STEM thì mình cần những điều kiện gì được không ạ
+    - e hướng theo data analyst thì nên học hệ thống thông tin hay khoa học dữ liệu ạ
+    - em muốn học về công nghệ hàng không vũ trụ thì sau này ra trường có thể làm những công việc gì ạ?
+    - ac review cho tụi em sự đẳng cấp của ngành IT, cụ thể hơn thì là Khoa học máy tính hoặc Trí tuệ nhân tạo (AI) bên mình không ạ.
+    - Em muốn biết các ngành được học bổng Stem của trường năm 2026 và điều kiện là gì ạ.
+    - Dạ em đang có mong muốn vào [cn2] ạ, mọi người có thể phân tích thêm cho em về cơ hội việc làm và định hướng trong hè cũng như hướng học tập được không ạ. Với cả em muốn hỏi trường có hệ tích hợp cử nhân - thạc sỹ hoặc cử nhân - kỹ sư giống bên Bách Khoa không ạ?
+    - Anh chị cho e xin thông tin về các định hướng đào tạo của [cn2] với ạ, e có đọc trên page tuyển sinh của trường nhưng chưa hiểu lắm.
+    - Muốn rẽ sang trí tuệ nhân tạo thì nên chọn [cn1] hay [cn8] ạ
+    - Mọi người ơi, hiện tại trong hè em muốn học trước một ngôn ngữ lập trình để làm quen thì em nên học ngôn ngữ nào đầu tiên ạ (e aim [cn12] và [cn15] nhưng ưu tiên [cn12] hơn ạ). Em cảm ơn ạ!
+    - Cho e hỏi là e muốn sau định hướng công việc thiết kế vi mạch bán dẫn ở VN vì nghe dự đoán sẽ phát triển mạnh trong TL thì e nên theo ngành nào phù hợp ạ ?
+    - Em là học sinh 2k8, sau khi tìm hiểu các ngành thì hiện em đang phân vân [cn2] và [cn12], anh chị có thể cho em một vài lời khuyên được không ạ, do bản thân em không có sự yêu thích riêng với ngành nào cả nhưng em muốn tìm một ngành ổn định có tiềm năng phát triển, em cảm ơn anh chị ạ
+    - Cho em hỏi là trường mình các ngành có ưu tiên thứ tự nguyện vọng k ạ hay cứ đủ điểm là được ạ?
+    - E dự định học ngành kỹ thuật máy tính, các anh chị đi trước có lời khuyên j cho e ko ạ . E cũng muốn xin review về trường và những thứ liên quan đến ngành luôn ạ
+    - cho em hỏi là cn2 và cn9 trường mình học lập trình bằng ngôn ngữ nào thế ạ
+    - cho em hỏi là cn14 và cn20 trường mình học lập trình bằng ngôn ngữ nào thế ạ
+    - cho em hỏi là cn15 trường mình học lập trình bằng ngôn ngữ nào
+    - cho em hỏi là cn1 và cn8 trường mình học lập trình bằng ngôn ngữ nào thế ạ
+    - cho em hỏi là cn12 trường mình học lập trình bằng ngôn ngữ nào
+    - Em muốn hỏi chút ạ. Em có nhận được lời khuyên ở bài trước là trường mình không có ngành chuyên về làm game nên học ptit sẽ tốt hơn hoặc học CN1. Vậy CN1 có chất lượng dạy như thế nào vậy ạ? Liệu em có nên học CN1 để bổ trợ việc tự học thêm về mảng sáng tạo như làm 3D, edit video hay animate không ạ?
+    - Em muốn hỏi là ngành [cn1](major) có dạy về thiết kế đồ họa không ạ? Nếu có thì có chuyên sâu về mảng nào không ạ?
+    - Cho em hỏi là cn14 thì định hướng khác gì so với cn1 ạ
+    - Mng cho e hỏi ngành cn21 có phải giỏi sinh không ạ? E hc sinh ở cấp 3 ít ạ, chủ yếu học được toán lý, hoá bình thường ạ.
+    - cho em hỏi học phí trung bình 1 năm các ngành của trường mình dao động bao nhiêu ạ

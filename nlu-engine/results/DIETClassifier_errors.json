@@ -1,0 +1,1003 @@
+[
+  {
+    "text": "em co huy chuong Olympic co tuyen thang khong",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 25,
+        "end": 27,
+        "confidence_entity": 0.6473932266235352,
+        "value": "co",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "học ngành Kỹ thuật máy tính thì tốn bao nhiêu tiền một năm?",
+    "entities": [
+      {
+        "start": 10,
+        "end": 27,
+        "value": "Kỹ thuật máy tính",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 10,
+        "end": 18,
+        "confidence_entity": 0.8988864421844482,
+        "value": "Kỹ thuật",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Công nghệ sinh học học phí một năm là bao nhiêu ạ?",
+    "entities": [
+      {
+        "start": 0,
+        "end": 18,
+        "value": "Công nghệ sinh học",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.9213288426399231,
+        "value": "Công nghệ",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Mạng máy tính mỗi năm mình cần chuẩn bị bao nhiêu tiền học phí?",
+    "entities": [
+      {
+        "start": 0,
+        "end": 13,
+        "value": "Mạng máy tính",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 0,
+        "end": 8,
+        "confidence_entity": 0.9020958542823792,
+        "value": "Mạng máy",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "học phí ngành Công nghệ thông tin bao nhiêu?",
+    "entities": [
+      {
+        "start": 14,
+        "end": 33,
+        "value": "Công nghệ thông tin",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 14,
+        "end": 23,
+        "confidence_entity": 0.9049443602561951,
+        "value": "Công nghệ",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "cn10 mỗi năm đóng bao nhiêu tiền ạ?",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "cn10",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "cn11 moi nam dong hp bao nhieu",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "cn11",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "hp nganh cn18 bao nhieu",
+    "entities": [
+      {
+        "start": 9,
+        "end": 13,
+        "value": "cn18",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "hp Ky thuat nang luong tam bao nhieu",
+    "entities": [
+      {
+        "start": 3,
+        "end": 22,
+        "value": "Ky thuat nang luong",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 3,
+        "end": 11,
+        "confidence_entity": 0.805146336555481,
+        "value": "Ky thuat",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "nganh Vat ly ky thuat hp tam bao nhieu a",
+    "entities": [
+      {
+        "start": 6,
+        "end": 21,
+        "value": "Vat ly ky thuat",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 6,
+        "end": 12,
+        "confidence_entity": 0.8284688591957092,
+        "value": "Vat ly",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "hoc nganh Ky thuat may tinh thi ton bao nhieu tien mot nam",
+    "entities": [
+      {
+        "start": 10,
+        "end": 27,
+        "value": "Ky thuat may tinh",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 10,
+        "end": 18,
+        "confidence_entity": 0.8603453040122986,
+        "value": "Ky thuat",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "học phí ngành cn14 có cao không ạ?",
+    "entities": [
+      {
+        "start": 14,
+        "end": 18,
+        "value": "cn14",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "ngành Kỹ thuật Robot học phí bao nhiêu một học kì",
+    "entities": [
+      {
+        "start": 6,
+        "end": 20,
+        "value": "Kỹ thuật Robot",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 6,
+        "end": 14,
+        "confidence_entity": 0.7548901438713074,
+        "value": "Kỹ thuật",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "nganh_hoc",
+        "start": 15,
+        "end": 24,
+        "confidence_entity": 0.6663970351219177,
+        "value": "Robot học",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "nganh KHMT dong bao nhieu tien moi nam",
+    "entities": [
+      {
+        "start": 6,
+        "end": 10,
+        "value": "KHMT",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "nganh cn7 hp co dat khong a",
+    "entities": [
+      {
+        "start": 6,
+        "end": 9,
+        "value": "cn7",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "chi phí học ngành Công nghệ thông tin",
+    "entities": [
+      {
+        "start": 18,
+        "end": 37,
+        "value": "Công nghệ thông tin",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 18,
+        "end": 27,
+        "confidence_entity": 0.8717315196990967,
+        "value": "Công nghệ",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "e muon biet hp nganh cn8",
+    "entities": [
+      {
+        "start": 21,
+        "end": 24,
+        "value": "cn8",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "học phí của KHMT năm nay thế nào",
+    "entities": [
+      {
+        "start": 12,
+        "end": 16,
+        "value": "KHMT",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "học phí của ngành Trí tuệ nhân tạo năm nay tăng lên bao nhiêu vậy",
+    "entities": [
+      {
+        "start": 18,
+        "end": 34,
+        "value": "Trí tuệ nhân tạo",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 18,
+        "end": 25,
+        "confidence_entity": 0.866395890712738,
+        "value": "Trí tuệ",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "cho em xin mức học phí của ngành Công nghệ sinh học",
+    "entities": [
+      {
+        "start": 33,
+        "end": 51,
+        "value": "Công nghệ sinh học",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 33,
+        "end": 42,
+        "confidence_entity": 0.8782438635826111,
+        "value": "Công nghệ",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "học phí ngành cn12 một năm tốn bao nhiêu tiền học phí",
+    "entities": [
+      {
+        "start": 14,
+        "end": 18,
+        "value": "cn12",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "xin học phí của ngành Công nghệ thông tin UET với ad",
+    "entities": [
+      {
+        "start": 22,
+        "end": 41,
+        "value": "Công nghệ thông tin",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 22,
+        "end": 31,
+        "confidence_entity": 0.8693056702613831,
+        "value": "Công nghệ",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Hệ thống thông tin học những môn gì?",
+    "entities": [
+      {
+        "start": 0,
+        "end": 18,
+        "value": "Hệ thống thông tin",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 0,
+        "end": 8,
+        "confidence_entity": 0.8342744708061218,
+        "value": "Hệ thống",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Ra trường làm gì nếu học Kỹ thuật phần mềm",
+    "entities": [
+      {
+        "start": 25,
+        "end": 42,
+        "value": "Kỹ thuật phần mềm",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.6016924381256104,
+        "value": "Ra trường",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "nganh_hoc",
+        "start": 25,
+        "end": 33,
+        "confidence_entity": 0.8027125597000122,
+        "value": "Kỹ thuật",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Điểm chuẩn ngành CN11 là bao nhiêu",
+    "entities": [
+      {
+        "start": 17,
+        "end": 21,
+        "value": "CN11",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 5,
+        "end": 10,
+        "confidence_entity": 0.5713344216346741,
+        "value": "chuẩn",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Hệ thống thông tin",
+    "entities": [
+      {
+        "start": 0,
+        "end": 18,
+        "value": "Hệ thống thông tin",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 0,
+        "end": 8,
+        "confidence_entity": 0.7992772459983826,
+        "value": "Hệ thống",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Thông tin tuyển sinh ngành An toàn thông tin",
+    "entities": [
+      {
+        "start": 27,
+        "end": 44,
+        "value": "An toàn thông tin",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.7037365436553955,
+        "value": "Thông tin",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "nganh_hoc",
+        "start": 27,
+        "end": 34,
+        "confidence_entity": 0.8080363869667053,
+        "value": "An toàn",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Cơ kỹ thuật",
+    "entities": [
+      {
+        "start": 0,
+        "end": 11,
+        "value": "Cơ kỹ thuật",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.8554458022117615,
+        "value": "Cơ kỹ",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "ngành Kỹ thuật Robot học những gì và ra trường làm việc ở đâu vậy ad",
+    "entities": [
+      {
+        "start": 6,
+        "end": 20,
+        "value": "Kỹ thuật Robot",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 6,
+        "end": 14,
+        "confidence_entity": 0.7722834348678589,
+        "value": "Kỹ thuật",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "nganh_hoc",
+        "start": 15,
+        "end": 24,
+        "confidence_entity": 0.6832941174507141,
+        "value": "Robot học",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "con gái học Khoa học máy tính có vất vả lắm không ad",
+    "entities": [
+      {
+        "start": 12,
+        "end": 29,
+        "value": "Khoa học máy tính",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 12,
+        "end": 20,
+        "confidence_entity": 0.8770588040351868,
+        "value": "Khoa học",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "ngành cn8 có dễ xin việc không ad",
+    "entities": [
+      {
+        "start": 6,
+        "end": 9,
+        "value": "cn8",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "review chi tiết ngành Khoa học máy tính cho em với ạ",
+    "entities": [
+      {
+        "start": 22,
+        "end": 39,
+        "value": "Khoa học máy tính",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 22,
+        "end": 30,
+        "confidence_entity": 0.8383365273475647,
+        "value": "Khoa học",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "thi 100 diem dgnl thi du diem vao nganh nao cua truong",
+    "entities": [
+      {
+        "start": 13,
+        "end": 17,
+        "value": "dgnl",
+        "entity": "admission_method"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "diem chuan nganh cn2 nam ngoai la bao nhieu a",
+    "entities": [
+      {
+        "start": 17,
+        "end": 20,
+        "value": "cn2",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "cn20 điểm chuẩn 2025 là bao nhiêu?",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "cn20",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "em co 110 diem hsa thi co du diem vao nganh cn1 khong a",
+    "entities": [
+      {
+        "start": 44,
+        "end": 47,
+        "value": "cn1",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "muc diem chuan xet bang sat cua nganh Ky thuat may tinh la bao nhieu",
+    "entities": [
+      {
+        "start": 24,
+        "end": 27,
+        "value": "sat",
+        "entity": "admission_method"
+      },
+      {
+        "start": 38,
+        "end": 55,
+        "value": "Ky thuat may tinh",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 38,
+        "end": 46,
+        "confidence_entity": 0.7716726064682007,
+        "value": "Ky thuat",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "nganh Tu dong hoa diem chuan la bao nhieu",
+    "entities": [
+      {
+        "start": 6,
+        "end": 17,
+        "value": "Tu dong hoa",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 6,
+        "end": 13,
+        "confidence_entity": 0.7212303876876831,
+        "value": "Tu dong",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "cho em hoi muc diem an toan de do nganh cn8 bang hsa",
+    "entities": [
+      {
+        "start": 40,
+        "end": 43,
+        "value": "cn8",
+        "entity": "nganh_hoc"
+      },
+      {
+        "start": 49,
+        "end": 52,
+        "value": "hsa",
+        "entity": "admission_method"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "ngành cn9 lấy bao nhiêu điểm thi thpt?",
+    "entities": [
+      {
+        "start": 6,
+        "end": 9,
+        "value": "cn9",
+        "entity": "nganh_hoc"
+      },
+      {
+        "start": 33,
+        "end": 37,
+        "value": "thpt",
+        "entity": "admission_method"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "nganh cn21 diem chuan 2025 la bao nhieu",
+    "entities": [
+      {
+        "start": 6,
+        "end": 10,
+        "value": "cn21",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "cn3 điểm chuẩn bao nhiêu?",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "cn3",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "điểm chuẩn hsa của ngành cn15 năm ngoái là bao nhiêu ạ?",
+    "entities": [
+      {
+        "start": 25,
+        "end": 29,
+        "value": "cn15",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "điểm chuẩn ngành Công nghệ hàng không vũ trụ là bao nhiêu?",
+    "entities": [
+      {
+        "start": 17,
+        "end": 44,
+        "value": "Công nghệ hàng không vũ trụ",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 17,
+        "end": 26,
+        "confidence_entity": 0.9082590341567993,
+        "value": "Công nghệ",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "diem danh gia nang luc trung binh de do vao nganh cn1 la bao nhieu a",
+    "entities": [
+      {
+        "start": 50,
+        "end": 53,
+        "value": "cn1",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "ngành cn1 điểm chuẩn bao nhiêu?",
+    "entities": [
+      {
+        "start": 6,
+        "end": 9,
+        "value": "cn1",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "nganh Khoa hoc du lieu diem chuan bao nhieu",
+    "entities": [
+      {
+        "start": 6,
+        "end": 22,
+        "value": "Khoa hoc du lieu",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 6,
+        "end": 14,
+        "confidence_entity": 0.7310270667076111,
+        "value": "Khoa hoc",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "diem chuan ngah cn12 co cao khong",
+    "entities": [
+      {
+        "start": 16,
+        "end": 20,
+        "value": "cn12",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "nganh Cong nghe vat lieu xet diem thi thpt lay bao nhieu diem vay ad",
+    "entities": [
+      {
+        "start": 6,
+        "end": 24,
+        "value": "Cong nghe vat lieu",
+        "entity": "nganh_hoc"
+      },
+      {
+        "start": 38,
+        "end": 42,
+        "value": "thpt",
+        "entity": "admission_method"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 6,
+        "end": 15,
+        "confidence_entity": 0.9183875918388367,
+        "value": "Cong nghe",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "muốn đỗ vào ngành cn8 thì năm ngoái cần bao nhiêu điểm đánh giá năng lực",
+    "entities": [
+      {
+        "start": 18,
+        "end": 21,
+        "value": "cn8",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "điểm chuẩn xét tuyển thpt của ngành Công nghệ thông tin có cao không ad",
+    "entities": [
+      {
+        "start": 21,
+        "end": 25,
+        "value": "thpt",
+        "entity": "admission_method"
+      },
+      {
+        "start": 36,
+        "end": 55,
+        "value": "Công nghệ thông tin",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 36,
+        "end": 45,
+        "confidence_entity": 0.8801162838935852,
+        "value": "Công nghệ",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "bao nhiêu điểm thì đỗ được vào Trí tuệ nhân tạo năm nay thế ad",
+    "entities": [
+      {
+        "start": 31,
+        "end": 47,
+        "value": "Trí tuệ nhân tạo",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 31,
+        "end": 38,
+        "confidence_entity": 0.8575437068939209,
+        "value": "Trí tuệ",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "ngành Công nghệ sinh học lấy bao nhiêu điểm thpt thế ad",
+    "entities": [
+      {
+        "start": 6,
+        "end": 24,
+        "value": "Công nghệ sinh học",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 6,
+        "end": 15,
+        "confidence_entity": 0.9371506571769714,
+        "value": "Công nghệ",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Điểm thi là 95",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.528937041759491,
+        "value": "thi",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Diem thi la 27.5",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "nganh_hoc",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.5083065032958984,
+        "value": "thi",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "tôi chọn ngành AI",
+    "entities": [
+      {
+        "start": 15,
+        "end": 17,
+        "value": "AI",
+        "entity": "nganh_hoc"
+      }
+    ],
+    "predicted_entities": []
+  }
+]
