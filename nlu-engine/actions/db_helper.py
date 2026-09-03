@@ -75,6 +75,7 @@ def init_db():
                 email VARCHAR(100) NOT NULL UNIQUE,
                 fullname VARCHAR(100),
                 password VARCHAR(255) NOT NULL,
+                role VARCHAR(20) NOT NULL DEFAULT 'student',
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
             """)
@@ -85,6 +86,7 @@ def init_db():
                 email TEXT NOT NULL UNIQUE,
                 fullname TEXT,
                 password TEXT NOT NULL,
+                role TEXT NOT NULL DEFAULT 'student',
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
             """)
@@ -123,6 +125,7 @@ def init_db():
                 phone_number VARCHAR(15) NOT NULL,
                 chosen_major_code VARCHAR(10),
                 admission_method VARCHAR(20) NOT NULL,
+                is_verified BOOLEAN DEFAULT FALSE,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (chosen_major_code) REFERENCES majors(major_code),
                 FOREIGN KEY (user_id) REFERENCES users(id)
@@ -137,6 +140,7 @@ def init_db():
                 phone_number TEXT NOT NULL,
                 chosen_major_code TEXT,
                 admission_method TEXT NOT NULL,
+                is_verified INTEGER DEFAULT 0,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (chosen_major_code) REFERENCES majors(major_code),
                 FOREIGN KEY (user_id) REFERENCES users(id)
@@ -291,6 +295,48 @@ def init_db():
             if "ielts_evidence_url" not in cols:
                 cursor.execute("ALTER TABLE admission_thptqg ADD COLUMN ielts_evidence_url TEXT")
 
+        # Lightweight migrations for role-based access and verification status.
+        if conn_type == "postgres":
+            cursor.execute("""
+                SELECT column_name
+                FROM information_schema.columns
+                WHERE table_name='users' AND column_name='role';
+            """)
+            if not cursor.fetchone():
+                cursor.execute("ALTER TABLE users ADD COLUMN role VARCHAR(20) NOT NULL DEFAULT 'student'")
+
+            cursor.execute("""
+                SELECT column_name
+                FROM information_schema.columns
+                WHERE table_name='candidates' AND column_name='is_verified';
+            """)
+            if not cursor.fetchone():
+                cursor.execute("ALTER TABLE candidates ADD COLUMN is_verified BOOLEAN DEFAULT FALSE")
+        else:
+            cursor.execute("PRAGMA table_info(users)")
+            user_cols = [col[1] for col in cursor.fetchall()]
+            if "role" not in user_cols:
+                cursor.execute("ALTER TABLE users ADD COLUMN role TEXT NOT NULL DEFAULT 'student'")
+
+            cursor.execute("PRAGMA table_info(candidates)")
+            candidate_cols = [col[1] for col in cursor.fetchall()]
+            if "is_verified" not in candidate_cols:
+                cursor.execute("ALTER TABLE candidates ADD COLUMN is_verified INTEGER DEFAULT 0")
+
+        placeholder = "%s" if conn_type == "postgres" else "?"
+        cursor.execute(f"SELECT COUNT(*) FROM users WHERE email = {placeholder}", ("admin@uet.vn",))
+        admin_count = cursor.fetchone()[0]
+        if admin_count == 0:
+            cursor.execute(
+                f"INSERT INTO users (email, fullname, password, role) VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder})",
+                ("admin@uet.vn", "UET Administrator", "Admin@123", "admin")
+            )
+        else:
+            cursor.execute(
+                f"UPDATE users SET fullname = {placeholder}, password = {placeholder}, role = {placeholder} WHERE email = {placeholder}",
+                ("UET Administrator", "Admin@123", "admin", "admin@uet.vn")
+            )
+
         conn.commit()
         conn.close()
         print(f"Database initialized successfully with connection type: {conn_type}")
@@ -325,12 +371,21 @@ def find_major_code(chosen_major: str) -> str:
         
     return "CN1"
 
+def to_api_dict(row):
+    result = dict(row)
+    for key, value in result.items():
+        if hasattr(value, "isoformat"):
+            result[key] = value.isoformat()
+        elif value.__class__.__name__ == "Decimal":
+            result[key] = float(value)
+    return result
+
 def get_user_by_email(email):
     try:
         conn, conn_type = get_db_connection()
         cursor = get_db_cursor(conn, conn_type)
         placeholder = "%s" if conn_type == "postgres" else "?"
-        cursor.execute(f"SELECT id, email, fullname, password FROM users WHERE email = {placeholder}", (email,))
+        cursor.execute(f"SELECT id, email, fullname, password, role FROM users WHERE email = {placeholder}", (email,))
         row = cursor.fetchone()
         cursor.close()
         conn.close()
@@ -346,7 +401,7 @@ def register_user_db(email, fullname, password):
         conn, conn_type = get_db_connection()
         cursor = conn.cursor()
         placeholder = "%s" if conn_type == "postgres" else "?"
-        cursor.execute(f"INSERT INTO users (email, fullname, password) VALUES ({placeholder}, {placeholder}, {placeholder})", (email, fullname, password))
+        cursor.execute(f"INSERT INTO users (email, fullname, password, role) VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder})", (email, fullname, password, "student"))
         conn.commit()
         cursor.close()
         conn.close()
@@ -360,7 +415,7 @@ def login_user_db(email, password):
         conn, conn_type = get_db_connection()
         cursor = get_db_cursor(conn, conn_type)
         placeholder = "%s" if conn_type == "postgres" else "?"
-        cursor.execute(f"SELECT id, email, fullname, password FROM users WHERE email = {placeholder} AND password = {placeholder}", (email, password))
+        cursor.execute(f"SELECT id, email, fullname, password, role FROM users WHERE email = {placeholder} AND password = {placeholder}", (email, password))
         row = cursor.fetchone()
         cursor.close()
         conn.close()
@@ -409,22 +464,22 @@ def get_candidate_aspirations(email):
                 cursor.execute(f"SELECT block_name, total_score, evidence_url FROM admission_thptqg WHERE candidate_id = {placeholder}", (candidate_id,))
                 sub_row = cursor.fetchone()
                 if sub_row:
-                    details = dict(sub_row)
+                    details = to_api_dict(sub_row)
             elif method == "HSA":
                 cursor.execute(f"SELECT hsa_id, hsa_score, evidence_url FROM admission_hsa WHERE candidate_id = {placeholder}", (candidate_id,))
                 sub_row = cursor.fetchone()
                 if sub_row:
-                    details = dict(sub_row)
+                    details = to_api_dict(sub_row)
             elif method == "IELTS":
                 cursor.execute(f"SELECT ielts_score, math_score, evidence_url FROM admission_ielts WHERE candidate_id = {placeholder}", (candidate_id,))
                 sub_row = cursor.fetchone()
                 if sub_row:
-                    details = dict(sub_row)
+                    details = to_api_dict(sub_row)
             elif method == "TUYEN_THANG":
                 cursor.execute(f"SELECT award_name, evidence_url FROM admission_direct WHERE candidate_id = {placeholder}", (candidate_id,))
                 sub_row = cursor.fetchone()
                 if sub_row:
-                    details = dict(sub_row)
+                    details = to_api_dict(sub_row)
             
             aspirations.append({
                 "id": candidate_id,
@@ -443,6 +498,116 @@ def get_candidate_aspirations(email):
     except Exception as e:
         print(f"Error in get_candidate_aspirations: {e}")
         return []
+
+def is_admin_user(email):
+    user = get_user_by_email(email)
+    return bool(user and user.get("role") == "admin")
+
+def get_all_users():
+    try:
+        conn, conn_type = get_db_connection()
+        cursor = get_db_cursor(conn, conn_type)
+        cursor.execute("""
+            SELECT u.id, u.email, u.fullname, u.role, u.created_at, COUNT(c.id) AS aspiration_count
+            FROM users u
+            LEFT JOIN candidates c ON c.user_id = u.id
+            GROUP BY u.id, u.email, u.fullname, u.role, u.created_at
+            ORDER BY u.created_at DESC
+        """)
+        rows = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        users = []
+        for row in rows:
+            user = to_api_dict(row)
+            user["aspiration_count"] = int(user.get("aspiration_count") or 0)
+            users.append(user)
+        return users
+    except Exception as e:
+        print(f"Error in get_all_users: {e}")
+        return []
+
+def get_all_candidate_aspirations():
+    try:
+        conn, conn_type = get_db_connection()
+        cursor = get_db_cursor(conn, conn_type)
+        cursor.execute("""
+            SELECT c.id, c.fullname, c.phone_number, c.chosen_major_code, m.major_name,
+                   c.admission_method, c.created_at, c.is_verified,
+                   u.email AS user_email, u.fullname AS account_fullname
+            FROM candidates c
+            LEFT JOIN majors m ON c.chosen_major_code = m.major_code
+            LEFT JOIN users u ON c.user_id = u.id
+            ORDER BY c.created_at DESC
+        """)
+        rows = cursor.fetchall()
+
+        aspirations = []
+        placeholder = "%s" if conn_type == "postgres" else "?"
+        for row in rows:
+            row_dict = dict(row)
+            candidate_id = row_dict["id"]
+            method = row_dict["admission_method"]
+
+            details = {}
+            if method == "THPTQG":
+                cursor.execute(f"SELECT block_name, total_score, evidence_url FROM admission_thptqg WHERE candidate_id = {placeholder}", (candidate_id,))
+                sub_row = cursor.fetchone()
+                if sub_row:
+                    details = to_api_dict(sub_row)
+            elif method == "HSA":
+                cursor.execute(f"SELECT hsa_id, hsa_score, evidence_url FROM admission_hsa WHERE candidate_id = {placeholder}", (candidate_id,))
+                sub_row = cursor.fetchone()
+                if sub_row:
+                    details = to_api_dict(sub_row)
+            elif method == "IELTS":
+                cursor.execute(f"SELECT ielts_score, math_score, evidence_url FROM admission_ielts WHERE candidate_id = {placeholder}", (candidate_id,))
+                sub_row = cursor.fetchone()
+                if sub_row:
+                    details = to_api_dict(sub_row)
+            elif method == "TUYEN_THANG":
+                cursor.execute(f"SELECT award_name, evidence_url FROM admission_direct WHERE candidate_id = {placeholder}", (candidate_id,))
+                sub_row = cursor.fetchone()
+                if sub_row:
+                    details = to_api_dict(sub_row)
+
+            aspirations.append({
+                "id": candidate_id,
+                "fullname": row_dict["fullname"],
+                "phone_number": row_dict["phone_number"],
+                "chosen_major": row_dict["major_name"] or row_dict["chosen_major_code"],
+                "chosen_major_code": row_dict["chosen_major_code"],
+                "admission_method": method,
+                "is_verified": bool(row_dict["is_verified"]),
+                "created_at": str(row_dict["created_at"]),
+                "user_email": row_dict["user_email"],
+                "account_fullname": row_dict["account_fullname"],
+                "details": details
+            })
+
+        cursor.close()
+        conn.close()
+        return aspirations
+    except Exception as e:
+        print(f"Error in get_all_candidate_aspirations: {e}")
+        return []
+
+def update_user_role(user_id, role):
+    if role not in ("student", "staff", "admin"):
+        return False
+    try:
+        conn, conn_type = get_db_connection()
+        cursor = conn.cursor()
+        placeholder = "%s" if conn_type == "postgres" else "?"
+        cursor.execute(f"UPDATE users SET role = {placeholder} WHERE id = {placeholder}", (role, user_id))
+        conn.commit()
+        updated = cursor.rowcount > 0
+        cursor.close()
+        conn.close()
+        return updated
+    except Exception as e:
+        print(f"Error in update_user_role: {e}")
+        return False
 
 def verify_candidate_profile(candidate_id):
     try:

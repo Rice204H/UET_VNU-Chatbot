@@ -4,6 +4,7 @@ import ChatWindow from "./components/ChatWindow.jsx";
 import FlowchartVisualizer from "./components/FlowchartVisualizer.jsx";
 import StudentPortal from "./components/StudentPortal.jsx";
 import AspirationsList from "./components/AspirationsList.jsx";
+import AdminDashboard from "./components/AdminDashboard.jsx";
 import { useChat } from "./hooks/useChat.js";
 import {
   Brain,
@@ -11,6 +12,7 @@ import {
   CheckCircle2,
   BookOpen,
   User,
+  ShieldCheck,
 } from "lucide-react";
 
 export default function App() {
@@ -30,6 +32,13 @@ export default function App() {
     loggedInCandidate,
     logoutCandidate,
     candidateAspirations,
+    adminUsers,
+    adminAspirations,
+    adminError,
+    fetchAdminData,
+    adminVerifyAspiration,
+    adminCancelAspiration,
+    adminUpdateUserRole,
     authError,
     setAuthError,
     loginUser,
@@ -88,6 +97,57 @@ export default function App() {
   }
 
   // ── Màn hình chính ────────────────────────────────────────────────────────
+  if (loggedInCandidate.role === "admin") {
+    return (
+      <div className="app">
+        <header className="hero">
+          <div className="hero-content">
+            <p className="eyebrow flex-align">
+              <ShieldCheck size={14} className="icon-blue" />
+              <span>Trang Quản Trị Tuyển Sinh UET</span>
+            </p>
+            <h1>Quản lý hồ sơ &amp; phân quyền người dùng</h1>
+            <p className="subtitle">
+              Theo dõi toàn bộ hồ sơ xét tuyển, xác minh minh chứng và quản lý vai trò tài khoản trong hệ thống.
+            </p>
+          </div>
+          <div className="header-actions flex-align" style={{ gap: '16px' }}>
+            <div className="system-status-card candidate-profile-header-card" style={{ display: 'flex', alignItems: 'center', gap: '14px', minWidth: 'auto' }}>
+              <div className="logo-icon-wrapper" style={{ background: 'var(--accent-light)', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <User size={18} style={{ color: 'var(--accent)' }} />
+              </div>
+              <div style={{ textAlign: 'left' }}>
+                <div style={{ fontSize: '13px', fontWeight: '800', color: 'var(--ink)' }}>
+                  {loggedInCandidate.fullname}
+                </div>
+                <div style={{ fontSize: '11px', color: 'var(--muted)' }}>
+                  {loggedInCandidate.email} · Quản trị
+                </div>
+              </div>
+              <button
+                onClick={logoutCandidate}
+                className="logout-btn"
+                style={{ marginLeft: '10px', padding: '6px 12px', fontSize: '11px' }}
+              >
+                Đăng xuất
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <AdminDashboard
+          adminUsers={adminUsers}
+          adminAspirations={adminAspirations}
+          adminError={adminError}
+          onRefresh={fetchAdminData}
+          onVerifyAspiration={adminVerifyAspiration}
+          onCancelAspiration={adminCancelAspiration}
+          onUpdateUserRole={adminUpdateUserRole}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="app">
       <header className="hero">

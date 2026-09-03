@@ -34,6 +34,9 @@ export function useChat() {
     return saved ? JSON.parse(saved) : null;
   });
   const [candidateAspirations, setCandidateAspirations] = useState([]);
+  const [adminUsers, setAdminUsers] = useState([]);
+  const [adminAspirations, setAdminAspirations] = useState([]);
+  const [adminError, setAdminError] = useState("");
   const [authError, setAuthError] = useState("");
 
   // Conversation slot visualizer state
@@ -147,6 +150,44 @@ export function useChat() {
     }
   }, [loggedInCandidate, fetchAspirations]);
 
+  const fetchAdminData = useCallback(async () => {
+    if (!loggedInCandidate?.email || loggedInCandidate?.role !== "admin") return;
+
+    setAdminError("");
+    try {
+      const query = `admin_email=${encodeURIComponent(loggedInCandidate.email)}`;
+      const [usersResp, aspirationsResp] = await Promise.all([
+        fetch(`http://localhost:5006/api/admin/users?${query}`),
+        fetch(`http://localhost:5006/api/admin/aspirations?${query}`),
+      ]);
+
+      const usersData = await usersResp.json();
+      const aspirationsData = await aspirationsResp.json();
+
+      if (!usersResp.ok || usersData.status !== "success") {
+        throw new Error(usersData.message || "Không tải được danh sách người dùng.");
+      }
+      if (!aspirationsResp.ok || aspirationsData.status !== "success") {
+        throw new Error(aspirationsData.message || "Không tải được danh sách hồ sơ.");
+      }
+
+      setAdminUsers(usersData.users || []);
+      setAdminAspirations(aspirationsData.aspirations || []);
+    } catch (e) {
+      setAdminError(e.message || "Không thể tải dữ liệu quản trị.");
+    }
+  }, [loggedInCandidate]);
+
+  useEffect(() => {
+    if (loggedInCandidate?.role === "admin") {
+      fetchAdminData();
+    } else {
+      setAdminUsers([]);
+      setAdminAspirations([]);
+      setAdminError("");
+    }
+  }, [loggedInCandidate, fetchAdminData]);
+
   // ─── Authentication ───────────────────────────────────────────────────────
   const loginUser = useCallback(async (email, password) => {
     setAuthError("");
@@ -233,6 +274,70 @@ export function useChat() {
       console.warn("Failed to cancel aspiration:", e);
     }
   }, []);
+
+  const adminVerifyAspiration = useCallback(async (candidateId) => {
+    if (!loggedInCandidate?.email) return;
+    try {
+      const resp = await fetch("http://localhost:5006/api/admin/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          admin_email: loggedInCandidate.email,
+          candidate_id: candidateId,
+        }),
+      });
+      const data = await resp.json();
+      if (!resp.ok || data.status !== "success") {
+        throw new Error(data.message || "Xác minh hồ sơ thất bại.");
+      }
+      await fetchAdminData();
+    } catch (e) {
+      setAdminError(e.message || "Xác minh hồ sơ thất bại.");
+    }
+  }, [loggedInCandidate, fetchAdminData]);
+
+  const adminCancelAspiration = useCallback(async (candidateId) => {
+    if (!loggedInCandidate?.email) return;
+    try {
+      const resp = await fetch("http://localhost:5006/api/admin/cancel", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          admin_email: loggedInCandidate.email,
+          candidate_id: candidateId,
+        }),
+      });
+      const data = await resp.json();
+      if (!resp.ok || data.status !== "success") {
+        throw new Error(data.message || "Hủy hồ sơ thất bại.");
+      }
+      await fetchAdminData();
+    } catch (e) {
+      setAdminError(e.message || "Hủy hồ sơ thất bại.");
+    }
+  }, [loggedInCandidate, fetchAdminData]);
+
+  const adminUpdateUserRole = useCallback(async (userId, role) => {
+    if (!loggedInCandidate?.email) return;
+    try {
+      const resp = await fetch("http://localhost:5006/api/admin/users/role", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          admin_email: loggedInCandidate.email,
+          user_id: userId,
+          role,
+        }),
+      });
+      const data = await resp.json();
+      if (!resp.ok || data.status !== "success") {
+        throw new Error(data.message || "Cập nhật vai trò thất bại.");
+      }
+      await fetchAdminData();
+    } catch (e) {
+      setAdminError(e.message || "Cập nhật vai trò thất bại.");
+    }
+  }, [loggedInCandidate, fetchAdminData]);
 
   // ─── Slot label helpers ───────────────────────────────────────────────────
   const getSlotLabel = (name) => {
@@ -442,6 +547,13 @@ export function useChat() {
     loggedInCandidate,
     logoutCandidate,
     candidateAspirations,
+    adminUsers,
+    adminAspirations,
+    adminError,
+    fetchAdminData,
+    adminVerifyAspiration,
+    adminCancelAspiration,
+    adminUpdateUserRole,
     authError,
     setAuthError,
     loginUser,
