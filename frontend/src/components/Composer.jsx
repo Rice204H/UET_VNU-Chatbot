@@ -11,7 +11,7 @@ export default function Composer({ onSend, onStart, isSending, isEmpty }) {
     if (!isEmpty && !isSending && inputRef.current) {
       // Small timeout to ensure input element is fully enabled and active in DOM
       const timer = setTimeout(() => {
-        if (inputRef.current) inputRef.current.focus();
+        if (inputRef.current) inputRef.current.focus({ preventScroll: true });
       }, 50);
       return () => clearTimeout(timer);
     }
@@ -47,7 +47,7 @@ export default function Composer({ onSend, onStart, isSending, isEmpty }) {
     // Maintain focus on the input field
     setTimeout(() => {
       if (inputRef.current) {
-        inputRef.current.focus();
+        inputRef.current.focus({ preventScroll: true });
       }
     }, 50);
   };

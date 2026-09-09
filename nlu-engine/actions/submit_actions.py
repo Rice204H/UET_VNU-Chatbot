@@ -39,6 +39,32 @@ def get_ielts_bonus(ielts_score: float) -> float:
     return 0.0
 
 
+def get_user_id_for_sender(cursor, conn_type: str, sender_id: str, placeholder: str):
+    if not sender_id or "@" not in sender_id:
+        return None
+    cursor.execute(f"SELECT id FROM users WHERE email = {placeholder}", (sender_id,))
+    user_row = cursor.fetchone()
+    if not user_row:
+        return None
+    return user_row[0]
+
+
+def insert_candidate(cursor, conn_type: str, placeholder: str, user_id, fullname, phone_number, major_code, admission_method):
+    if conn_type == "postgres":
+        cursor.execute(f"""
+            INSERT INTO candidates (user_id, fullname, phone_number, chosen_major_code, admission_method)
+            VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder})
+            RETURNING id
+        """, (user_id, fullname, phone_number, major_code, admission_method))
+        return cursor.fetchone()[0]
+
+    cursor.execute(f"""
+        INSERT INTO candidates (user_id, fullname, phone_number, chosen_major_code, admission_method)
+        VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder})
+    """, (user_id, fullname, phone_number, major_code, admission_method))
+    return cursor.lastrowid
+
+
 # --- SUBMIT FORM THPTQG ---
 class ActionSubmitThptqgForm(Action):
     def name(self) -> Text:
@@ -57,25 +83,8 @@ class ActionSubmitThptqgForm(Action):
             
             # Get sender_id (could be user email if logged in)
             sender_id = tracker.sender_id
-            user_id = None
-            if sender_id and "@" in sender_id:
-                cursor.execute(f"SELECT id FROM users WHERE email = {placeholder}", (sender_id,))
-                user_row = cursor.fetchone()
-                if user_row:
-                    user_id = user_row[0] if conn_type == "postgres" else user_row["id"]
-
-            # Ghi vào bảng gốc candidates
-            cursor.execute(f"""
-                INSERT INTO candidates (user_id, fullname, phone_number, chosen_major_code, admission_method)
-                VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, 'THPTQG')
-            """, (user_id, data["fullname"], data["phone_number"], major_code))
-            
-            candidate_id = None
-            if conn_type == "postgres":
-                cursor.execute("SELECT LASTVAL()")
-                candidate_id = cursor.fetchone()[0]
-            else:
-                candidate_id = cursor.lastrowid
+            user_id = get_user_id_for_sender(cursor, conn_type, sender_id, placeholder)
+            candidate_id = insert_candidate(cursor, conn_type, placeholder, user_id, data["fullname"], data["phone_number"], major_code, "THPTQG")
                 
             # Tính điểm cộng IELTS
             ielts_val = data["ielts_score"]
@@ -153,25 +162,8 @@ class ActionSubmitHsaForm(Action):
             
             # Get sender_id (could be user email if logged in)
             sender_id = tracker.sender_id
-            user_id = None
-            if sender_id and "@" in sender_id:
-                cursor.execute(f"SELECT id FROM users WHERE email = {placeholder}", (sender_id,))
-                user_row = cursor.fetchone()
-                if user_row:
-                    user_id = user_row[0] if conn_type == "postgres" else user_row["id"]
-
-            # Ghi vào bảng gốc candidates
-            cursor.execute(f"""
-                INSERT INTO candidates (user_id, fullname, phone_number, chosen_major_code, admission_method)
-                VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, 'HSA')
-            """, (user_id, data["fullname"], data["phone_number"], major_code))
-            
-            candidate_id = None
-            if conn_type == "postgres":
-                cursor.execute("SELECT LASTVAL()")
-                candidate_id = cursor.fetchone()[0]
-            else:
-                candidate_id = cursor.lastrowid
+            user_id = get_user_id_for_sender(cursor, conn_type, sender_id, placeholder)
+            candidate_id = insert_candidate(cursor, conn_type, placeholder, user_id, data["fullname"], data["phone_number"], major_code, "HSA")
                 
             # Ghi vào bảng phụ admission_hsa
             cursor.execute(f"""
@@ -226,25 +218,8 @@ class ActionSubmitIeltsForm(Action):
             
             # Get sender_id (could be user email if logged in)
             sender_id = tracker.sender_id
-            user_id = None
-            if sender_id and "@" in sender_id:
-                cursor.execute(f"SELECT id FROM users WHERE email = {placeholder}", (sender_id,))
-                user_row = cursor.fetchone()
-                if user_row:
-                    user_id = user_row[0] if conn_type == "postgres" else user_row["id"]
-
-            # Ghi vào bảng gốc candidates
-            cursor.execute(f"""
-                INSERT INTO candidates (user_id, fullname, phone_number, chosen_major_code, admission_method)
-                VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, 'IELTS')
-            """, (user_id, data["fullname"], data["phone_number"], major_code))
-            
-            candidate_id = None
-            if conn_type == "postgres":
-                cursor.execute("SELECT LASTVAL()")
-                candidate_id = cursor.fetchone()[0]
-            else:
-                candidate_id = cursor.lastrowid
+            user_id = get_user_id_for_sender(cursor, conn_type, sender_id, placeholder)
+            candidate_id = insert_candidate(cursor, conn_type, placeholder, user_id, data["fullname"], data["phone_number"], major_code, "IELTS")
                 
             # Ghi vào bảng phụ admission_ielts
             cursor.execute(f"""
@@ -299,25 +274,8 @@ class ActionSubmitDirectForm(Action):
             
             # Get sender_id (could be user email if logged in)
             sender_id = tracker.sender_id
-            user_id = None
-            if sender_id and "@" in sender_id:
-                cursor.execute(f"SELECT id FROM users WHERE email = {placeholder}", (sender_id,))
-                user_row = cursor.fetchone()
-                if user_row:
-                    user_id = user_row[0] if conn_type == "postgres" else user_row["id"]
-
-            # Ghi vào bảng gốc candidates
-            cursor.execute(f"""
-                INSERT INTO candidates (user_id, fullname, phone_number, chosen_major_code, admission_method)
-                VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, 'TUYEN_THANG')
-            """, (user_id, data["fullname"], data["phone_number"], major_code))
-            
-            candidate_id = None
-            if conn_type == "postgres":
-                cursor.execute("SELECT LASTVAL()")
-                candidate_id = cursor.fetchone()[0]
-            else:
-                candidate_id = cursor.lastrowid
+            user_id = get_user_id_for_sender(cursor, conn_type, sender_id, placeholder)
+            candidate_id = insert_candidate(cursor, conn_type, placeholder, user_id, data["fullname"], data["phone_number"], major_code, "TUYEN_THANG")
                 
             # Ghi vào bảng phụ admission_direct
             cursor.execute(f"""

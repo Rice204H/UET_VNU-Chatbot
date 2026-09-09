@@ -173,6 +173,7 @@ def init_db():
             CREATE TABLE IF NOT EXISTS admission_ielts (
                 candidate_id INT PRIMARY KEY,
                 ielts_score DECIMAL(3,1) NOT NULL,
+                math_score DECIMAL(4,2) NOT NULL,
                 evidence_url TEXT NOT NULL,
                 FOREIGN KEY (candidate_id) REFERENCES candidates(id) ON DELETE CASCADE
             )
@@ -312,6 +313,14 @@ def init_db():
             """)
             if not cursor.fetchone():
                 cursor.execute("ALTER TABLE candidates ADD COLUMN is_verified BOOLEAN DEFAULT FALSE")
+
+            cursor.execute("""
+                SELECT column_name
+                FROM information_schema.columns
+                WHERE table_name='admission_ielts' AND column_name='math_score';
+            """)
+            if not cursor.fetchone():
+                cursor.execute("ALTER TABLE admission_ielts ADD COLUMN math_score NUMERIC(4,2) DEFAULT 0 NOT NULL")
         else:
             cursor.execute("PRAGMA table_info(users)")
             user_cols = [col[1] for col in cursor.fetchall()]

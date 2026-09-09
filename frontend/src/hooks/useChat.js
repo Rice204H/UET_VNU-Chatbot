@@ -21,6 +21,27 @@ const INITIAL_SLOTS = {
   confirm_registration: null,
 };
 
+const FETCH_TIMEOUT_MS = 12000;
+
+async function fetchWithTimeout(url, options = {}, timeoutMs = FETCH_TIMEOUT_MS) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    return await fetch(url, {
+      ...options,
+      signal: controller.signal,
+    });
+  } catch (error) {
+    if (error.name === "AbortError") {
+      throw new Error("Kết nối quá thời gian chờ. Vui lòng kiểm tra Rasa/Auth server rồi thử lại.");
+    }
+    throw error;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 export function useChat() {
   const [messages, setMessages] = useState([]);
   const [isSending, setIsSending] = useState(false);
@@ -46,7 +67,7 @@ export function useChat() {
 
   // ─── Rasa health monitor ──────────────────────────────────────────────────
   useEffect(() => {
-    fetch("http://localhost:5005/")
+    fetchWithTimeout("http://localhost:5005/", {}, 5000)
       .then(() => setRasaStatus("online"))
       .catch(() => setRasaStatus("offline"));
   }, []);
@@ -54,7 +75,7 @@ export function useChat() {
   // ─── Load lịch sử hội thoại từ Rasa tracker (Redis) ─────────────────
   const loadConversationFromTracker = useCallback(async (currentSenderId) => {
     try {
-      const resp = await fetch(`http://localhost:5005/conversations/${currentSenderId}/tracker`);
+      const resp = await fetchWithTimeout(`http://localhost:5005/conversations/${currentSenderId}/tracker`, {}, 7000);
       if (!resp.ok) {
         newChat();
         return;
@@ -130,7 +151,7 @@ export function useChat() {
   // ─── Aspirations ─────────────────────────────────────────────────────────
   const fetchAspirations = useCallback(async (email) => {
     try {
-      const resp = await fetch(`http://localhost:5006/api/aspirations?email=${encodeURIComponent(email)}`);
+      const resp = await fetchWithTimeout(`http://localhost:5006/api/aspirations?email=${encodeURIComponent(email)}`, {}, 7000);
       if (resp.ok) {
         const data = await resp.json();
         if (data.status === "success") {
@@ -157,8 +178,8 @@ export function useChat() {
     try {
       const query = `admin_email=${encodeURIComponent(loggedInCandidate.email)}`;
       const [usersResp, aspirationsResp] = await Promise.all([
-        fetch(`http://localhost:5006/api/admin/users?${query}`),
-        fetch(`http://localhost:5006/api/admin/aspirations?${query}`),
+        fetchWithTimeout(`http://localhost:5006/api/admin/users?${query}`),
+        fetchWithTimeout(`http://localhost:5006/api/admin/aspirations?${query}`),
       ]);
 
       const usersData = await usersResp.json();
@@ -192,7 +213,7 @@ export function useChat() {
   const loginUser = useCallback(async (email, password) => {
     setAuthError("");
     try {
-      const resp = await fetch("http://localhost:5006/api/login", {
+      const resp = await fetchWithTimeout("http://localhost:5006/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -214,7 +235,7 @@ export function useChat() {
   const registerUser = useCallback(async (email, fullname, password) => {
     setAuthError("");
     try {
-      const resp = await fetch("http://localhost:5006/api/register", {
+      const resp = await fetchWithTimeout("http://localhost:5006/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, fullname, password }),
@@ -243,7 +264,7 @@ export function useChat() {
   // ─── Aspiration actions ───────────────────────────────────────────────────
   const verifyAspiration = useCallback(async (candidateId) => {
     try {
-      const resp = await fetch("http://localhost:5006/api/verify", {
+      const resp = await fetchWithTimeout("http://localhost:5006/api/verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ candidate_id: candidateId }),
@@ -260,7 +281,7 @@ export function useChat() {
 
   const cancelAspiration = useCallback(async (candidateId) => {
     try {
-      const resp = await fetch("http://localhost:5006/api/cancel", {
+      const resp = await fetchWithTimeout("http://localhost:5006/api/cancel", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ candidate_id: candidateId }),
@@ -278,7 +299,7 @@ export function useChat() {
   const adminVerifyAspiration = useCallback(async (candidateId) => {
     if (!loggedInCandidate?.email) return;
     try {
-      const resp = await fetch("http://localhost:5006/api/admin/verify", {
+      const resp = await fetchWithTimeout("http://localhost:5006/api/admin/verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -299,7 +320,7 @@ export function useChat() {
   const adminCancelAspiration = useCallback(async (candidateId) => {
     if (!loggedInCandidate?.email) return;
     try {
-      const resp = await fetch("http://localhost:5006/api/admin/cancel", {
+      const resp = await fetchWithTimeout("http://localhost:5006/api/admin/cancel", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -320,7 +341,7 @@ export function useChat() {
   const adminUpdateUserRole = useCallback(async (userId, role) => {
     if (!loggedInCandidate?.email) return;
     try {
-      const resp = await fetch("http://localhost:5006/api/admin/users/role", {
+      const resp = await fetchWithTimeout("http://localhost:5006/api/admin/users/role", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -365,17 +386,18 @@ export function useChat() {
     const currentActiveId = getSenderId();
 
     setMessages([]);
+    setIsSending(false);
     setSlots(INITIAL_SLOTS);
     setCurrentFlow(null);
     setNextSlotToCollect(null);
     setError("");
 
     // Gửi /restart để xóa tracker Rasa phía server
-    fetch(`http://localhost:5005/conversations/${currentActiveId}/tracker/events`, {
+    fetchWithTimeout(`http://localhost:5005/conversations/${currentActiveId}/tracker/events`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ event: "restart" }),
-    }).catch((err) => console.warn("Failed to restart Rasa tracker:", err));
+    }, 5000).catch((err) => console.warn("Failed to restart Rasa tracker:", err));
 
     // Tin nhắn chào mừng
     const botMsg = createMessage({
@@ -404,7 +426,7 @@ export function useChat() {
     const currentSenderId = getSenderId();
     const outgoingMessage = payloadValue || userText || "";
 
-    const response = await fetch("http://localhost:5005/webhooks/rest/webhook", {
+    const response = await fetchWithTimeout("http://localhost:5005/webhooks/rest/webhook", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -425,7 +447,7 @@ export function useChat() {
 
     // Đồng bộ slots từ Rasa tracker
     try {
-      const trackerResp = await fetch(`http://localhost:5005/conversations/${currentSenderId}/tracker`);
+        const trackerResp = await fetchWithTimeout(`http://localhost:5005/conversations/${currentSenderId}/tracker`, {}, 7000);
       if (trackerResp.ok) {
         const tracker = await trackerResp.json();
         const trackerSlots = tracker?.slots || {};
@@ -471,7 +493,7 @@ export function useChat() {
       const userMsg = createMessage({ from: "user", text: trimmed });
       setMessages((prev) => [...prev, userMsg]);
 
-      await new Promise((resolve) => setTimeout(resolve, 600));
+      await new Promise((resolve) => setTimeout(resolve, 150));
 
       try {
         const botResponse = await runRasaAPI(trimmed, payloadValue);

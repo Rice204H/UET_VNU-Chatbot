@@ -1,16 +1,19 @@
 import { useState, useEffect, useRef } from "react";
 import "./styles.css";
 import ChatWindow from "./components/ChatWindow.jsx";
-import FlowchartVisualizer from "./components/FlowchartVisualizer.jsx";
 import StudentPortal from "./components/StudentPortal.jsx";
 import AspirationsList from "./components/AspirationsList.jsx";
 import AdminDashboard from "./components/AdminDashboard.jsx";
+import CurriculumExplorer from "./components/CurriculumExplorer.jsx";
+import ToolboxPanel from "./components/ToolboxPanel.jsx";
+import AdmissionsInfoPanel from "./components/AdmissionsInfoPanel.jsx";
+import ScoreConversionPanel from "./components/ScoreConversionPanel.jsx";
+import AdmissionResultsPanel from "./components/AdmissionResultsPanel.jsx";
 import { useChat } from "./hooks/useChat.js";
 import {
   Brain,
   Sparkles,
   CheckCircle2,
-  BookOpen,
   User,
   ShieldCheck,
 } from "lucide-react";
@@ -25,10 +28,6 @@ export default function App() {
     startChat,
     sendText,
     sendPayload,
-    slots,
-    currentFlow,
-    nextSlotToCollect,
-    getSlotLabel,
     loggedInCandidate,
     logoutCandidate,
     candidateAspirations,
@@ -47,7 +46,7 @@ export default function App() {
     cancelAspiration,
   } = useChat();
 
-  const [rightColTab, setRightColTab] = useState("flowchart"); // 'flowchart' | 'aspirations'
+  const [activeTool, setActiveTool] = useState("chat");
   const [prevAspirationsCount, setPrevAspirationsCount] = useState(0);
   const [showSubmissionCelebration, setShowSubmissionCelebration] = useState(false);
   const isInitialLoad = useRef(true); // bỏ qua lần fetch đầu tiên khi refresh
@@ -64,7 +63,7 @@ export default function App() {
       if (candidateAspirations.length > 0) {
         setShowSubmissionCelebration(true);
         setTimeout(() => setShowSubmissionCelebration(false), 4000);
-        setRightColTab("aspirations");
+        setActiveTool("lookup");
       }
     }
     setPrevAspirationsCount(candidateAspirations.length);
@@ -148,6 +147,61 @@ export default function App() {
     );
   }
 
+  const renderToolContent = () => {
+    if (activeTool === "chat") {
+      return (
+        <ChatWindow
+          messages={messages}
+          onSend={sendText}
+          onSendPayload={sendPayload}
+          onLoadHistory={null}
+          onNewChat={handleNewChat}
+          onStart={startChat}
+          canLoadHistory={false}
+          isHistoryLoading={false}
+          isSending={isSending}
+          error={error}
+        />
+      );
+    }
+
+    if (activeTool === "admissions") {
+      return (
+        <AdmissionsInfoPanel
+          onStartRegistration={() => {
+            setActiveTool("chat");
+            sendText("Đăng ký nguyện vọng");
+          }}
+        />
+      );
+    }
+
+    if (activeTool === "curriculum") {
+      return <CurriculumExplorer />;
+    }
+
+    if (activeTool === "conversion") {
+      return <ScoreConversionPanel />;
+    }
+
+    if (activeTool === "lookup") {
+      return (
+        <AspirationsList
+          candidateAspirations={candidateAspirations}
+          verifyAspiration={verifyAspiration}
+          cancelAspiration={cancelAspiration}
+        />
+      );
+    }
+
+    return <AdmissionResultsPanel candidateAspirations={candidateAspirations} />;
+  };
+
+  function handleNewChat() {
+    newChat();
+    setActiveTool("chat");
+  }
+
   return (
     <div className="app">
       <header className="hero">
@@ -207,62 +261,19 @@ export default function App() {
         </div>
       )}
 
-      <main className="playground-grid">
-        {/* MIDDLE COLUMN: Chat */}
-        <section className="column middle-column">
-          <ChatWindow
-            messages={messages}
-            onSend={sendText}
-            onSendPayload={sendPayload}
-            onLoadHistory={null}
-            onNewChat={newChat}
-            onStart={startChat}
-            canLoadHistory={false}
-            isHistoryLoading={false}
-            isSending={isSending}
-            error={error}
+      <main className={`playground-grid app-workspace-grid ${activeTool === "chat" ? "chat-workspace" : ""}`}>
+        <section className="column tools-column">
+          <ToolboxPanel
+            activeTool={activeTool}
+            onSelectTool={setActiveTool}
+            onNewChat={handleNewChat}
+            aspirationCount={candidateAspirations.length}
           />
         </section>
 
-        {/* RIGHT COLUMN: Flowchart & Aspirations */}
-        <section className="column right-column">
-          <div className="right-column-tabs-header flex-align">
-            <button
-              className={`right-tab-btn ${rightColTab === "flowchart" ? "active" : ""}`}
-              onClick={() => setRightColTab("flowchart")}
-              type="button"
-            >
-              <Brain size={14} />
-              <span>Tiến trình tuyển sinh</span>
-            </button>
-            <button
-              className={`right-tab-btn ${rightColTab === "aspirations" ? "active" : ""}`}
-              onClick={() => setRightColTab("aspirations")}
-              type="button"
-            >
-              <BookOpen size={14} />
-              <span>Nguyện vọng đã đặt</span>
-              {candidateAspirations.length > 0 && (
-                <span className="tab-badge">{candidateAspirations.length}</span>
-              )}
-            </button>
-          </div>
-
-          <div className="right-column-tab-content">
-            {rightColTab === "flowchart" ? (
-              <FlowchartVisualizer
-                slots={slots}
-                currentFlow={currentFlow}
-                nextSlotToCollect={nextSlotToCollect}
-                getSlotLabel={getSlotLabel}
-              />
-            ) : (
-              <AspirationsList
-                candidateAspirations={candidateAspirations}
-                verifyAspiration={verifyAspiration}
-                cancelAspiration={cancelAspiration}
-              />
-            )}
+        <section className="column workspace-column">
+          <div className="tool-content-area">
+            {renderToolContent()}
           </div>
         </section>
       </main>

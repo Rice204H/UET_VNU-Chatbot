@@ -58,7 +58,7 @@ export default function ChatWindow({
             {isSending ? (
               <>
                 <Loader2 size={12} className="spin" />
-                <span>Đang gửi</span>
+                <span>Đang chờ Rasa</span>
               </>
             ) : (
               <>
