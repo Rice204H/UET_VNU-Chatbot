@@ -1,0 +1,24 @@
+version: "3.1"
+
+nlu:
+  - intent: hoi_co_so_hoc
+    examples: |
+      - trường mình học ở cơ sở nào
+      - trường học ở cơ sở nào
+      - sinh viên UET học ở đâu
+      - UET học ở đâu
+      - cơ sở học của trường ở đâu
+      - địa điểm học của UET là ở đâu
+      - sinh viên học tại cơ sở nào
+      - trường đại học công nghệ học ở cơ sở nào
+      - từ năm 2026 học ở đâu
+      - năm 2026 sinh viên học tại đâu
+      - học ở hòa lạc đúng không
+      - UET học ở thạch thất à
+      - sinh viên có học ở Hòa Lạc không
+      - cơ sở đào tạo của UET ở đâu
+      - học ở Hà Nội hay Hòa Lạc
+      - địa chỉ học của trường là ở đâu
+      - sinh viên học ở cơ sở nào
+      - sinh viên học ở đâu
+      - sinh viên học ở cơ sở nào của trường

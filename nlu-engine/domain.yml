@@ -6,6 +6,7 @@ intents:
   - hoi_hoc_phi
   - hoi_hoc_phi_theo_nganh
   - hoi_diem_chuan_nganh
+  - hoi_co_so_hoc
   - dang_ky_nguyen_vong
   - chon_ptxt_hsa
   - chon_ptxt_ielts
@@ -309,6 +310,9 @@ responses:
       buttons:
         - title: "📝 Đăng ký nguyện vọng"
           payload: "/dang_ky_nguyen_vong"
+
+  utter_co_so_hoc:
+    - text: "Từ năm 2026, sinh viên Trường Đại học Công nghệ - ĐHQGHN học tập tại cơ sở Hòa Lạc, Thạch Thất, Hà Nội."
 
   utter_default:
     - text: "Xin lỗi, mình chưa hiểu rõ ý của bạn. Bạn có thể diễn đạt lại rõ hơn hoặc bấm chọn một trong các nội dung cần hỗ trợ dưới đây nhé:"

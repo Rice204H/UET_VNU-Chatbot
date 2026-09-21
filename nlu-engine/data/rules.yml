@@ -95,6 +95,11 @@ rules:
       - intent: hoi_diem_chuan_nganh
       - action: action_query_benchmark_by_major
 
+  - rule: Hỏi cơ sở học
+    steps:
+      - intent: hoi_co_so_hoc
+      - action: utter_co_so_hoc
+
   - rule: Hủy bỏ form đang hoạt động
     steps:
       - intent: cancel
